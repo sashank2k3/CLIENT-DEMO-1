@@ -276,8 +276,8 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
     <div class="badge badge-b">
       <div class="b-ico">⚡</div>
       <div><div class="b-ttl">4-Hour Response</div><div class="b-sub">Guaranteed SLA</div></div>
-    </div> -->
-  </div>
+    </div>
+  </div> -->
 </section>
 
 <!-- MARQUEE -->
@@ -408,7 +408,7 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
 
   const cubes = [];
   const N = 55;
-  const SPREAD = 68;
+  const SPREAD = 38;
 
   for(let i = 0; i < N; i++){
     // TRUE CUBE SLAB — L = B, H = 20% of L
@@ -532,13 +532,13 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
   const ring = new THREE.Group();
   scene.add(ring);
 
-  const PETALS    = 40;
+  const PETALS    = 30;
   const RADIUS    = 1.7;
 
   // ── CUBE SLAB geometry: L = B, H = 20% of L ──
   // Each cube is a square tile — proper 3D, not flat rectangle
   const SLAB_L = 0.52;                          // length & breadth
-  const SLAB_H = SLAB_L * 0.1;                 // height = 20% only
+  const SLAB_H = SLAB_L * 0.2;                 // height = 20% only
   const slabGeo = new THREE.BoxGeometry(SLAB_L, SLAB_H, SLAB_L);
 
   // Two materials: deep violet face + medium violet for sides
@@ -558,7 +558,7 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
     const outer = new THREE.Group();
     outer.position.set(px, py, 0);
     // Orient so cube faces outward along ring tangent
-    outer.rotation.set(0, 0, 0);
+    outer.rotation.z = angle + Math.PI / 2;
 
     // Inner group — tilted for 3D fan look, spins individually
     const inner = new THREE.Group();
@@ -662,7 +662,7 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
   });
 
   let t = 0;
-  const PETAL_SPIN_SPEED = 0.25; // individual petal spin speed
+  const PETAL_SPIN_SPEED = 0.025; // individual petal spin speed
 
   function animate(){
     requestAnimationFrame(animate);
