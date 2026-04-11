@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strata IT — Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#07060d;
+  --bg2:#0d0b18;
+  --bg3:#120f20;
+  --p:#7c3aed;--p2:#9d5cff;--p3:#c084fc;
+  --ink:#f0eeff;--ink2:#a89cc8;--ink3:#5c5478;
+  --border:rgba(124,58,237,.18);
+  --glow:rgba(124,58,237,.35);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--p);border-radius:2px}
+
+/* ── NOISE OVERLAY ── */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.032;pointer-events:none;z-index:9000}
+
+/* ── NAV ── */
+nav{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:800;width:min(92%,1100px);display:flex;align-items:center;justify-content:space-between;padding:.7rem 1rem .7rem 1.5rem;background:rgba(13,11,24,.75);backdrop-filter:blur(24px);border-radius:999px;border:1px solid var(--border)}
+.logo{font-size:1.05rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+.logo-ring{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--p3));display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:800;color:#fff;letter-spacing:.05em;flex-shrink:0}
+.nav-links{display:flex;gap:0;list-style:none}
+.nav-links a{font-size:.75rem;font-weight:500;color:var(--ink2);text-decoration:none;padding:.42rem .95rem;border-radius:999px;transition:all .2s;letter-spacing:.02em}
+.nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.07);color:var(--ink)}
+.nav-cta{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;padding:.5rem 1.3rem;font-size:.74rem;font-weight:700;border-radius:999px;text-decoration:none;transition:all .25s;letter-spacing:.02em;white-space:nowrap;box-shadow:0 0 20px var(--glow)}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 0 32px rgba(124,58,237,.55)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+.hamburger span{width:20px;height:1.5px;background:var(--ink);display:block;transition:.3s}
+@media(max-width:720px){.nav-links{display:none}.hamburger{display:flex}}
+@media(max-width:480px){.nav-cta{display:none}nav{top:12px}}
+
+/* mobile */
+.mob{display:none;position:fixed;inset:0;background:var(--bg2);z-index:790;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mob.open{display:flex}
+.mob a{font-size:1.8rem;font-weight:800;color:var(--ink);text-decoration:none;transition:color .2s}
+.mob a:hover{color:var(--p3)}
+.mob-x{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--ink2);font-size:1.3rem;cursor:pointer}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:100px 6% 0;position:relative;overflow:hidden;gap:2rem}
+
+/* bg gradients */
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 65% 45%,rgba(124,58,237,.15) 0%,transparent 65%),radial-gradient(ellipse 40% 50% at 10% 80%,rgba(76,29,149,.12) 0%,transparent 60%);pointer-events:none}
+
+/* grid dots */
+.hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);background-size:32px 32px;mask-image:radial-gradient(ellipse 80% 80% at 60% 50%,black,transparent);pointer-events:none}
+
+/* left */
+.hero-left{position:relative;z-index:2;padding-bottom:4rem}
+.h-pill{display:inline-flex;align-items:center;gap:.55rem;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.3);border-radius:999px;padding:.35rem .9rem .35rem .5rem;font-size:.68rem;font-weight:600;color:var(--p3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:2rem}
+.h-pill-dot{width:6px;height:6px;background:var(--p3);border-radius:50%;box-shadow:0 0 8px var(--p3);animation:pdot 2s ease-in-out infinite}
+@keyframes pdot{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-size:clamp(3rem,5.2vw,5.5rem);font-weight:800;line-height:.95;letter-spacing:-.04em;margin-bottom:1.8rem}
+h1 .l1{color:var(--ink)}
+h1 .l2{display:block;font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--p3);font-size:1.1em;letter-spacing:-.03em}
+h1 .l3{display:block;color:var(--ink3);font-size:.75em;letter-spacing:-.02em}
+.hero-p{font-size:.98rem;line-height:1.8;color:var(--ink2);max-width:420px;margin-bottom:2.5rem;font-weight:400}
+.h-btns{display:flex;gap:.85rem;flex-wrap:wrap;align-items:center;margin-bottom:3rem}
+.btn-glow{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;padding:.9rem 2.2rem;font-size:.8rem;font-weight:700;border-radius:12px;text-decoration:none;border:none;cursor:pointer;font-family:inherit;transition:all .25s;display:inline-flex;align-items:center;gap:.5rem;letter-spacing:.03em;box-shadow:0 0 28px rgba(124,58,237,.4)}
+.btn-glow:hover{transform:translateY(-3px);box-shadow:0 0 48px rgba(124,58,237,.6)}
+.btn-ghost{border:1px solid var(--border);color:var(--ink2);padding:.9rem 2.2rem;font-size:.8rem;font-weight:600;border-radius:12px;text-decoration:none;transition:all .25s;letter-spacing:.02em;backdrop-filter:blur(8px);background:rgba(255,255,255,.03)}
+.btn-ghost:hover{border-color:var(--p2);color:var(--p3);background:rgba(124,58,237,.08)}
+
+/* social proof */
+.proof{display:flex;align-items:center;gap:1.2rem}
+.avatars{display:flex}
+.av{width:36px;height:36px;border-radius:50%;border:2px solid var(--bg);background:linear-gradient(135deg,var(--p),var(--p3));display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:800;color:#fff;margin-right:-10px;letter-spacing:.03em}
+.av:nth-child(2){background:linear-gradient(135deg,#7c3aed,#4f46e5)}
+.av:nth-child(3){background:linear-gradient(135deg,#9d5cff,#7c3aed)}
+.proof-text{font-size:.8rem;color:var(--ink2);font-weight:500;margin-left:16px}
+.proof-text strong{color:var(--ink);font-weight:700}
+
+/* right – 3D canvas */
+.hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;height:560px}
+canvas#three{position:absolute;inset:0;width:100%!important;height:100%!important}
+.hero-badge{position:absolute;bottom:3rem;right:1rem;background:rgba(13,11,24,.85);border:1px solid var(--border);border-radius:14px;padding:.9rem 1.2rem;backdrop-filter:blur(12px);display:flex;flex-direction:column;gap:.3rem;z-index:10;animation:badge-float 4s ease-in-out infinite}
+@keyframes badge-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.badge-num{font-size:1.6rem;font-weight:800;color:var(--ink);letter-spacing:-.04em;line-height:1}
+.badge-num span{color:var(--p3);font-size:.9rem}
+.badge-lbl{font-size:.62rem;color:var(--ink3);font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+
+.hero-badge2{position:absolute;top:4rem;left:1rem;background:rgba(13,11,24,.85);border:1px solid var(--border);border-radius:14px;padding:.75rem 1.1rem;backdrop-filter:blur(12px);display:flex;align-items:center;gap:.7rem;z-index:10;animation:badge-float 4s ease-in-out infinite;animation-delay:-2s}
+.b2-icon{width:32px;height:32px;background:linear-gradient(135deg,var(--p),var(--p2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.b2-text{display:flex;flex-direction:column;gap:1px}
+.b2-title{font-size:.76rem;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.b2-sub{font-size:.62rem;color:var(--ink3);font-weight:500}
+
+@media(max-width:920px){.hero{grid-template-columns:1fr;padding-top:110px;text-align:center}.hero-right{height:380px;order:-1}.h-btns,.proof{justify-content:center}.hero-left{padding-bottom:5rem}}
+@media(max-width:500px){.hero-right{height:300px}}
+
+/* ── MARQUEE ── */
+.mq{overflow:hidden;border-top:1px solid rgba(124,58,237,.12);border-bottom:1px solid rgba(124,58,237,.12);background:var(--bg2);padding:.9rem 0}
+.mq-inner{display:flex;animation:mq 22s linear infinite;white-space:nowrap}
+.mq-item{display:inline-flex;align-items:center;gap:1rem;padding:0 2.5rem;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);font-weight:600}
+.mq-dot{width:4px;height:4px;background:var(--p2);border-radius:50%;flex-shrink:0}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SECTION BASE ── */
+.sec{padding:8rem 6%}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--p3);margin-bottom:1rem}
+.eyebrow::before{content:'';width:16px;height:2px;background:var(--p3);border-radius:1px;flex-shrink:0}
+.stitle{font-size:clamp(2.2rem,3.8vw,3.5rem);font-weight:800;line-height:1;letter-spacing:-.04em;color:var(--ink);margin-bottom:.6rem}
+.stitle .s{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--p3)}
+.ssub{font-size:.92rem;color:var(--ink2);line-height:1.75;font-weight:400;max-width:400px}
+
+/* ── SERVICES ── */
+.services{background:var(--bg);border-top:1px solid rgba(124,58,237,.1)}
+.svc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:4rem}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.1);border-radius:20px;overflow:hidden}
+.svc-card{background:var(--bg2);padding:2.5rem 2rem;display:flex;flex-direction:column;gap:1.2rem;position:relative;overflow:hidden;transition:background .3s,transform .3s}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--p2),transparent);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.svc-card:hover{background:var(--bg3);transform:translateY(-2px)}
+.svc-card:hover::before{transform:scaleX(1)}
+.svc-card:hover .svc-num{color:var(--p3)}
+.svc-card:hover .svc-ico{background:rgba(124,58,237,.2);border-color:rgba(124,58,237,.35)}
+.svc-card:hover .svc-ico svg{stroke:var(--p3)}
+.svc-top{display:flex;justify-content:space-between;align-items:flex-start}
+.svc-ico{width:42px;height:42px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:11px;display:flex;align-items:center;justify-content:center;transition:all .3s;flex-shrink:0}
+.svc-ico svg{width:19px;height:19px;stroke:var(--ink3);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
+.svc-num{font-family:'Instrument Serif',serif;font-style:italic;font-size:.85rem;color:var(--ink3);transition:color .3s}
+.svc-h{font-size:1rem;font-weight:700;color:var(--ink);letter-spacing:-.02em}
+.svc-p{font-size:.81rem;color:var(--ink2);line-height:1.75;font-weight:400;flex:1}
+.svc-tag{display:inline-block;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.2);color:var(--p3);padding:.25rem .7rem;border-radius:999px;width:fit-content}
+@media(max-width:860px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.svc-grid{grid-template-columns:1fr}}
+
+/* ── WHY ── */
+.why{background:var(--bg2);border-top:1px solid rgba(124,58,237,.1)}
+.why-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.why-points{margin-top:2.5rem;display:flex;flex-direction:column;gap:0}
+.wp{display:flex;gap:1.2rem;padding:1.6rem 0;border-bottom:1px solid rgba(255,255,255,.05);transition:all .2s}
+.wp:first-child{border-top:1px solid rgba(255,255,255,.05)}
+.wp:hover .wp-n{background:var(--p);border-color:var(--p);color:#fff;box-shadow:0 0 16px var(--glow)}
+.wp-n{width:34px;height:34px;min-width:34px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:var(--ink3);transition:all .25s;letter-spacing:.02em;backdrop-filter:blur(8px)}
+.wp h4{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:.35rem;letter-spacing:-.01em}
+.wp p{font-size:.8rem;color:var(--ink2);line-height:1.7}
+.stats-wrap{margin-top:2.5rem;display:flex;flex-direction:column;gap:1rem}
+.sc{background:rgba(255,255,255,.02);border:1px solid rgba(124,58,237,.15);border-radius:18px;padding:2rem 2rem;position:relative;overflow:hidden;transition:all .3s}
+.sc:hover{border-color:rgba(124,58,237,.3);background:rgba(124,58,237,.04);box-shadow:0 0 40px rgba(124,58,237,.07)}
+.sc::after{content:'';position:absolute;top:0;right:0;width:100px;height:100px;background:radial-gradient(circle,rgba(124,58,237,.1),transparent 70%)}
+.sc-row{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:.6rem}
+.sc-num{font-family:'Instrument Serif',serif;font-style:italic;font-size:3.2rem;font-weight:400;color:var(--ink);letter-spacing:-.03em;line-height:1}
+.sc-num .a{color:var(--p3);font-size:1.5rem}
+.sc-lbl{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.sc-desc{font-size:.79rem;color:var(--ink2);line-height:1.65}
+.sc-row2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.sc-sm{background:rgba(255,255,255,.02);border:1px solid rgba(124,58,237,.12);border-radius:14px;padding:1.5rem 1.5rem;transition:all .3s}
+.sc-sm:hover{border-color:rgba(124,58,237,.3)}
+.sc-sm .sc-num{font-size:2.2rem}
+.sc-sm .a{font-size:1.1rem}
+@media(max-width:820px){.why-layout{grid-template-columns:1fr;gap:3rem}}
+
+/* ── TEAM ── */
+.team{background:var(--bg);border-top:1px solid rgba(124,58,237,.1)}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:3rem}
+.tc{border:1px solid rgba(124,58,237,.12);border-radius:20px;padding:2rem 1.75rem;background:var(--bg2);transition:all .3s;position:relative;overflow:hidden}
+.tc::before{content:'';position:absolute;inset:-1px;border-radius:20px;background:linear-gradient(135deg,var(--p),var(--p3));opacity:0;transition:opacity .3s;z-index:0}
+.tc:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(124,58,237,.15)}
+.tc:hover::before{opacity:.12}
+.tc>*{position:relative;z-index:1}
+.t-av{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--p),var(--p2));display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;margin-bottom:1.2rem;position:relative;letter-spacing:.04em;box-shadow:0 8px 20px rgba(124,58,237,.3)}
+.t-live{position:absolute;bottom:-2px;right:-2px;width:12px;height:12px;background:#22c55e;border-radius:50%;border:2px solid var(--bg2);box-shadow:0 0 6px rgba(34,197,94,.5)}
+.t-name{font-size:.92rem;font-weight:800;color:var(--ink);margin-bottom:.25rem;letter-spacing:-.02em}
+.t-role{font-size:.73rem;color:var(--ink2);margin-bottom:.9rem;font-weight:500}
+.t-chip{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.2);color:var(--p3);padding:.28rem .65rem;border-radius:999px;display:inline-block}
+@media(max-width:860px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.team-grid{grid-template-columns:1fr}}
+
+/* ── CONTACT ── */
+.contact{background:var(--bg2);border-top:1px solid rgba(124,58,237,.1)}
+.contact-layout{display:grid;grid-template-columns:1fr 1.5fr;gap:7rem;align-items:start}
+.c-meta{margin-top:2.5rem;display:flex;flex-direction:column;gap:1.75rem}
+.c-lbl{font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);margin-bottom:.35rem}
+.c-val{font-size:.88rem;color:var(--ink);line-height:1.65}
+.c-val a{color:var(--p3);text-decoration:none}
+.c-form{background:rgba(255,255,255,.02);border:1px solid rgba(124,58,237,.15);border-radius:24px;padding:2.75rem;margin-top:2.5rem;display:flex;flex-direction:column;gap:1.2rem;box-shadow:0 0 60px rgba(124,58,237,.06)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:.4rem}
+.fg label{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.fg input,.fg select,.fg textarea{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.78rem 1rem;font-size:.85rem;font-family:inherit;color:var(--ink);outline:none;transition:all .2s;width:100%;appearance:none}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--ink3)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:rgba(124,58,237,.5);background:rgba(124,58,237,.05);box-shadow:0 0 0 3px rgba(124,58,237,.1)}
+.fg textarea{min-height:96px;resize:vertical}
+.fg select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235c5478' stroke-width='1.5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
+.fg select option{background:var(--bg2);color:var(--ink)}
+.f-btn{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;border:none;padding:1rem 2.4rem;font-size:.8rem;font-weight:700;border-radius:10px;cursor:pointer;transition:all .25s;font-family:inherit;display:flex;align-items:center;gap:.5rem;align-self:flex-start;letter-spacing:.03em;box-shadow:0 0 24px rgba(124,58,237,.3)}
+.f-btn:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(124,58,237,.5)}
+@media(max-width:820px){.contact-layout{grid-template-columns:1fr;gap:3rem}}
+@media(max-width:480px){.frow{grid-template-columns:1fr}.c-form{padding:1.75rem}}
+
+/* ── FOOTER ── */
+footer{background:var(--bg);border-top:1px solid rgba(124,58,237,.1);padding:2.5rem 6%;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+.f-logo{font-size:1.05rem;font-weight:800;color:var(--ink);letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+.f-logo .dot{color:var(--p3)}
+.f-copy{font-size:.7rem;color:var(--ink3);letter-spacing:.05em}
+@media(max-width:500px){footer{flex-direction:column;text-align:center}}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#"><span class="logo-ring">ST</span>Strata</a>
+  <ul class="nav-links">
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Get Started</a>
+  <button class="hamburger" onclick="document.getElementById('mob').classList.add('open');document.body.style.overflow='hidden'" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob" id="mob">
+  <button class="mob-x" onclick="document.getElementById('mob').classList.remove('open');document.body.style.overflow=''">✕</button>
+  <a href="#services" onclick="document.getElementById('mob').classList.remove('open');document.body.style.overflow=''">Services</a>
+  <a href="#why" onclick="document.getElementById('mob').classList.remove('open');document.body.style.overflow=''">About</a>
+  <a href="#team" onclick="document.getElementById('mob').classList.remove('open');document.body.style.overflow=''">Team</a>
+  <a href="#contact" onclick="document.getElementById('mob').classList.remove('open');document.body.style.overflow=''">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left rv">
+    <div class="h-pill"><span class="h-pill-dot"></span>500K users in 1 month</div>
+    <h1>
+      <span class="l1">Step into</span>
+      <span class="l2">seamless IT</span>
+      <span class="l3">infrastructure</span>
+    </h1>
+    <p class="hero-p">We build and manage the technology that keeps your business unstoppable — cloud, security, and beyond. All handled, all the time.</p>
+    <div class="h-btns">
+      <a class="btn-glow" href="#services">Get Started</a>
+      <a class="btn-ghost" href="#why">Our Story</a>
+    </div>
+    <div class="proof">
+      <div class="avatars">
+        <div class="av">AK</div>
+        <div class="av">PR</div>
+        <div class="av">SM</div>
+      </div>
+      <div class="proof-text" style="margin-left:22px"><strong>350+</strong> businesses trust Strata</div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <canvas id="three"></canvas>
+    <div class="hero-badge">
+      <div class="badge-num">99.9<span>%</span></div>
+      <div class="badge-lbl">Uptime SLA</div>
+    </div>
+    <div class="hero-badge2">
+      <div class="b2-icon">⚡</div>
+      <div class="b2-text">
+        <div class="b2-title">4-Hour Response</div>
+        <div class="b2-sub">Guaranteed SLA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq">
+  <div class="mq-inner">
+    <span class="mq-item"><span class="mq-dot"></span>Cloud Infrastructure</span>
+    <span class="mq-item"><span class="mq-dot"></span>Cybersecurity</span>
+    <span class="mq-item"><span class="mq-dot"></span>Managed IT Services</span>
+    <span class="mq-item"><span class="mq-dot"></span>Data & Analytics</span>
+    <span class="mq-item"><span class="mq-dot"></span>System Integration</span>
+    <span class="mq-item"><span class="mq-dot"></span>Software Development</span>
+    <span class="mq-item"><span class="mq-dot"></span>AWS · Azure · GCP</span>
+    <span class="mq-item"><span class="mq-dot"></span>CISSP Certified</span>
+    <span class="mq-item"><span class="mq-dot"></span>Cloud Infrastructure</span>
+    <span class="mq-item"><span class="mq-dot"></span>Cybersecurity</span>
+    <span class="mq-item"><span class="mq-dot"></span>Managed IT Services</span>
+    <span class="mq-item"><span class="mq-dot"></span>Data & Analytics</span>
+    <span class="mq-item"><span class="mq-dot"></span>System Integration</span>
+    <span class="mq-item"><span class="mq-dot"></span>Software Development</span>
+    <span class="mq-item"><span class="mq-dot"></span>AWS · Azure · GCP</span>
+    <span class="mq-item"><span class="mq-dot"></span>CISSP Certified</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="sec services" id="services">
+  <div class="svc-head rv">
+    <div><div class="eyebrow">Services</div><div class="stitle">What we <span class="s">do well</span></div></div>
+    <div class="ssub">A focused set of services, delivered with uncommon depth and consistency.</div>
+  </div>
+  <div class="svc-grid rv">
+    <div class="svc-card">
+      <div class="svc-top"><div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg></div><span class="svc-num">01</span></div>
+      <div class="svc-h">Cloud Infrastructure</div>
+      <div class="svc-p">Purpose-built AWS, Azure and GCP environments that scale with your business without scaling your bill.</div>
+      <div class="svc-tag">AWS · Azure · GCP</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-top"><div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div><span class="svc-num">02</span></div>
+      <div class="svc-h">Cybersecurity</div>
+      <div class="svc-p">Continuous threat monitoring, compliance frameworks, and incident response built around your risk profile.</div>
+      <div class="svc-tag">CISSP · SOC2</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-top"><div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><span class="svc-num">03</span></div>
+      <div class="svc-h">Managed IT</div>
+      <div class="svc-p">Proactive monitoring and dedicated support that resolves issues before your team ever notices them.</div>
+      <div class="svc-tag">24/7 · 4hr SLA</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-top"><div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><span class="svc-num">04</span></div>
+      <div class="svc-h">Data & Analytics</div>
+      <div class="svc-p">From raw data to business decisions — pipelines, dashboards, and AI-ready infrastructure.</div>
+      <div class="svc-tag">Pipelines · AI-ready</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-top"><div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M8 6H5a2 2 0 00-2 2v3m0 4v3a2 2 0 002 2h3M16 6h3a2 2 0 012 2v3m0 4v3a2 2 0 01-2 2h-3"/><circle cx="12" cy="12" r="2"/></svg></div><span class="svc-num">05</span></div>
+      <div class="svc-h">System Integration</div>
+      <div class="svc-p">ERP, CRM, and API integrations that make your existing tools communicate effortlessly.</div>
+      <div class="svc-tag">ERP · CRM · API</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-top"><div class="svc-ico"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><span class="svc-num">06</span></div>
+      <div class="svc-h">Software Development</div>
+      <div class="svc-p">Custom web and enterprise applications. Clean code, solid architecture, on-time delivery.</div>
+      <div class="svc-tag">Web · Enterprise</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="sec why" id="why">
+  <div class="why-layout">
+    <div class="rv">
+      <div class="eyebrow">Why Strata</div>
+      <div class="stitle">Less noise.<br><span class="s">More done.</span></div>
+      <div class="ssub" style="margin-top:.8rem">No account managers passing messages. No mystery billing. Just direct, expert people who own your outcomes.</div>
+      <div class="why-points">
+        <div class="wp"><div class="wp-n">01</div><div><h4>Named engineers, not a queue</h4><p>You always work with the same person who knows your setup — not whoever's free.</p></div></div>
+        <div class="wp"><div class="wp-n">02</div><div><h4>4-hour SLA, written in your contract</h4><p>Critical issues acknowledged in 4 hours with a clear fix roadmap. No ambiguity.</p></div></div>
+        <div class="wp"><div class="wp-n">03</div><div><h4>Flat monthly pricing</h4><p>What you're quoted is what you pay. Itemised invoices, no surprise charges, ever.</p></div></div>
+        <div class="wp"><div class="wp-n">04</div><div><h4>Certified across every major stack</h4><p>AWS, Azure, GCP, CISSP — real certifications behind every recommendation.</p></div></div>
+      </div>
+    </div>
+    <div class="rv d1">
+      <div class="eyebrow">By the numbers</div>
+      <div class="stats-wrap">
+        <div class="sc">
+          <div class="sc-row"><div class="sc-num">350<span class="a">+</span></div><div class="sc-lbl">Businesses<br>worldwide</div></div>
+          <div class="sc-desc">From fast-scaling startups to enterprises needing rock-solid reliability.</div>
+        </div>
+        <div class="sc-row2">
+          <div class="sc-sm"><div class="sc-num">14<span class="a">yr</span></div><div class="sc-lbl" style="font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-top:.5rem">Experience</div></div>
+          <div class="sc-sm"><div class="sc-num">99.9<span class="a">%</span></div><div class="sc-lbl" style="font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-top:.5rem">Uptime SLA</div></div>
+        </div>
+        <div class="sc">
+          <div class="sc-row"><div class="sc-num">24<span class="a">/7</span></div><div class="sc-lbl">Always<br>on coverage</div></div>
+          <div class="sc-desc">Round-the-clock monitoring so your team wakes up to zero surprises.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="sec team" id="team">
+  <div class="rv">
+    <div class="eyebrow">Team</div>
+    <div class="stitle">The people <span class="s">behind the work</span></div>
+    <div class="ssub" style="margin-top:.8rem">Small enough to care about your account. Senior enough to solve your problems on the first call.</div>
+  </div>
+  <div class="team-grid rv d1">
+    <div class="tc"><div class="t-av">AK<div class="t-live"></div></div><div class="t-name">Arjun Kumar</div><div class="t-role">CEO & Founder</div><div class="t-chip">Leadership</div></div>
+    <div class="tc"><div class="t-av">PR<div class="t-live"></div></div><div class="t-name">Priya Reddy</div><div class="t-role">Chief Technology Officer</div><div class="t-chip">Engineering</div></div>
+    <div class="tc"><div class="t-av">SM<div class="t-live"></div></div><div class="t-name">Suresh Menon</div><div class="t-role">Head of Infrastructure</div><div class="t-chip">Cloud · Infra</div></div>
+    <div class="tc"><div class="t-av">DV<div class="t-live"></div></div><div class="t-name">Deepa Varma</div><div class="t-role">Head of Security</div><div class="t-chip">CISSP</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec contact" id="contact">
+  <div class="contact-layout">
+    <div class="rv">
+      <div class="eyebrow">Contact</div>
+      <div class="stitle">Start a<br><span class="s">conversation</span></div>
+      <div class="ssub" style="margin-top:.8rem">No sales decks on the first call. Just a direct conversation about where you are and what you need.</div>
+      <div class="c-meta">
+        <div><div class="c-lbl">Address</div><div class="c-val">Level 8, Prestige Tower<br>MG Road, Bengaluru 560001</div></div>
+        <div><div class="c-lbl">Phone</div><div class="c-val">+91 80 4567 8900</div></div>
+        <div><div class="c-lbl">Email</div><div class="c-val"><a href="mailto:hello@stratait.in">hello@stratait.in</a></div></div>
+      </div>
+    </div>
+    <div class="rv d1">
+      <div class="c-form">
+        <div class="frow">
+          <div class="fg"><label>First name</label><input type="text" placeholder="Arjun"></div>
+          <div class="fg"><label>Last name</label><input type="text" placeholder="Kumar"></div>
+        </div>
+        <div class="fg"><label>Work email</label><input type="email" placeholder="you@company.com"></div>
+        <div class="fg"><label>Company</label><input type="text" placeholder="Company name"></div>
+        <div class="fg"><label>Service interest</label>
+          <select>
+            <option value="">Select a service</option>
+            <option>Cloud Infrastructure</option><option>Cybersecurity</option>
+            <option>Managed IT Services</option><option>Data & Analytics</option>
+            <option>System Integration</option><option>Software Development</option>
+          </select>
+        </div>
+        <div class="fg"><label>Message</label><textarea placeholder="What's the challenge you're trying to solve?"></textarea></div>
+        <button class="f-btn">Send message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo"><span class="logo-ring" style="width:24px;height:24px;font-size:.5rem">ST</span>Strata<span class="dot">.</span></div>
+  <div class="f-copy">© 2025 Strata IT Consulting. All rights reserved.</div>
+</footer>
+
+<!-- THREE.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// ── 3D TORUS KNOT SCENE ──
+(function(){
+  const canvas = document.getElementById('three');
+  const container = canvas.parentElement;
+
+  const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  renderer.setClearColor(0x000000,0);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45,1,0.1,100);
+  camera.position.set(0,0,5.5);
+
+  function resize(){
+    const w=container.offsetWidth, h=container.offsetHeight;
+    renderer.setSize(w,h);
+    camera.aspect=w/h;
+    camera.updateProjectionMatrix();
+  }
+  resize();
+  window.addEventListener('resize',resize);
+
+  // Main torus knot
+  const geo = new THREE.TorusKnotGeometry(1.4, 0.42, 200, 24, 2, 3);
+  const mat = new THREE.MeshPhongMaterial({
+    color: 0x9d5cff,
+    emissive: 0x3d1a7f,
+    specular: 0xffffff,
+    shininess: 90,
+    wireframe: false,
+  });
+  const knot = new THREE.Mesh(geo, mat);
+  scene.add(knot);
+
+  // Wireframe overlay
+  const wireMat = new THREE.MeshBasicMaterial({
+    color: 0xc084fc,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.08
+  });
+  const wire = new THREE.Mesh(geo, wireMat);
+  scene.add(wire);
+
+  // Outer glow ring
+  const ringGeo = new THREE.TorusGeometry(2.2, 0.015, 16, 120);
+  const ringMat = new THREE.MeshBasicMaterial({color: 0x7c3aed, transparent:true, opacity:.35});
+  const ring = new THREE.Mesh(ringGeo, ringMat);
+  ring.rotation.x = Math.PI/2.2;
+  scene.add(ring);
+
+  const ring2Geo = new THREE.TorusGeometry(2.6, 0.01, 16, 120);
+  const ring2Mat = new THREE.MeshBasicMaterial({color: 0x9d5cff, transparent:true, opacity:.18});
+  const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
+  ring2.rotation.x = Math.PI/3;
+  ring2.rotation.y = Math.PI/5;
+  scene.add(ring2);
+
+  // Particles
+  const pCount = 280;
+  const pGeo = new THREE.BufferGeometry();
+  const pPos = new Float32Array(pCount*3);
+  for(let i=0;i<pCount;i++){
+    const r = 2.8 + Math.random()*1.4;
+    const theta = Math.random()*Math.PI*2;
+    const phi = Math.acos(2*Math.random()-1);
+    pPos[i*3]   = r*Math.sin(phi)*Math.cos(theta);
+    pPos[i*3+1] = r*Math.sin(phi)*Math.sin(theta);
+    pPos[i*3+2] = r*Math.cos(phi);
+  }
+  pGeo.setAttribute('position', new THREE.BufferAttribute(pPos,3));
+  const pMat = new THREE.PointsMaterial({color:0xc084fc, size:.028, transparent:true, opacity:.7});
+  const particles = new THREE.Points(pGeo, pMat);
+  scene.add(particles);
+
+  // Lights
+  const amb = new THREE.AmbientLight(0x2d1060, 1.2);
+  scene.add(amb);
+  const pt1 = new THREE.PointLight(0x9d5cff, 3.5, 12);
+  pt1.position.set(3,3,3);
+  scene.add(pt1);
+  const pt2 = new THREE.PointLight(0x4f46e5, 2.5, 10);
+  pt2.position.set(-3,-2,2);
+  scene.add(pt2);
+  const pt3 = new THREE.PointLight(0xc084fc, 1.8, 8);
+  pt3.position.set(0,4,-2);
+  scene.add(pt3);
+
+  // Mouse interaction
+  let mx=0, my=0;
+  document.addEventListener('mousemove',e=>{
+    mx=(e.clientX/window.innerWidth-.5)*2;
+    my=(e.clientY/window.innerHeight-.5)*2;
+  });
+
+  let t=0;
+  function animate(){
+    requestAnimationFrame(animate);
+    t+=.008;
+
+    knot.rotation.x = t*.55 + my*.4;
+    knot.rotation.y = t*.38 + mx*.4;
+    wire.rotation.x = knot.rotation.x;
+    wire.rotation.y = knot.rotation.y;
+
+    ring.rotation.z  += .004;
+    ring.rotation.x  = Math.PI/2.2 + Math.sin(t)*.1;
+    ring2.rotation.z -= .003;
+    ring2.rotation.y += .002;
+
+    particles.rotation.y += .001;
+    particles.rotation.x += .0005;
+
+    // pulse light
+    pt1.intensity = 3 + Math.sin(t*1.5)*.8;
+    pt2.intensity = 2.2 + Math.cos(t*1.2)*.6;
+
+    renderer.render(scene,camera);
+  }
+  animate();
+})();
+
+// ── SCROLL REVEAL ──
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})
+},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
