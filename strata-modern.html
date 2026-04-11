@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strata IT — Modern</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080808;
+  --bg2:#0f0f0f;
+  --bg3:#151515;
+  --surface:#1a1a1a;
+  --line:#ffffff0f;
+  --line2:#ffffff1a;
+  --ink:#f0ede6;
+  --ink2:#a09d98;
+  --ink3:#5a5754;
+  --accent:#d4f244;
+  --accent2:#a8c72a;
+  --blue:#4d9fff;
+  --font-display:'Syne',sans-serif;
+  --font-serif:'Instrument Serif',serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-display);background:var(--bg);color:var(--ink);overflow-x:hidden;cursor:none}
+
+/* CURSOR */
+#cursor{position:fixed;width:10px;height:10px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s,width .3s,height .3s,background .3s;mix-blend-mode:difference}
+#cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(212,242,68,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .08s,width .3s,height .3s,border-color .3s}
+body:has(a:hover) #cursor,body:has(button:hover) #cursor{width:20px;height:20px}
+body:has(a:hover) #cursor-ring,body:has(button:hover) #cursor-ring{width:56px;height:56px;border-color:rgba(212,242,68,.15)}
+
+/* NOISE */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.028;pointer-events:none;z-index:1000}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 4%;border-bottom:1px solid var(--line)}
+nav::before{content:'';position:absolute;inset:0;background:rgba(8,8,8,.7);backdrop-filter:blur(20px);z-index:-1}
+.logo{font-family:var(--font-display);font-size:1.1rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:.02em;display:flex;align-items:center;gap:8px}
+.logo-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;display:inline-block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:.72rem;font-weight:500;color:var(--ink3);text-decoration:none;letter-spacing:.12em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:#000;padding:.5rem 1.2rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background .2s,transform .2s;white-space:nowrap}
+.nav-cta:hover{background:var(--accent2);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{width:22px;height:1px;background:var(--ink);display:block;transition:all .3s}
+@media(max-width:768px){.nav-links,.nav-cta{display:none}.hamburger{display:flex}}
+
+/* MOBILE MENU */
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--bg);z-index:490;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1.6rem;font-weight:700;color:var(--ink);text-decoration:none;transition:color .2s}
+.mobile-menu a:hover{color:var(--accent)}
+.close-btn{position:absolute;top:1.5rem;right:4%;font-size:1.2rem;cursor:pointer;background:none;border:none;color:var(--ink2)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 4% 5rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.grid-lines{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:80px 80px;animation:gridshift 20s linear infinite}
+@keyframes gridshift{from{background-position:0 0}to{background-position:80px 80px}}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);animation:orb-drift 8s ease-in-out infinite alternate}
+.orb1{width:500px;height:500px;background:radial-gradient(circle,rgba(212,242,68,.12),transparent 70%);top:-100px;right:-80px;animation-delay:0s}
+.orb2{width:400px;height:400px;background:radial-gradient(circle,rgba(77,159,255,.08),transparent 70%);bottom:0;left:10%;animation-delay:-4s}
+@keyframes orb-drift{from{transform:translate(0,0) scale(1)}to{transform:translate(30px,20px) scale(1.05)}}
+.hero-eyebrow{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);font-weight:500;margin-bottom:2rem;display:flex;align-items:center;gap:.8rem;position:relative;z-index:2}
+.hero-eyebrow::before{content:'';width:30px;height:1px;background:var(--accent)}
+.hero-title{font-family:var(--font-display);font-size:clamp(3.5rem,8vw,8rem);font-weight:800;line-height:.95;letter-spacing:-.03em;color:var(--ink);position:relative;z-index:2;margin-bottom:3rem}
+.hero-title .italic{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)}
+.hero-title .outline{-webkit-text-stroke:1px rgba(240,237,230,.3);color:transparent}
+.hero-bottom{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid var(--line2);padding-top:2.5rem;position:relative;z-index:2}
+.hero-bottom-left{grid-column:1/3;display:flex;flex-direction:column;justify-content:space-between;gap:2rem;padding-right:3rem;border-right:1px solid var(--line2)}
+.hero-desc{font-size:1rem;line-height:1.75;color:var(--ink2);max-width:480px;font-weight:400}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.btn-primary{background:var(--accent);color:#000;padding:.9rem 2.2rem;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all .25s;display:inline-flex;align-items:center;gap:.5rem;border:none;cursor:pointer}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px)}
+.btn-outline{border:1px solid var(--line2);color:var(--ink2);padding:.9rem 2.2rem;font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all .25s}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.hero-stats{padding-left:2.5rem;display:flex;flex-direction:column;justify-content:space-between;gap:1.5rem}
+.hero-stat .num{font-family:var(--font-display);font-size:2.8rem;font-weight:800;color:var(--ink);letter-spacing:-.04em;line-height:1}
+.hero-stat .num sup{font-size:1.1rem;color:var(--accent);vertical-align:super;margin-left:1px}
+.hero-stat .label{font-size:.7rem;color:var(--ink3);letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem;font-weight:400}
+@media(max-width:900px){
+  .hero{padding:0 4% 4rem}
+  .hero-title{font-size:clamp(3rem,10vw,6rem)}
+  .hero-bottom{grid-template-columns:1fr;gap:2rem}
+  .hero-bottom-left{grid-column:1;border-right:none;border-bottom:1px solid var(--line2);padding-right:0;padding-bottom:2rem}
+  .hero-stats{padding-left:0;flex-direction:row;flex-wrap:wrap;gap:2rem}
+}
+
+/* MARQUEE */
+.marquee-wrap{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:.9rem 0;overflow:hidden;background:var(--bg2)}
+.marquee-track{display:flex;gap:0;animation:marquee 20s linear infinite;white-space:nowrap}
+.marquee-item{display:inline-flex;align-items:center;gap:1.5rem;padding:0 2rem;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);font-weight:500}
+.marquee-item .dot{width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SERVICES */
+.services{padding:7rem 4%;background:var(--bg)}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;flex-wrap:wrap;gap:2rem;border-bottom:1px solid var(--line);padding-bottom:2rem}
+.section-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem}
+.section-label::before{content:'';width:20px;height:1px;background:var(--accent)}
+.section-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;color:var(--ink)}
+.section-title .it{font-family:var(--font-serif);font-style:italic;font-weight:400}
+.section-sub{font-size:.9rem;line-height:1.75;color:var(--ink2);max-width:380px;font-weight:400}
+.svc-list{display:flex;flex-direction:column;gap:0}
+.svc-item{display:grid;grid-template-columns:60px 1fr auto;align-items:center;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--line);transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+.svc-item::before{content:'';position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--accent);transition:width .4s}
+.svc-item:hover::before{width:100%}
+.svc-item:hover .svc-name{color:var(--accent)}
+.svc-item:hover .svc-arrow{transform:translateX(6px);color:var(--accent)}
+.svc-num{font-family:var(--font-mono);font-size:.72rem;color:var(--ink3);font-weight:300;letter-spacing:.05em}
+.svc-content{display:flex;flex-direction:column;gap:.3rem}
+.svc-name{font-size:1.2rem;font-weight:700;color:var(--ink);transition:color .3s;letter-spacing:-.01em}
+.svc-desc{font-size:.82rem;color:var(--ink3);font-weight:400;line-height:1.6;max-width:500px}
+.svc-tag{display:inline-block;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line2);color:var(--ink3);padding:.3rem .7rem;border-radius:999px;margin-top:.3rem;font-weight:500;transition:all .3s;white-space:nowrap}
+.svc-item:hover .svc-tag{border-color:var(--accent);color:var(--accent)}
+.svc-arrow{font-size:1.1rem;color:var(--ink3);transition:all .3s}
+@media(max-width:640px){.svc-item{grid-template-columns:40px 1fr}.svc-arrow{display:none}}
+
+/* WHY */
+.whyus{padding:7rem 4%;background:var(--bg2);border-top:1px solid var(--line)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.why-points{display:flex;flex-direction:column;gap:0;margin-top:2.5rem}
+.wpoint{display:grid;grid-template-columns:44px 1fr;gap:1rem;align-items:start;padding:1.75rem 0;border-bottom:1px solid var(--line)}
+.wpoint:first-child{border-top:1px solid var(--line)}
+.wpoint-n{width:36px;height:36px;border:1px solid var(--line2);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:.65rem;color:var(--accent);font-weight:400;transition:all .3s;flex-shrink:0}
+.wpoint:hover .wpoint-n{background:var(--accent);color:#000;border-color:var(--accent)}
+.wpoint h4{font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:.4rem;letter-spacing:-.01em}
+.wpoint p{font-size:.8rem;color:var(--ink3);line-height:1.7;font-weight:400}
+.stats-mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:2.5rem}
+.sstat{background:var(--bg3);padding:2.5rem 2rem;position:relative;overflow:hidden}
+.sstat::after{content:'';position:absolute;bottom:0;right:0;width:60%;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity .3s}
+.sstat:hover::after{opacity:1}
+.sstat-num{font-family:var(--font-display);font-size:3rem;font-weight:800;color:var(--ink);letter-spacing:-.04em;line-height:1;margin-bottom:.4rem}
+.sstat-num .acc{color:var(--accent);font-size:1.4rem}
+.sstat-label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);font-weight:500}
+@media(max-width:768px){.why-grid{grid-template-columns:1fr;gap:3rem}}
+
+/* TEAM */
+.team-sec{padding:7rem 4%;background:var(--bg);border-top:1px solid var(--line)}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:3rem}
+.tcard{background:var(--bg);padding:2.5rem 2rem;display:flex;flex-direction:column;align-items:flex-start;gap:1.2rem;transition:background .3s;position:relative;overflow:hidden}
+.tcard::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,242,68,.04),transparent);opacity:0;transition:opacity .3s}
+.tcard:hover{background:var(--bg2)}
+.tcard:hover::before{opacity:1}
+.t-avatar{width:52px;height:52px;border-radius:10px;background:var(--bg3);border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:.85rem;font-weight:700;color:var(--ink2);letter-spacing:.05em;transition:all .3s;position:relative}
+.tcard:hover .t-avatar{border-color:var(--accent);color:var(--accent)}
+.t-status{position:absolute;bottom:-2px;right:-2px;width:12px;height:12px;background:#22c55e;border-radius:50%;border:2px solid var(--bg)}
+.t-name{font-size:.95rem;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.t-role{font-size:.75rem;color:var(--ink3);letter-spacing:.04em;font-weight:400}
+.t-tag{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(212,242,68,.08);color:var(--accent);padding:.25rem .6rem;border-radius:999px;font-weight:500;border:1px solid rgba(212,242,68,.15)}
+@media(max-width:900px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.team-grid{grid-template-columns:1fr}}
+
+/* CONTACT */
+.contact-sec{padding:7rem 4%;background:var(--bg2);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:6rem;align-items:start}
+.c-detail{display:flex;flex-direction:column;gap:2rem;margin-top:2.5rem}
+.citem-label{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);font-weight:500;margin-bottom:.4rem}
+.citem-val{font-size:.88rem;color:var(--ink);line-height:1.65;font-weight:400}
+.citem-val a{color:var(--accent);text-decoration:none}
+.c-form{display:flex;flex-direction:column;gap:1.2rem;margin-top:2.5rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:.5rem}
+.fg label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);font-weight:500}
+.fg input,.fg select,.fg textarea{background:var(--bg3);border:1px solid var(--line2);border-radius:6px;padding:.85rem 1rem;font-size:.85rem;font-family:var(--font-display);color:var(--ink);outline:none;transition:border-color .2s,background .2s;width:100%;appearance:none}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--ink3)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--accent);background:rgba(212,242,68,.03)}
+.fg textarea{min-height:100px;resize:vertical}
+.fg select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a5754' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
+.fg select option{background:var(--bg2)}
+.f-btn{background:var(--accent);color:#000;border:none;padding:1rem 2.5rem;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:4px;cursor:pointer;transition:all .25s;font-family:var(--font-display);align-self:flex-start;display:flex;align-items:center;gap:.6rem}
+.f-btn:hover{background:var(--accent2);transform:translateY(-2px)}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr;gap:3rem}.form-row{grid-template-columns:1fr}}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--line);padding:3rem 4%;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem}
+.f-logo{font-family:var(--font-display);font-size:1.2rem;font-weight:800;color:var(--ink);letter-spacing:.02em}
+.f-logo .dot{color:var(--accent)}
+.f-copy{font-size:.72rem;color:var(--ink3);letter-spacing:.04em}
+@media(max-width:540px){footer{grid-template-columns:1fr;text-align:center}}
+
+/* SCROLL ANIMATION */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.25,.8,.25,1),transform .7s cubic-bezier(.25,.8,.25,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--line2);border-radius:2px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<nav>
+  <a class="logo" href="#"><span class="logo-dot"></span> STRATA</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#whyus">About</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Get Started</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" onclick="toggleMenu()">✕</button>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#whyus" onclick="toggleMenu()">About</a>
+  <a href="#team" onclick="toggleMenu()">Team</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<section class="hero">
+  <div class="hero-bg">
+    <div class="grid-lines"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+  </div>
+  <div class="hero-eyebrow reveal">IT Services &amp; Consulting — Bengaluru</div>
+  <h1 class="hero-title reveal reveal-delay-1">
+    Technology<br>that works<br><span class="italic">quietly</span> &amp; <span class="outline">reliably</span>
+  </h1>
+  <div class="hero-bottom reveal reveal-delay-2">
+    <div class="hero-bottom-left">
+      <p class="hero-desc">We build and manage the IT infrastructure that keeps your business running — so you never have to think about it.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#services">Explore Services →</a>
+        <a class="btn-outline" href="#contact">Talk to Us</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">14<sup>+</sup></div>
+        <div class="label">Years in industry</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">350<sup>+</sup></div>
+        <div class="label">Businesses supported</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">99.9<sup>%</sup></div>
+        <div class="label">Average uptime</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="dot"></span>Cloud Infrastructure</span>
+    <span class="marquee-item"><span class="dot"></span>Cybersecurity</span>
+    <span class="marquee-item"><span class="dot"></span>Managed IT</span>
+    <span class="marquee-item"><span class="dot"></span>Data & Analytics</span>
+    <span class="marquee-item"><span class="dot"></span>System Integration</span>
+    <span class="marquee-item"><span class="dot"></span>Software Development</span>
+    <span class="marquee-item"><span class="dot"></span>AWS Certified</span>
+    <span class="marquee-item"><span class="dot"></span>24/7 Support</span>
+    <span class="marquee-item"><span class="dot"></span>Cloud Infrastructure</span>
+    <span class="marquee-item"><span class="dot"></span>Cybersecurity</span>
+    <span class="marquee-item"><span class="dot"></span>Managed IT</span>
+    <span class="marquee-item"><span class="dot"></span>Data & Analytics</span>
+    <span class="marquee-item"><span class="dot"></span>System Integration</span>
+    <span class="marquee-item"><span class="dot"></span>Software Development</span>
+    <span class="marquee-item"><span class="dot"></span>AWS Certified</span>
+    <span class="marquee-item"><span class="dot"></span>24/7 Support</span>
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="section-head reveal">
+    <div>
+      <div class="section-label">Services</div>
+      <div class="section-title">What we <span class="it">do well</span></div>
+    </div>
+    <div class="section-sub">A focused set of services, delivered with uncommon depth and consistency.</div>
+  </div>
+  <div class="svc-list reveal">
+    <div class="svc-item">
+      <div class="svc-num">01</div>
+      <div class="svc-content">
+        <div class="svc-name">Cloud Infrastructure</div>
+        <div class="svc-desc">Purpose-built AWS, Azure and GCP environments that scale with your business without scaling your bill.</div>
+        <div class="svc-tag">AWS · Azure · GCP</div>
+      </div>
+      <div class="svc-arrow">→</div>
+    </div>
+    <div class="svc-item">
+      <div class="svc-num">02</div>
+      <div class="svc-content">
+        <div class="svc-name">Cybersecurity</div>
+        <div class="svc-desc">Continuous threat monitoring, compliance frameworks, and incident response built around your risk profile.</div>
+        <div class="svc-tag">CISSP · SOC2 · ISO 27001</div>
+      </div>
+      <div class="svc-arrow">→</div>
+    </div>
+    <div class="svc-item">
+      <div class="svc-num">03</div>
+      <div class="svc-content">
+        <div class="svc-name">Managed IT</div>
+        <div class="svc-desc">Proactive monitoring and dedicated support that resolves issues before your team notices them.</div>
+        <div class="svc-tag">24/7 · 4hr SLA · Named engineers</div>
+      </div>
+      <div class="svc-arrow">→</div>
+    </div>
+    <div class="svc-item">
+      <div class="svc-num">04</div>
+      <div class="svc-content">
+        <div class="svc-name">Data &amp; Analytics</div>
+        <div class="svc-desc">From raw data to decisions — pipelines, dashboards, and AI-ready infrastructure tailored to your operations.</div>
+        <div class="svc-tag">Pipelines · Dashboards · AI-ready</div>
+      </div>
+      <div class="svc-arrow">→</div>
+    </div>
+    <div class="svc-item">
+      <div class="svc-num">05</div>
+      <div class="svc-content">
+        <div class="svc-name">System Integration</div>
+        <div class="svc-desc">ERP, CRM, and API integrations that make your existing tools talk to each other seamlessly.</div>
+        <div class="svc-tag">ERP · CRM · REST / GraphQL</div>
+      </div>
+      <div class="svc-arrow">→</div>
+    </div>
+    <div class="svc-item">
+      <div class="svc-num">06</div>
+      <div class="svc-content">
+        <div class="svc-name">Software Development</div>
+        <div class="svc-desc">Custom web and enterprise applications. Clean code, solid architecture, on-time delivery.</div>
+        <div class="svc-tag">Web · Enterprise · APIs</div>
+      </div>
+      <div class="svc-arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<section class="whyus" id="whyus">
+  <div class="why-grid">
+    <div class="reveal">
+      <div class="section-label">Why Strata</div>
+      <div class="section-title">Less noise.<br><span class="it">More done.</span></div>
+      <div class="section-sub" style="margin-top:1rem">No account managers passing messages. No mystery billing. Just direct, expert people who own your outcomes.</div>
+      <div class="why-points">
+        <div class="wpoint">
+          <div class="wpoint-n">01</div>
+          <div><h4>Named engineers, not a queue</h4><p>You always work with the same person who knows your setup — not whoever's free.</p></div>
+        </div>
+        <div class="wpoint">
+          <div class="wpoint-n">02</div>
+          <div><h4>4-hour SLA, written in your contract</h4><p>Critical issues acknowledged in 4 hours with a clear fix roadmap. No ambiguity.</p></div>
+        </div>
+        <div class="wpoint">
+          <div class="wpoint-n">03</div>
+          <div><h4>Flat monthly pricing</h4><p>What you're quoted is what you pay. Itemised invoices, no hidden charges, ever.</p></div>
+        </div>
+        <div class="wpoint">
+          <div class="wpoint-n">04</div>
+          <div><h4>Certified across every major stack</h4><p>AWS, Azure, GCP, CISSP — real certifications behind every recommendation we make.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="section-label">By the numbers</div>
+      <div class="stats-mosaic">
+        <div class="sstat"><div class="sstat-num">350<span class="acc">+</span></div><div class="sstat-label">Clients worldwide</div></div>
+        <div class="sstat"><div class="sstat-num">14<span class="acc">yr</span></div><div class="sstat-label">In the industry</div></div>
+        <div class="sstat"><div class="sstat-num">99.9<span class="acc">%</span></div><div class="sstat-label">Uptime SLA</div></div>
+        <div class="sstat"><div class="sstat-num">24<span class="acc">/7</span></div><div class="sstat-label">Coverage always</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team-sec" id="team">
+  <div class="reveal">
+    <div class="section-label">Team</div>
+    <div class="section-title">The people <span class="it">behind the work</span></div>
+    <div class="section-sub" style="margin-top:.8rem">Small enough to care about your account. Senior enough to solve your problems on the first call.</div>
+  </div>
+  <div class="team-grid reveal reveal-delay-1">
+    <div class="tcard">
+      <div class="t-avatar">AK<div class="t-status"></div></div>
+      <div>
+        <div class="t-name">Arjun Kumar</div>
+        <div class="t-role">CEO &amp; Founder</div>
+      </div>
+      <div class="t-tag">Leadership</div>
+    </div>
+    <div class="tcard">
+      <div class="t-avatar">PR<div class="t-status"></div></div>
+      <div>
+        <div class="t-name">Priya Reddy</div>
+        <div class="t-role">CTO</div>
+      </div>
+      <div class="t-tag">Engineering</div>
+    </div>
+    <div class="tcard">
+      <div class="t-avatar">SM<div class="t-status"></div></div>
+      <div>
+        <div class="t-name">Suresh Menon</div>
+        <div class="t-role">Head of Infrastructure</div>
+      </div>
+      <div class="t-tag">Cloud · Infra</div>
+    </div>
+    <div class="tcard">
+      <div class="t-avatar">DV<div class="t-status"></div></div>
+      <div>
+        <div class="t-name">Deepa Varma</div>
+        <div class="t-role">Head of Security</div>
+      </div>
+      <div class="t-tag">CISSP</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-sec" id="contact">
+  <div class="contact-grid">
+    <div class="reveal">
+      <div class="section-label">Contact</div>
+      <div class="section-title">Start a<br><span class="it">conversation</span></div>
+      <div class="section-sub" style="margin-top:.8rem">No sales decks on the first call. Just a direct conversation about where you are and what you need.</div>
+      <div class="c-detail">
+        <div><div class="citem-label">Address</div><div class="citem-val">Level 8, Prestige Tower<br>MG Road, Bengaluru 560001</div></div>
+        <div><div class="citem-label">Phone</div><div class="citem-val">+91 80 4567 8900</div></div>
+        <div><div class="citem-label">Email</div><div class="citem-val"><a href="mailto:hello@stratait.in">hello@stratait.in</a></div></div>
+      </div>
+    </div>
+    <div class="c-form reveal reveal-delay-1">
+      <div class="form-row">
+        <div class="fg"><label>First Name</label><input type="text" placeholder="Arjun"></div>
+        <div class="fg"><label>Last Name</label><input type="text" placeholder="Kumar"></div>
+      </div>
+      <div class="fg"><label>Work Email</label><input type="email" placeholder="you@company.com"></div>
+      <div class="fg"><label>Company</label><input type="text" placeholder="Company Name"></div>
+      <div class="fg"><label>Service Interest</label>
+        <select>
+          <option value="">Select a service</option>
+          <option>Cloud Infrastructure</option>
+          <option>Cybersecurity</option>
+          <option>Managed IT Services</option>
+          <option>Data &amp; Analytics</option>
+          <option>System Integration</option>
+          <option>Software Development</option>
+        </select>
+      </div>
+      <div class="fg"><label>Message</label><textarea placeholder="What's the challenge you're trying to solve?"></textarea></div>
+      <button class="f-btn">Send Message <span>→</span></button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">STRATA<span class="dot">.</span></div>
+  <div class="f-copy">© 2025 Strata IT Consulting. All rights reserved.</div>
+</footer>
+
+<script>
+// Cursor
+const cur=document.getElementById('cursor');
+const ring=document.getElementById('cursor-ring');
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px'; cur.style.top=e.clientY+'px';
+  setTimeout(()=>{ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px'},60);
+});
+
+// Mobile menu
+function toggleMenu(){
+  const m=document.getElementById('mobileMenu');
+  m.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+
+// Reveal on scroll
+const revealEls=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}});
+},{threshold:.12});
+revealEls.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

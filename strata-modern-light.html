@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strata IT — Modern</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;400;500;600;700;800&family=Lora:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#ffffff;
+  --off:#f7f6f3;
+  --off2:#f0ede7;
+  --ink:#111010;
+  --ink2:#4a4845;
+  --ink3:#9c9890;
+  --border:#e5e2dc;
+  --border2:#d4d0c8;
+  --accent:#0052e0;
+  --accent-light:#e8f0ff;
+  --accent2:#0041b8;
+  --green:#00875a;
+  --green-light:#e3f5ee;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Bricolage Grotesque',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:66px;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Bricolage Grotesque',sans-serif;font-size:1.15rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-.02em;display:flex;align-items:center;gap:6px}
+.logo-badge{background:var(--accent);color:#fff;font-size:.5rem;font-weight:700;letter-spacing:.1em;padding:3px 6px;border-radius:3px;text-transform:uppercase}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{font-size:.78rem;font-weight:500;color:var(--ink2);text-decoration:none;letter-spacing:.01em;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.nav-phone{font-size:.75rem;color:var(--ink3);font-weight:400}
+.nav-cta{background:var(--accent);color:#fff;padding:.5rem 1.3rem;font-size:.74rem;font-weight:600;text-decoration:none;border-radius:6px;transition:all .2s;white-space:nowrap;letter-spacing:.01em}
+.nav-cta:hover{background:var(--accent2);transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,82,224,.25)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{width:22px;height:1.5px;background:var(--ink);display:block;transition:all .3s}
+@media(max-width:820px){.nav-links,.nav-phone{display:none}.hamburger{display:flex}}
+@media(max-width:500px){.nav-cta{display:none}}
+
+/* mobile menu */
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--white);z-index:490;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1.8rem;font-weight:700;color:var(--ink);text-decoration:none;transition:color .2s}
+.mobile-menu a:hover{color:var(--accent)}
+.close-btn{position:absolute;top:1.5rem;right:5%;font-size:1.3rem;cursor:pointer;background:none;border:none;color:var(--ink3)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;padding:66px 5% 0;display:grid;grid-template-rows:1fr auto;position:relative;overflow:hidden;background:var(--white)}
+.hero-mesh{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero-mesh svg{width:100%;height:100%;position:absolute;inset:0}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem;padding:5rem 0 3rem;position:relative;z-index:2}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:.4rem .9rem;border-radius:999px;margin-bottom:1.8rem}
+.hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;animation:blink 1.8s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(3rem,5.5vw,5.2rem);font-weight:800;line-height:1;letter-spacing:-.04em;color:var(--ink);margin-bottom:1.6rem}
+h1 .it{font-family:'Lora',serif;font-style:italic;font-weight:400;color:var(--accent)}
+h1 .muted{color:var(--ink3)}
+.hero-desc{font-size:1.05rem;line-height:1.8;color:var(--ink2);max-width:440px;margin-bottom:2.5rem;font-weight:400}
+.hero-actions{display:flex;gap:.9rem;flex-wrap:wrap;align-items:center}
+.btn-primary{background:var(--accent);color:#fff;padding:.9rem 2rem;font-size:.8rem;font-weight:600;letter-spacing:.02em;text-decoration:none;border-radius:8px;transition:all .25s;display:inline-flex;align-items:center;gap:.5rem;border:none;cursor:pointer;font-family:inherit}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,82,224,.22)}
+.btn-secondary{border:1.5px solid var(--border2);color:var(--ink);padding:.9rem 2rem;font-size:.8rem;font-weight:500;text-decoration:none;border-radius:8px;transition:all .25s;font-family:inherit}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+.hero-right{display:flex;flex-direction:column;gap:1px;background:var(--border);border-radius:16px;overflow:hidden;border:1px solid var(--border)}
+.hstat{background:var(--white);padding:2.2rem 2rem;display:flex;flex-direction:column;gap:.4rem;transition:background .2s}
+.hstat:hover{background:var(--off)}
+.hstat-num{font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;color:var(--ink);letter-spacing:-.04em;line-height:1}
+.hstat-num sup{font-size:1.2rem;color:var(--accent);vertical-align:super}
+.hstat-label{font-size:.72rem;color:var(--ink3);font-weight:500;letter-spacing:.04em}
+.hero-bar{grid-column:1/-1;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:1.5rem 0;gap:2rem;flex-wrap:wrap;position:relative;z-index:2}
+.trust-item{display:flex;align-items:center;gap:.6rem;font-size:.72rem;color:var(--ink3);font-weight:500}
+.trust-icon{width:28px;height:28px;background:var(--off2);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.75rem}
+@media(max-width:860px){.hero-inner{grid-template-columns:1fr}.hero-right{display:grid;grid-template-columns:repeat(3,1fr)}}
+@media(max-width:580px){.hero-right{grid-template-columns:1fr 1fr}.hero-bar{gap:1.2rem}.trust-item:last-child{display:none}}
+
+/* ── MARQUEE ── */
+.marquee-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.85rem 0;overflow:hidden;background:var(--off)}
+.marquee-track{display:flex;animation:marquee 22s linear infinite;white-space:nowrap}
+.marquee-item{display:inline-flex;align-items:center;gap:1.2rem;padding:0 2rem;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);font-weight:600}
+.m-dot{width:3px;height:3px;background:var(--accent);border-radius:50%;flex-shrink:0}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SERVICES ── */
+.services{padding:7rem 5%;background:var(--white)}
+.section-label{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem}
+.section-label::before{content:'';width:16px;height:2px;background:var(--accent);border-radius:1px}
+.section-title{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(2rem,3.8vw,3.4rem);font-weight:800;line-height:1.05;letter-spacing:-.035em;color:var(--ink);margin-bottom:.5rem}
+.section-title .it{font-family:'Lora',serif;font-style:italic;font-weight:400}
+.section-sub{font-size:.92rem;color:var(--ink2);line-height:1.75;font-weight:400;max-width:440px}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:3.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--border)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.svc-card{background:var(--white);padding:2.5rem 2rem;display:flex;flex-direction:column;gap:1rem;transition:background .25s;position:relative;overflow:hidden}
+.svc-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.svc-card:hover{background:var(--off)}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-card:hover .svc-arrow{transform:translate(3px,-3px);color:var(--accent)}
+.svc-icon{width:40px;height:40px;background:var(--accent-light);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.svc-icon svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.svc-num{font-family:'Lora',serif;font-size:.8rem;font-style:italic;color:var(--ink3);font-weight:400}
+.svc-card h3{font-size:1rem;font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.25}
+.svc-card p{font-size:.82rem;line-height:1.75;color:var(--ink2);font-weight:400;flex:1}
+.svc-footer{display:flex;justify-content:space-between;align-items:center;margin-top:.5rem}
+.svc-tag{font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:.25rem .65rem;border-radius:999px}
+.svc-arrow{font-size:.95rem;color:var(--ink3);transition:all .3s}
+@media(max-width:900px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.svc-grid{grid-template-columns:1fr}}
+
+/* ── WHY ── */
+.whyus{padding:7rem 5%;background:var(--off);border-top:1px solid var(--border)}
+.why-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.why-points{display:flex;flex-direction:column;gap:0;margin-top:2rem}
+.wpoint{display:flex;gap:1.2rem;align-items:flex-start;padding:1.5rem 0;border-bottom:1px solid var(--border);transition:all .2s}
+.wpoint:first-child{border-top:1px solid var(--border)}
+.wpoint:hover .wpoint-icon{background:var(--accent);border-color:var(--accent)}
+.wpoint:hover .wpoint-icon svg{stroke:#fff}
+.wpoint-icon{width:36px;height:36px;min-width:36px;background:var(--white);border:1.5px solid var(--border2);border-radius:8px;display:flex;align-items:center;justify-content:center;transition:all .25s}
+.wpoint-icon svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:stroke .25s}
+.wpoint h4{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:.35rem;letter-spacing:-.01em}
+.wpoint p{font-size:.8rem;color:var(--ink2);line-height:1.7;font-weight:400}
+.stats-block{margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.sstat{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:2rem 1.75rem;transition:box-shadow .2s,transform .2s;position:relative;overflow:hidden}
+.sstat::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),#60a5fa)}
+.sstat:hover{box-shadow:0 8px 32px rgba(0,0,0,.08);transform:translateY(-2px)}
+.sstat-num{font-family:'Bricolage Grotesque',sans-serif;font-size:2.8rem;font-weight:800;color:var(--ink);letter-spacing:-.04em;line-height:1;margin-bottom:.4rem}
+.sstat-num .acc{color:var(--accent);font-size:1.4rem}
+.sstat-label{font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+@media(max-width:820px){.why-layout{grid-template-columns:1fr;gap:3rem}}
+
+/* ── TEAM ── */
+.team-sec{padding:7rem 5%;background:var(--white);border-top:1px solid var(--border)}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
+.tcard{border:1px solid var(--border);border-radius:12px;padding:2rem 1.75rem;display:flex;flex-direction:column;gap:1rem;background:var(--white);transition:all .25s;position:relative;overflow:hidden}
+.tcard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.tcard:hover{border-color:var(--border2);box-shadow:0 12px 40px rgba(0,0,0,.07);transform:translateY(-3px)}
+.tcard:hover::after{transform:scaleX(1)}
+.t-avatar{width:52px;height:52px;border-radius:12px;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:var(--accent);letter-spacing:.05em;position:relative}
+.t-status{position:absolute;bottom:-2px;right:-2px;width:12px;height:12px;background:#22c55e;border-radius:50%;border:2px solid var(--white)}
+.t-name{font-size:.95rem;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.t-role{font-size:.75rem;color:var(--ink2);font-weight:400}
+.t-tag{display:inline-block;font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--off2);color:var(--ink3);padding:.28rem .65rem;border-radius:999px;width:fit-content}
+@media(max-width:900px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.team-grid{grid-template-columns:1fr}}
+
+/* ── CONTACT ── */
+.contact-sec{padding:7rem 5%;background:var(--off);border-top:1px solid var(--border)}
+.contact-layout{display:grid;grid-template-columns:1fr 1.5fr;gap:6rem;align-items:start}
+.c-info{display:flex;flex-direction:column;gap:1.8rem;margin-top:2rem}
+.citem-label{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:.35rem}
+.citem-val{font-size:.9rem;color:var(--ink);line-height:1.65;font-weight:400}
+.citem-val a{color:var(--accent);text-decoration:none;font-weight:500}
+.citem-val a:hover{text-decoration:underline}
+.c-form{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:2.5rem;margin-top:2rem;display:flex;flex-direction:column;gap:1.2rem;box-shadow:0 4px 32px rgba(0,0,0,.05)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:.45rem}
+.fg label{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.fg input,.fg select,.fg textarea{background:var(--off);border:1.5px solid var(--border);border-radius:8px;padding:.75rem 1rem;font-size:.88rem;font-family:inherit;color:var(--ink);outline:none;transition:border-color .2s,background .2s;width:100%;appearance:none}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--ink3)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--accent);background:var(--white);box-shadow:0 0 0 3px rgba(0,82,224,.08)}
+.fg textarea{min-height:100px;resize:vertical}
+.fg select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239c9890' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
+.f-btn{background:var(--accent);color:#fff;border:none;padding:1rem 2.5rem;font-size:.8rem;font-weight:700;letter-spacing:.04em;border-radius:8px;cursor:pointer;transition:all .25s;font-family:inherit;display:flex;align-items:center;gap:.5rem;align-self:flex-start}
+.f-btn:hover{background:var(--accent2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,82,224,.22)}
+@media(max-width:820px){.contact-layout{grid-template-columns:1fr;gap:3rem}}
+@media(max-width:480px){.form-row{grid-template-columns:1fr}.c-form{padding:1.5rem}}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);padding:3rem 5%;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem}
+.f-logo{font-family:'Bricolage Grotesque',sans-serif;font-size:1.15rem;font-weight:800;color:#fff;letter-spacing:-.02em}
+.f-logo span{color:var(--accent)}
+.f-copy{font-size:.72rem;color:rgba(255,255,255,.4);letter-spacing:.04em}
+@media(max-width:540px){footer{grid-template-columns:1fr;text-align:center}}
+
+/* ── ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s cubic-bezier(.22,.8,.25,1),transform .65s cubic-bezier(.22,.8,.25,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-d1{transition-delay:.1s}
+.reveal-d2{transition-delay:.2s}
+.reveal-d3{transition-delay:.3s}
+
+/* scrollbar */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--off)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">STRATA <span class="logo-badge">IT</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#whyus">About</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <span class="nav-phone">+91 80 4567 8900</span>
+    <a class="nav-cta" href="#contact">Get Started</a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" onclick="toggleMenu()">✕</button>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#whyus" onclick="toggleMenu()">About</a>
+  <a href="#team" onclick="toggleMenu()">Team</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-mesh">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="g1" cx="75%" cy="20%" r="45%">
+          <stop offset="0%" stop-color="#dbeafe" stop-opacity=".7"/>
+          <stop offset="100%" stop-color="transparent"/>
+        </radialGradient>
+        <radialGradient id="g2" cx="10%" cy="80%" r="35%">
+          <stop offset="0%" stop-color="#ede9fe" stop-opacity=".5"/>
+          <stop offset="100%" stop-color="transparent"/>
+        </radialGradient>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#g1)"/>
+      <rect width="100%" height="100%" fill="url(#g2)"/>
+      <!-- subtle grid -->
+      <line x1="0" y1="150" x2="1440" y2="150" stroke="#e5e2dc" stroke-width=".8"/>
+      <line x1="0" y1="300" x2="1440" y2="300" stroke="#e5e2dc" stroke-width=".8"/>
+      <line x1="0" y1="450" x2="1440" y2="450" stroke="#e5e2dc" stroke-width=".8"/>
+      <line x1="0" y1="600" x2="1440" y2="600" stroke="#e5e2dc" stroke-width=".8"/>
+      <line x1="240" y1="0" x2="240" y2="900" stroke="#e5e2dc" stroke-width=".8"/>
+      <line x1="480" y1="0" x2="480" y2="900" stroke="#e5e2dc" stroke-width=".8"/>
+      <line x1="720" y1="0" x2="720" y2="900" stroke="#e5e2dc" stroke-width=".8"/>
+      <line x1="960" y1="0" x2="960" y2="900" stroke="#e5e2dc" stroke-width=".8"/>
+      <line x1="1200" y1="0" x2="1200" y2="900" stroke="#e5e2dc" stroke-width=".8"/>
+    </svg>
+  </div>
+
+  <div class="hero-inner">
+    <div class="reveal">
+      <div class="hero-eyebrow">IT Services &amp; Consulting — Bengaluru</div>
+      <h1>Technology<br>that works<br><span class="it">quietly</span> &amp; <span class="muted">reliably</span></h1>
+      <p class="hero-desc">We build and manage the IT infrastructure that keeps your business running — so you never have to think about it.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#services">Explore Services →</a>
+        <a class="btn-secondary" href="#contact">Talk to Us</a>
+      </div>
+    </div>
+    <div class="hero-right reveal reveal-d1">
+      <div class="hstat">
+        <div class="hstat-num">14<sup>+</sup></div>
+        <div class="hstat-label">Years in the industry</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">350<sup>+</sup></div>
+        <div class="hstat-label">Businesses supported</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">99.9<sup>%</sup></div>
+        <div class="hstat-label">Average uptime delivered</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bar reveal reveal-d2">
+    <div class="trust-item"><div class="trust-icon">☁</div>AWS Certified</div>
+    <div class="trust-item"><div class="trust-icon">🔒</div>CISSP Certified</div>
+    <div class="trust-item"><div class="trust-icon">⚡</div>4-Hour SLA</div>
+    <div class="trust-item"><div class="trust-icon">🔄</div>24/7 Monitoring</div>
+    <div class="trust-item"><div class="trust-icon">📋</div>Flat Monthly Pricing</div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="m-dot"></span>Cloud Infrastructure</span>
+    <span class="marquee-item"><span class="m-dot"></span>Cybersecurity</span>
+    <span class="marquee-item"><span class="m-dot"></span>Managed IT Services</span>
+    <span class="marquee-item"><span class="m-dot"></span>Data &amp; Analytics</span>
+    <span class="marquee-item"><span class="m-dot"></span>System Integration</span>
+    <span class="marquee-item"><span class="m-dot"></span>Software Development</span>
+    <span class="marquee-item"><span class="m-dot"></span>AWS · Azure · GCP</span>
+    <span class="marquee-item"><span class="m-dot"></span>24/7 Support</span>
+    <span class="marquee-item"><span class="m-dot"></span>Cloud Infrastructure</span>
+    <span class="marquee-item"><span class="m-dot"></span>Cybersecurity</span>
+    <span class="marquee-item"><span class="m-dot"></span>Managed IT Services</span>
+    <span class="marquee-item"><span class="m-dot"></span>Data &amp; Analytics</span>
+    <span class="marquee-item"><span class="m-dot"></span>System Integration</span>
+    <span class="marquee-item"><span class="m-dot"></span>Software Development</span>
+    <span class="marquee-item"><span class="m-dot"></span>AWS · Azure · GCP</span>
+    <span class="marquee-item"><span class="m-dot"></span>24/7 Support</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-head reveal">
+    <div>
+      <div class="section-label">Services</div>
+      <div class="section-title">What we <span class="it">do well</span></div>
+    </div>
+    <div class="section-sub">A focused set of services, delivered with uncommon depth and consistency.</div>
+  </div>
+  <div class="svc-grid reveal">
+    <div class="svc-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
+        </div>
+        <span class="svc-num">01</span>
+      </div>
+      <h3>Cloud Infrastructure</h3>
+      <p>Purpose-built AWS, Azure and GCP environments that scale with your business without scaling your bill.</p>
+      <div class="svc-footer"><span class="svc-tag">Cloud</span><span class="svc-arrow">↗</span></div>
+    </div>
+    <div class="svc-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        </div>
+        <span class="svc-num">02</span>
+      </div>
+      <h3>Cybersecurity</h3>
+      <p>Continuous threat monitoring, compliance frameworks, and incident response built around your risk profile.</p>
+      <div class="svc-footer"><span class="svc-tag">Security</span><span class="svc-arrow">↗</span></div>
+    </div>
+    <div class="svc-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <span class="svc-num">03</span>
+      </div>
+      <h3>Managed IT</h3>
+      <p>Proactive monitoring and dedicated support that resolves issues before your team notices them.</p>
+      <div class="svc-footer"><span class="svc-tag">Support</span><span class="svc-arrow">↗</span></div>
+    </div>
+    <div class="svc-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+        </div>
+        <span class="svc-num">04</span>
+      </div>
+      <h3>Data &amp; Analytics</h3>
+      <p>From raw data to decisions — pipelines, dashboards, and AI-ready infrastructure tailored to your operations.</p>
+      <div class="svc-footer"><span class="svc-tag">Analytics</span><span class="svc-arrow">↗</span></div>
+    </div>
+    <div class="svc-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M8 6H5a2 2 0 00-2 2v3m0 4v3a2 2 0 002 2h3M16 6h3a2 2 0 012 2v3m0 4v3a2 2 0 01-2 2h-3"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <span class="svc-num">05</span>
+      </div>
+      <h3>System Integration</h3>
+      <p>ERP, CRM, and API integrations that make your existing tools talk to each other seamlessly.</p>
+      <div class="svc-footer"><span class="svc-tag">Integration</span><span class="svc-arrow">↗</span></div>
+    </div>
+    <div class="svc-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <span class="svc-num">06</span>
+      </div>
+      <h3>Software Development</h3>
+      <p>Custom web and enterprise applications. Clean code, solid architecture, on-time delivery.</p>
+      <div class="svc-footer"><span class="svc-tag">Dev</span><span class="svc-arrow">↗</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="whyus" id="whyus">
+  <div class="why-layout">
+    <div class="reveal">
+      <div class="section-label">Why Strata</div>
+      <div class="section-title">Less noise.<br><span class="it">More done.</span></div>
+      <div class="section-sub" style="margin-top:.8rem">No account managers passing messages. No mystery billing. Just direct, expert people who own your outcomes.</div>
+      <div class="why-points">
+        <div class="wpoint">
+          <div class="wpoint-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div><h4>Named engineers, not a queue</h4><p>You always work with the same person who knows your setup — not whoever's free.</p></div>
+        </div>
+        <div class="wpoint">
+          <div class="wpoint-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div><h4>4-hour SLA, written in your contract</h4><p>Critical issues are acknowledged in 4 hours with a clear fix roadmap. No ambiguity.</p></div>
+        </div>
+        <div class="wpoint">
+          <div class="wpoint-icon">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <div><h4>Flat monthly pricing</h4><p>What you're quoted is what you pay. Itemised invoices, no hidden charges, ever.</p></div>
+        </div>
+        <div class="wpoint">
+          <div class="wpoint-icon">
+            <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          </div>
+          <div><h4>Certified across every major stack</h4><p>AWS, Azure, GCP, CISSP — real certifications behind every recommendation we make.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-d1">
+      <div class="section-label">By the numbers</div>
+      <div class="stats-block">
+        <div class="sstat"><div class="sstat-num">350<span class="acc">+</span></div><div class="sstat-label">Clients</div></div>
+        <div class="sstat"><div class="sstat-num">14<span class="acc">yr</span></div><div class="sstat-label">Experience</div></div>
+        <div class="sstat"><div class="sstat-num">99.9<span class="acc">%</span></div><div class="sstat-label">Uptime SLA</div></div>
+        <div class="sstat"><div class="sstat-num">24<span class="acc">/7</span></div><div class="sstat-label">Coverage</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-sec" id="team">
+  <div class="reveal">
+    <div class="section-label">Team</div>
+    <div class="section-title">The people <span class="it">behind the work</span></div>
+    <div class="section-sub" style="margin-top:.8rem">Small enough to care. Senior enough to solve your problems on the first call.</div>
+  </div>
+  <div class="team-grid reveal reveal-d1">
+    <div class="tcard">
+      <div class="t-avatar">AK<div class="t-status"></div></div>
+      <div><div class="t-name">Arjun Kumar</div><div class="t-role">CEO &amp; Founder</div></div>
+      <div class="t-tag">Leadership</div>
+    </div>
+    <div class="tcard">
+      <div class="t-avatar">PR<div class="t-status"></div></div>
+      <div><div class="t-name">Priya Reddy</div><div class="t-role">CTO</div></div>
+      <div class="t-tag">Engineering</div>
+    </div>
+    <div class="tcard">
+      <div class="t-avatar">SM<div class="t-status"></div></div>
+      <div><div class="t-name">Suresh Menon</div><div class="t-role">Head of Infrastructure</div></div>
+      <div class="t-tag">Cloud · Infra</div>
+    </div>
+    <div class="tcard">
+      <div class="t-avatar">DV<div class="t-status"></div></div>
+      <div><div class="t-name">Deepa Varma</div><div class="t-role">Head of Security</div></div>
+      <div class="t-tag">CISSP</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-sec" id="contact">
+  <div class="contact-layout">
+    <div class="reveal">
+      <div class="section-label">Contact</div>
+      <div class="section-title">Start a<br><span class="it">conversation</span></div>
+      <div class="section-sub" style="margin-top:.8rem">No sales decks on the first call. Just a direct conversation about where you are and what you need.</div>
+      <div class="c-info">
+        <div><div class="citem-label">Address</div><div class="citem-val">Level 8, Prestige Tower<br>MG Road, Bengaluru 560001</div></div>
+        <div><div class="citem-label">Phone</div><div class="citem-val">+91 80 4567 8900</div></div>
+        <div><div class="citem-label">Email</div><div class="citem-val"><a href="mailto:hello@stratait.in">hello@stratait.in</a></div></div>
+      </div>
+    </div>
+    <div class="reveal reveal-d1">
+      <div class="c-form">
+        <div class="form-row">
+          <div class="fg"><label>First Name</label><input type="text" placeholder="Arjun"></div>
+          <div class="fg"><label>Last Name</label><input type="text" placeholder="Kumar"></div>
+        </div>
+        <div class="fg"><label>Work Email</label><input type="email" placeholder="you@company.com"></div>
+        <div class="fg"><label>Company</label><input type="text" placeholder="Company Name"></div>
+        <div class="fg"><label>Service Interest</label>
+          <select>
+            <option value="">Select a service</option>
+            <option>Cloud Infrastructure</option>
+            <option>Cybersecurity</option>
+            <option>Managed IT Services</option>
+            <option>Data &amp; Analytics</option>
+            <option>System Integration</option>
+            <option>Software Development</option>
+          </select>
+        </div>
+        <div class="fg"><label>Message</label><textarea placeholder="What's the challenge you're trying to solve?"></textarea></div>
+        <button class="f-btn">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">STRATA<span>.</span></div>
+  <div class="f-copy">© 2025 Strata IT Consulting. All rights reserved.</div>
+</footer>
+
+<script>
+function toggleMenu(){
+  const m=document.getElementById('mobileMenu');
+  m.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
