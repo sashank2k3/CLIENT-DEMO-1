@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexCore IT Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0a1628;--navy-mid:#0f1e3a;--navy-light:#162545;
+  --gold:#c9a84c;--gold-light:#e2c47a;
+  --white:#fff;--muted:#8a9bb8;--border:rgba(201,168,76,0.18);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Libre Franklin',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 5%;background:rgba(10,22,40,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--gold);text-decoration:none}
+.logo span{color:var(--white)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--navy);padding:.5rem 1.2rem;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .2s;white-space:nowrap}
+.nav-cta:hover{background:var(--gold-light)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{width:22px;height:1.5px;background:var(--white);display:block}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--navy-mid);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1.2rem;font-weight:500;color:var(--white);text-decoration:none;letter-spacing:.06em;text-transform:uppercase}
+.mobile-menu a:hover{color:var(--gold)}
+.close-btn{position:absolute;top:1.2rem;right:5%;font-size:1.5rem;cursor:pointer;color:var(--muted);background:none;border:none;color:var(--white)}
+@media(max-width:768px){.nav-links,.nav-cta{display:none}.hamburger{display:flex}}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding:7rem 5% 5rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(201,168,76,.07) 0%,transparent 70%),linear-gradient(135deg,#0a1628 0%,#0f1e3a 50%,#0a1628 100%)}
+.hero-grid{position:absolute;inset:0;opacity:.04;background-image:linear-gradient(var(--gold) 1px,transparent 1px),linear-gradient(90deg,var(--gold) 1px,transparent 1px);background-size:60px 60px}
+.hero-content{position:relative;max-width:680px;width:100%}
+.badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--border);padding:.35rem 1rem;margin-bottom:1.8rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,6vw,4.2rem);font-weight:700;line-height:1.1;margin-bottom:1.4rem}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p{font-size:1rem;line-height:1.8;color:var(--muted);max-width:500px;margin-bottom:2.2rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--navy);padding:.85rem 2rem;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:all .2s}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn-outline{border:1px solid var(--border);color:var(--white);padding:.85rem 2rem;font-size:.8rem;font-weight:500;letter-spacing:.06em;text-decoration:none;display:inline-block;transition:all .2s}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-floats{display:flex;gap:2.5rem;margin-top:3.5rem;flex-wrap:wrap}
+.hero-float{border-left:2px solid var(--gold);padding-left:1rem}
+.float-num{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:var(--gold);line-height:1}
+.float-label{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.25rem}
+
+section{padding:5rem 5%}
+.eyebrow{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;display:flex;align-items:center;gap:.8rem}
+.eyebrow::after{content:'';flex:0 0 32px;height:1px;background:var(--gold);opacity:.5}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;line-height:1.2;margin-bottom:.8rem}
+.sec-title em{font-style:italic;color:var(--gold)}
+.sec-sub{color:var(--muted);font-size:.95rem;line-height:1.75;max-width:500px;margin-bottom:3rem}
+
+.services{background:var(--navy-mid)}
+.svc-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;gap:2rem;flex-wrap:wrap}
+.svc-head .sec-sub{margin-bottom:0}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.svc-card{background:var(--navy-mid);padding:2.2rem 1.8rem;position:relative;overflow:hidden;transition:background .25s}
+.svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.svc-card:hover{background:var(--navy-light)}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-num{position:absolute;top:1.2rem;right:1.2rem;font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;opacity:.05;color:var(--gold);line-height:1}
+.svc-icon{width:44px;height:44px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:1.4rem;font-size:1.2rem}
+.svc-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;margin-bottom:.7rem}
+.svc-card p{font-size:.85rem;line-height:1.7;color:var(--muted)}
+@media(max-width:900px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.svc-grid{grid-template-columns:1fr}}
+
+.whyus{background:var(--navy)}
+.why-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.why-points{display:flex;flex-direction:column;gap:1.6rem;margin-top:2rem}
+.point{display:flex;gap:1rem;align-items:flex-start}
+.point-dot{width:22px;height:22px;min-width:22px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.65rem;margin-top:2px}
+.point h4{font-size:.92rem;font-weight:600;margin-bottom:.25rem}
+.point p{font-size:.83rem;color:var(--muted);line-height:1.6}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.stat-box{background:var(--navy-mid);padding:2.5rem 1.5rem;text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:.4rem}
+.stat-label{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:768px){.why-inner{grid-template-columns:1fr;gap:3rem}}
+
+.team-sec{background:var(--navy-mid)}
+.team-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem;margin-bottom:2.5rem}
+.team-head .sec-sub{margin-bottom:0}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.t-avatar{width:100%;aspect-ratio:3/4;background:var(--navy-light);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.t-pattern{position:absolute;inset:0;background-image:linear-gradient(45deg,rgba(201,168,76,.05) 1px,transparent 1px),linear-gradient(-45deg,rgba(201,168,76,.05) 1px,transparent 1px);background-size:20px 20px}
+.t-initials{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--gold);opacity:.4;position:relative}
+.t-info{padding:.9rem 0 0}
+.t-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;margin-bottom:.2rem}
+.t-role{font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--gold)}
+@media(max-width:900px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+
+.contact-sec{background:var(--navy);position:relative;overflow:hidden}
+.contact-bg{position:absolute;inset:0;background:radial-gradient(ellipse 50% 80% at 80% 50%,rgba(201,168,76,.06) 0%,transparent 70%)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;position:relative}
+.c-info{display:flex;flex-direction:column;gap:1.8rem;margin-top:2rem}
+.c-item{display:flex;gap:1rem;align-items:flex-start}
+.c-icon{width:40px;height:40px;min-width:40px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1rem}
+.c-item h4{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+.c-item p{font-size:.9rem;color:var(--muted);line-height:1.5}
+.c-form{background:var(--navy-mid);padding:2.5rem;border:1px solid var(--border)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.fgroup{margin-bottom:1rem}
+.fgroup label{display:block;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.fgroup input,.fgroup textarea,.fgroup select{width:100%;background:var(--navy);border:1px solid var(--border);color:var(--white);padding:.75rem 1rem;font-family:'Libre Franklin',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s}
+.fgroup input:focus,.fgroup textarea:focus,.fgroup select:focus{border-color:var(--gold)}
+.fgroup textarea{resize:vertical;min-height:110px}
+.fgroup select option{background:var(--navy)}
+.f-submit{width:100%;background:var(--gold);color:var(--navy);padding:1rem;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
+.f-submit:hover{background:var(--gold-light)}
+@media(max-width:768px){.contact-inner{grid-template-columns:1fr;gap:3rem}.form-row{grid-template-columns:1fr}}
+
+footer{background:var(--navy-mid);border-top:1px solid var(--border);padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.f-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--gold)}
+.f-logo span{color:var(--white)}
+footer p{font-size:.78rem;color:var(--muted)}
+
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#">Nex<span>Core</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#whyus">Why Us</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Get in Touch</a>
+  <button class="hamburger" id="ham" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" onclick="toggleMenu()">✕</button>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#whyus" onclick="toggleMenu()">Why Us</a>
+  <a href="#team" onclick="toggleMenu()">Team</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a class="btn-primary" href="#contact" onclick="toggleMenu()" style="margin-top:.5rem">Get in Touch</a>
+</div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="badge">Trusted IT Partner Since 2010</div>
+    <h1>Enterprise IT Solutions<br>Built for <em>Real Growth</em></h1>
+    <p>End-to-end technology consulting, cloud infrastructure, and managed services that power India's fastest-growing businesses.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#services">Explore Services</a>
+      <a class="btn-outline" href="#contact">Book a Consultation</a>
+    </div>
+    <div class="hero-floats">
+      <div class="hero-float"><div class="float-num">14+</div><div class="float-label">Years of Excellence</div></div>
+      <div class="hero-float"><div class="float-num">350+</div><div class="float-label">Clients Served</div></div>
+      <div class="hero-float"><div class="float-num">99.9%</div><div class="float-label">Uptime SLA</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="svc-head fade-up">
+    <div>
+      <div class="eyebrow">What We Do</div>
+      <div class="sec-title">Comprehensive IT <em>Services</em></div>
+    </div>
+    <div class="sec-sub">From cloud migration to cybersecurity — we cover every layer of your technology stack.</div>
+  </div>
+  <div class="svc-grid fade-up">
+    <div class="svc-card"><div class="svc-num">01</div><div class="svc-icon">☁️</div><h3>Cloud Infrastructure</h3><p>Scalable AWS, Azure & GCP architecture designed for performance, reliability, and cost efficiency at every stage of growth.</p></div>
+    <div class="svc-card"><div class="svc-num">02</div><div class="svc-icon">🔐</div><h3>Cybersecurity</h3><p>End-to-end threat monitoring, compliance frameworks, and incident response that keep your data and reputation safe.</p></div>
+    <div class="svc-card"><div class="svc-num">03</div><div class="svc-icon">⚙️</div><h3>Managed IT Services</h3><p>Proactive monitoring and 24/7 support so your team focuses on business while we keep the lights on.</p></div>
+    <div class="svc-card"><div class="svc-num">04</div><div class="svc-icon">📊</div><h3>Data & Analytics</h3><p>Business intelligence dashboards, data pipelines, and AI-ready infrastructure that turns raw data into decisions.</p></div>
+    <div class="svc-card"><div class="svc-num">05</div><div class="svc-icon">🔗</div><h3>System Integration</h3><p>Seamless ERP, CRM, and third-party API integrations that unify your tools and eliminate operational silos.</p></div>
+    <div class="svc-card"><div class="svc-num">06</div><div class="svc-icon">💻</div><h3>Software Development</h3><p>Custom web and enterprise applications built with modern stacks, delivered on time and built to last.</p></div>
+  </div>
+</section>
+
+<section class="whyus" id="whyus">
+  <div class="why-inner">
+    <div class="fade-up">
+      <div class="eyebrow">Why NexCore</div>
+      <div class="sec-title">A Partner, Not <em>Just a Vendor</em></div>
+      <div class="sec-sub">We go beyond ticket-based support — our team embeds with yours to understand goals and deliver outcomes that matter.</div>
+      <div class="why-points">
+        <div class="point"><div class="point-dot">✦</div><div><h4>Dedicated Account Teams</h4><p>A named engineer and account manager who know your systems — no re-explaining every time you call.</p></div></div>
+        <div class="point"><div class="point-dot">✦</div><div><h4>4-Hour Response SLA</h4><p>Critical issues acknowledged in under 4 hours with a clear resolution roadmap — guaranteed by contract.</p></div></div>
+        <div class="point"><div class="point-dot">✦</div><div><h4>Transparent Billing</h4><p>No surprise invoices. Flat monthly retainers and itemised project billing so you always know what you're paying for.</p></div></div>
+        <div class="point"><div class="point-dot">✦</div><div><h4>Certified Across Stacks</h4><p>AWS, Microsoft, Google and CISSP certifications across our team — credentials to back every recommendation.</p></div></div>
+      </div>
+    </div>
+    <div class="stats-grid fade-up">
+      <div class="stat-box"><div class="stat-num">350+</div><div class="stat-label">Clients Served</div></div>
+      <div class="stat-box"><div class="stat-num">14yr</div><div class="stat-label">In Business</div></div>
+      <div class="stat-box"><div class="stat-num">99.9%</div><div class="stat-label">Uptime SLA</div></div>
+      <div class="stat-box"><div class="stat-num">24/7</div><div class="stat-label">Support Cover</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="team-sec" id="team">
+  <div class="team-head fade-up">
+    <div><div class="eyebrow">The People</div><div class="sec-title">Leadership <em>Team</em></div></div>
+    <div class="sec-sub">Seasoned technologists united by a single mission — your success.</div>
+  </div>
+  <div class="team-grid fade-up">
+    <div><div class="t-avatar"><div class="t-pattern"></div><div class="t-initials">AK</div></div><div class="t-info"><div class="t-name">Arjun Kumar</div><div class="t-role">CEO & Founder</div></div></div>
+    <div><div class="t-avatar"><div class="t-pattern"></div><div class="t-initials">PR</div></div><div class="t-info"><div class="t-name">Priya Reddy</div><div class="t-role">CTO</div></div></div>
+    <div><div class="t-avatar"><div class="t-pattern"></div><div class="t-initials">SM</div></div><div class="t-info"><div class="t-name">Suresh Menon</div><div class="t-role">Head of Infrastructure</div></div></div>
+    <div><div class="t-avatar"><div class="t-pattern"></div><div class="t-initials">DV</div></div><div class="t-info"><div class="t-name">Deepa Varma</div><div class="t-role">Head of Security</div></div></div>
+  </div>
+</section>
+
+<section class="contact-sec" id="contact">
+  <div class="contact-bg"></div>
+  <div class="contact-inner">
+    <div class="fade-up">
+      <div class="eyebrow">Get In Touch</div>
+      <div class="sec-title">Let's Talk About <em>Your IT</em></div>
+      <div class="sec-sub">Whether you're scaling up, securing down, or starting fresh — we'd love to understand your challenges.</div>
+      <div class="c-info">
+        <div class="c-item"><div class="c-icon">📍</div><div><h4>Address</h4><p>Level 8, Prestige Tower<br>MG Road, Bengaluru 560001</p></div></div>
+        <div class="c-item"><div class="c-icon">📞</div><div><h4>Phone</h4><p>+91 80 4567 8900</p></div></div>
+        <div class="c-item"><div class="c-icon">✉️</div><div><h4>Email</h4><p>hello@nexcore.in</p></div></div>
+      </div>
+    </div>
+    <div class="c-form fade-up">
+      <div class="form-row">
+        <div class="fgroup"><label>First Name</label><input type="text" placeholder="Arjun"></div>
+        <div class="fgroup"><label>Last Name</label><input type="text" placeholder="Kumar"></div>
+      </div>
+      <div class="fgroup"><label>Work Email</label><input type="email" placeholder="you@company.com"></div>
+      <div class="fgroup"><label>Company</label><input type="text" placeholder="Company Name"></div>
+      <div class="fgroup"><label>Service Interest</label><select><option value="">Select a service</option><option>Cloud Infrastructure</option><option>Cybersecurity</option><option>Managed IT Services</option><option>Data & Analytics</option><option>System Integration</option><option>Software Development</option></select></div>
+      <div class="fgroup"><label>Message</label><textarea placeholder="Tell us about your project or challenge..."></textarea></div>
+      <button class="f-submit">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">Nex<span>Core</span></div>
+  <p>© 2025 NexCore IT Solutions. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleMenu(){
+  var m=document.getElementById('mobileMenu');
+  m.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el);});
+</script>
+</body>
+</html>
