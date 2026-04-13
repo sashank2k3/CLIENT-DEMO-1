@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Elite Talent Consulting</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -15,26 +15,25 @@
   --border:rgba(91,33,182,.18);--border2:rgba(91,33,182,.28);
   --glow:rgba(91,33,182,.3);
 }
-html{scroll-behavior:smooth}
-body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:auto}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 ::-webkit-scrollbar{width:3px}
 ::-webkit-scrollbar-track{background:var(--bg2)}
 ::-webkit-scrollbar-thumb{background:var(--p3);border-radius:2px}
 
 /* ── NAV ── */
 nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:800;width:min(93%,1100px);display:flex;align-items:center;justify-content:space-between;padding:.65rem 1rem .65rem 1.4rem;background:rgba(240,238,255,.88);backdrop-filter:blur(28px);border-radius:999px;border:1px solid var(--border2);box-shadow:0 4px 24px rgba(91,33,182,.1)}
-.logo{font-size:1.05rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-.025em;display:flex;align-items:center;gap:9px}
+.logo{font-size:1.05rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-.02em;display:flex;align-items:center;gap:9px}
 .logo-ring{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--p5));display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 0 14px var(--glow)}
 .nav-links{display:flex;list-style:none}
-.nav-links a{font-size:.75rem;font-weight:600;color:var(--ink3);text-decoration:none;padding:.4rem .9rem;border-radius:999px;transition:all .2s;letter-spacing:.01em}
+.nav-links a{font-size:.8rem;font-weight:600;color:var(--ink3);text-decoration:none;padding:.4rem .9rem;border-radius:999px;transition:all .2s}
 .nav-links a:hover,.nav-links a.act{background:rgba(91,33,182,.09);color:var(--p)}
 .nav-r{display:flex;align-items:center;gap:.7rem}
-.nav-phone{font-size:.7rem;color:var(--ink3);font-weight:500}
-.nav-cta{background:linear-gradient(135deg,var(--p),var(--p3));color:#fff;padding:.5rem 1.3rem;font-size:.73rem;font-weight:700;border-radius:999px;text-decoration:none;transition:all .25s;white-space:nowrap;box-shadow:0 4px 18px var(--glow);letter-spacing:.02em}
+.nav-cta{background:linear-gradient(135deg,var(--p),var(--p3));color:#fff;padding:.5rem 1.3rem;font-size:.78rem;font-weight:700;border-radius:999px;text-decoration:none;transition:all .25s;white-space:nowrap;box-shadow:0 4px 18px var(--glow)}
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(91,33,182,.45)}
 .burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:5px}
 .burger span{width:20px;height:1.5px;background:var(--ink);display:block}
-@media(max-width:760px){.nav-links,.nav-phone{display:none}.burger{display:flex}}
+@media(max-width:760px){.nav-links{display:none}.burger{display:flex}}
 @media(max-width:460px){.nav-cta{display:none}nav{top:10px}}
 .mob{display:none;position:fixed;inset:0;background:var(--bg);z-index:790;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
 .mob.open{display:flex}
@@ -42,34 +41,29 @@ nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:800;widt
 .mob a:hover{color:var(--p3)}
 .mob-x{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--ink3);font-size:1.3rem;cursor:pointer}
 
-/* ── HERO ── light bg, NO dark panel ── */
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:110px 6% 60px;gap:2rem;position:relative;overflow:hidden;z-index:1}
-
-/* soft violet radial glow — subtle, keeps light feel */
+/* ── HERO ── */
+.hero{min-height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:110px 6% 60px;gap:2rem;position:relative;overflow:hidden;z-index:1}
 .hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.1) 0%,transparent 65%);top:-150px;right:-120px;pointer-events:none;z-index:0}
-
 .hl{position:relative;z-index:5}
 
-/* pill */
-.h-pill{display:inline-flex;align-items:center;gap:.55rem;background:rgba(91,33,182,.08);border:1.5px solid var(--border2);border-radius:999px;padding:.35rem 1rem .35rem .55rem;font-size:.67rem;font-weight:700;color:var(--p2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2rem}
+.h-pill{display:inline-flex;align-items:center;gap:.55rem;background:rgba(91,33,182,.08);border:1.5px solid var(--border2);border-radius:999px;padding:.35rem 1rem .35rem .55rem;font-size:.72rem;font-weight:700;color:var(--p2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:2rem}
 .pill-dot{width:7px;height:7px;background:var(--p3);border-radius:50%;box-shadow:0 0 8px var(--p3);animation:pdot 2s ease-in-out infinite}
 @keyframes pdot{0%,100%{opacity:1}50%{opacity:.2}}
 
-/* hero headline — dark on light bg, fully legible */
-h1{font-size:clamp(2.8rem,5vw,5.4rem);font-weight:800;line-height:.95;letter-spacing:-.045em;margin-bottom:1.8rem}
+h1{font-size:clamp(2.6rem,4.8vw,5rem);font-weight:800;line-height:.97;letter-spacing:-.035em;margin-bottom:1.8rem}
 h1 .w1{color:var(--ink);display:block}
-h1 .w2{display:block;font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
+h1 .w2{display:block;font-style:italic;font-weight:800;
   background:linear-gradient(110deg,var(--p) 0%,var(--p4) 40%,var(--p5) 70%,var(--p) 100%);
   background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  font-size:1.12em;letter-spacing:-.03em;animation:shimmer 4s linear infinite}
+  font-size:1.12em;letter-spacing:-.04em;animation:shimmer 4s linear infinite}
 @keyframes shimmer{to{background-position:200% center}}
-h1 .w3{display:block;color:var(--ink3);font-size:.72em;letter-spacing:-.02em;font-weight:700}
+h1 .w3{display:block;color:var(--ink3);font-size:.68em;letter-spacing:-.015em;font-weight:600}
 
-.hero-p{font-size:.98rem;line-height:1.85;color:var(--ink2);max-width:430px;margin-bottom:2.4rem;font-weight:400}
+.hero-p{font-size:.97rem;line-height:1.8;color:var(--ink2);max-width:430px;margin-bottom:2.4rem;font-weight:400}
 .h-btns{display:flex;gap:.85rem;flex-wrap:wrap;margin-bottom:2.8rem}
-.btn-fill{background:linear-gradient(135deg,var(--p),var(--p3));color:#fff;padding:.9rem 2.2rem;font-size:.8rem;font-weight:700;border-radius:12px;text-decoration:none;border:none;cursor:pointer;font-family:inherit;transition:all .25s;display:inline-flex;align-items:center;gap:.5rem;letter-spacing:.025em;box-shadow:0 6px 24px rgba(91,33,182,.35)}
+.btn-fill{background:linear-gradient(135deg,var(--p),var(--p3));color:#fff;padding:.9rem 2.2rem;font-size:.82rem;font-weight:700;border-radius:12px;text-decoration:none;border:none;cursor:pointer;font-family:inherit;transition:all .25s;display:inline-flex;align-items:center;gap:.5rem;letter-spacing:.015em;box-shadow:0 6px 24px rgba(91,33,182,.35)}
 .btn-fill:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(91,33,182,.5)}
-.btn-out{border:1.5px solid var(--border2);color:var(--p2);padding:.9rem 2.2rem;font-size:.8rem;font-weight:600;border-radius:12px;text-decoration:none;transition:all .25s;background:rgba(255,255,255,.6);backdrop-filter:blur(8px);display:inline-flex;align-items:center;gap:.5rem}
+.btn-out{border:1.5px solid var(--border2);color:var(--p2);padding:.9rem 2.2rem;font-size:.82rem;font-weight:600;border-radius:12px;text-decoration:none;transition:all .25s;background:rgba(255,255,255,.6);backdrop-filter:blur(8px);display:inline-flex;align-items:center;gap:.5rem}
 .btn-out:hover{background:rgba(91,33,182,.06);border-color:var(--p3);transform:translateY(-1px)}
 .proof{display:flex;align-items:center;gap:1rem}
 .avs{display:flex}
@@ -77,52 +71,31 @@ h1 .w3{display:block;color:var(--ink3);font-size:.72em;letter-spacing:-.02em;fon
 .av1{background:linear-gradient(135deg,#5b21b6,#7c3aed)}
 .av2{background:linear-gradient(135deg,#4338ca,#6d28d9)}
 .av3{background:linear-gradient(135deg,#7c3aed,#a78bfa)}
-.proof-txt{font-size:.78rem;color:var(--ink2);font-weight:500;margin-left:18px}
-.proof-txt b{color:var(--ink);font-weight:800}
-
-/* right – 3D canvas */
+.proof-txt{font-size:.8rem;color:var(--ink2);font-weight:500;margin-left:18px}
+.proof-txt b{color:var(--ink);font-weight:700}
 .hr{position:relative;z-index:5;display:flex;align-items:center;justify-content:center;height:580px}
 #three{position:absolute;inset:0;width:100%!important;height:100%!important}
-
-/* floating badges — on light bg */
-.badge{position:absolute;background:rgba(255,255,255,.92);border:1.5px solid var(--border2);border-radius:14px;backdrop-filter:blur(16px);box-shadow:0 8px 28px rgba(91,33,182,.14);z-index:10}
-.badge-a{bottom:2.5rem;right:0;padding:.9rem 1.2rem;display:flex;flex-direction:column;gap:.3rem;animation:bfloat 4s ease-in-out infinite}
-.badge-b{top:3rem;left:0;padding:.75rem 1.1rem;display:flex;align-items:center;gap:.7rem;animation:bfloat 4s ease-in-out infinite;animation-delay:-2s}
-@keyframes bfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.b-num{font-size:1.6rem;font-weight:800;color:var(--ink);letter-spacing:-.04em;line-height:1}
-.b-num span{color:var(--p3);font-size:.9rem}
-.b-lbl{font-size:.6rem;color:var(--ink3);font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-.b-ico{width:32px;height:32px;background:linear-gradient(135deg,var(--p),var(--p3));border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;box-shadow:0 4px 12px var(--glow)}
-.b-ttl{font-size:.76rem;font-weight:700;color:var(--ink);letter-spacing:-.01em}
-.b-sub{font-size:.6rem;color:var(--ink3);font-weight:500}
 
 @media(max-width:920px){.hero{grid-template-columns:1fr;padding-top:110px;text-align:center}.hr{height:360px;order:-1}.h-btns,.proof{justify-content:center}}
 @media(max-width:500px){.hr{height:300px}}
 
-/* ── MARQUEE ── */
-.mq{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(232,226,255,.6);padding:.88rem 0;position:relative;z-index:2}
-.mq-track{display:flex;animation:mq 24s linear infinite;white-space:nowrap}
-.mq-item{display:inline-flex;align-items:center;gap:1rem;padding:0 2.2rem;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);font-weight:700}
-.mq-sep{width:4px;height:4px;background:var(--p3);border-radius:50%;flex-shrink:0}
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
 /* ── SECTIONS ── */
 .sec{padding:5rem 6%;position:relative;z-index:2}
 .services.sec{padding:4rem 6%}
-.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--p2);margin-bottom:1rem}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--p2);margin-bottom:1rem}
 .eyebrow::before{content:'';width:16px;height:2px;background:var(--p2);border-radius:1px}
-.stitle{font-size:clamp(2.1rem,3.6vw,3.4rem);font-weight:800;line-height:1;letter-spacing:-.04em;color:var(--ink);margin-bottom:.6rem}
-.stitle .s{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--p3)}
-.ssub{font-size:.92rem;color:var(--ink2);line-height:1.75;max-width:400px}
+.stitle{font-size:clamp(2rem,3.4vw,3.2rem);font-weight:800;line-height:1.02;letter-spacing:-.035em;color:var(--ink);margin-bottom:.6rem}
+.stitle .s{font-style:italic;color:var(--p3)}
+.ssub{font-size:.94rem;color:var(--ink2);line-height:1.75;max-width:400px}
 
 /* SERVICES */
 .services{background:var(--bg);border-top:1px solid var(--border)}
-.svc-head{margin-bottom:1.8rem}
+.svc-head{margin-bottom:1.8rem;display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap}
 
 /* TABS */
 .svc-tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:0;overflow-x:auto;scrollbar-width:none}
 .svc-tabs::-webkit-scrollbar{display:none}
-.svc-tab{display:flex;align-items:center;gap:.45rem;padding:.7rem 1.2rem;font-size:.72rem;font-weight:700;color:var(--ink3);background:none;border:none;border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer;font-family:inherit;letter-spacing:.01em;transition:all .25s;white-space:nowrap;flex-shrink:0}
+.svc-tab{display:flex;align-items:center;gap:.45rem;padding:.7rem 1.2rem;font-size:.76rem;font-weight:600;color:var(--ink3);background:none;border:none;border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer;font-family:inherit;letter-spacing:.005em;transition:all .25s;white-space:nowrap;flex-shrink:0}
 .svc-tab svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 .svc-tab:hover{color:var(--p2);background:rgba(91,33,182,.04)}
 .svc-tab.active{color:var(--p2);border-bottom-color:var(--p3)}
@@ -142,18 +115,18 @@ h1 .w3{display:block;color:var(--ink3);font-size:.72em;letter-spacing:-.02em;fon
 .svc-panel-icon-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(139,92,246,.15),transparent 60%)}
 .svc-panel-icon-bg svg{width:52px;height:52px;stroke:var(--p3);fill:none;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;position:relative;z-index:1}
 .svc-panel-stat{background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:.65rem 1rem;display:flex;align-items:center;gap:.8rem;backdrop-filter:blur(8px)}
-.svc-stat-num{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.3rem;color:var(--ink);line-height:1;letter-spacing:-.03em}
-.svc-stat-num span{font-size:.72rem;color:var(--p3);font-family:'Syne',sans-serif;font-style:normal}
-.svc-stat-lbl{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.svc-stat-num{font-style:italic;font-size:1.3rem;color:var(--ink);line-height:1;letter-spacing:-.03em;font-weight:700}
+.svc-stat-num span{font-size:.72rem;color:var(--p3);font-style:normal}
+.svc-stat-lbl{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
 
 .svc-panel-body{display:flex;flex-direction:column;gap:.75rem}
-.svc-panel-h{font-size:1.7rem;font-weight:800;color:var(--ink);letter-spacing:-.04em;line-height:1.05}
-.svc-panel-p{font-size:.84rem;color:var(--ink2);line-height:1.75}
+.svc-panel-h{font-size:1.7rem;font-weight:800;color:var(--ink);letter-spacing:-.03em;line-height:1.05}
+.svc-panel-p{font-size:.87rem;color:var(--ink2);line-height:1.78}
 .svc-bullets{list-style:none;display:flex;flex-direction:column;gap:.45rem;margin-top:.2rem}
-.svc-bullets li{font-size:.8rem;color:var(--ink2);display:flex;align-items:center;gap:.6rem}
+.svc-bullets li{font-size:.83rem;color:var(--ink2);display:flex;align-items:center;gap:.6rem}
 .svc-bullets li::before{content:'';width:5px;height:5px;background:var(--p3);border-radius:50%;flex-shrink:0;box-shadow:0 0 5px rgba(124,58,237,.4)}
 
-@media(max-width:820px){.svc-panel.active{grid-template-columns:1fr;gap:1.8rem}.svc-panel-icon-bg{max-width:140px}.svc-tab{padding:.6rem .9rem;font-size:.65rem}}
+@media(max-width:820px){.svc-panel.active{grid-template-columns:1fr;gap:1.8rem}.svc-panel-icon-bg{max-width:140px}.svc-tab{padding:.6rem .9rem;font-size:.7rem}}
 @media(max-width:500px){.svc-tab svg+*{display:none}.svc-tab{padding:.6rem .8rem}}
 
 /* CONTACT CARD */
@@ -162,15 +135,12 @@ h1 .w3{display:block;color:var(--ink3);font-size:.72em;letter-spacing:-.02em;fon
 .cc-icon{width:64px;height:64px;min-width:64px;background:linear-gradient(135deg,var(--p),var(--p3));border-radius:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px var(--glow);flex-shrink:0}
 .cc-icon svg{stroke:#fff}
 .cc-body{display:flex;flex-direction:column;gap:.4rem}
-.cc-label{font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
+.cc-label{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
 .cc-email{font-size:1.05rem;font-weight:800;color:var(--p2);letter-spacing:-.02em;word-break:break-all}
-.cc-hint{font-size:.75rem;color:var(--ink3);font-weight:500}
+.cc-hint{font-size:.78rem;color:var(--ink3);font-weight:500}
 .contact-card:hover .cc-email{color:var(--p)}
 @media(max-width:560px){.contact-card{flex-direction:column;text-align:center;padding:2rem 1.5rem}.cc-icon{margin:0 auto}}
 
-/* SERVICES */
-.services{background:var(--bg);border-top:1px solid var(--border)}
-.svc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:2rem}
 /* WHY */
 .why{background:var(--bg2);border-top:1px solid var(--border)}
 .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
@@ -179,17 +149,17 @@ h1 .w3{display:block;color:var(--ink3);font-size:.72em;letter-spacing:-.02em;fon
 .wp:first-child{border-top:1px solid var(--border)}
 .wp:hover .wp-n{background:var(--p2);border-color:var(--p2);color:#fff;box-shadow:0 4px 14px var(--glow)}
 .wp-n{width:33px;height:33px;min-width:33px;border-radius:8px;border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:var(--p3);transition:all .25s}
-.wp h4{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:.32rem;letter-spacing:-.015em}
-.wp p{font-size:.8rem;color:var(--ink2);line-height:1.7}
+.wp h4{font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:.32rem;letter-spacing:-.01em}
+.wp p{font-size:.83rem;color:var(--ink2);line-height:1.72}
 .stats-col{margin-top:2.5rem;display:flex;flex-direction:column;gap:.9rem}
 .sc{background:var(--surface);border:1px solid var(--border2);border-radius:18px;padding:2rem;position:relative;overflow:hidden;transition:all .3s;backdrop-filter:blur(8px)}
 .sc:hover{border-color:rgba(91,33,182,.35);box-shadow:0 12px 36px rgba(91,33,182,.1);transform:translateY(-2px)}
 .sc::after{content:'';position:absolute;top:0;right:0;width:100px;height:100px;background:radial-gradient(circle,rgba(91,33,182,.07),transparent 70%)}
 .sc-row{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:.5rem}
-.sc-num{font-family:'Instrument Serif',serif;font-style:italic;font-size:3.2rem;color:var(--ink);line-height:1;letter-spacing:-.03em}
+.sc-num{font-style:italic;font-size:3.2rem;color:var(--ink);line-height:1;letter-spacing:-.03em;font-weight:700}
 .sc-num .a{color:var(--p3);font-size:1.5rem}
-.sc-lbl{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
-.sc-desc{font-size:.79rem;color:var(--ink2);line-height:1.65}
+.sc-lbl{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.sc-desc{font-size:.82rem;color:var(--ink2);line-height:1.68}
 .sc-row2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
 .sc-sm{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.5rem;transition:all .3s;backdrop-filter:blur(8px)}
 .sc-sm:hover{border-color:var(--border2)}
@@ -197,62 +167,40 @@ h1 .w3{display:block;color:var(--ink3);font-size:.72em;letter-spacing:-.02em;fon
 .sc-sm .a{font-size:1.1rem}
 @media(max-width:820px){.why-grid{grid-template-columns:1fr;gap:3rem}}
 
-/* TEAM */
-.team{background:var(--bg);border-top:1px solid var(--border)}
-.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:3rem}
-.tc{border:1px solid var(--border);border-radius:20px;padding:2rem 1.75rem;background:var(--surface);transition:all .3s;position:relative;overflow:hidden;cursor:default;backdrop-filter:blur(8px)}
-.tc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--p2),var(--p5));transform:scaleX(0);transform-origin:left;transition:transform .4s}
-.tc:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(91,33,182,.12);border-color:var(--border2)}
-.tc:hover::after{transform:scaleX(1)}
-.t-av{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--p),var(--p3));display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;margin-bottom:1.2rem;position:relative;box-shadow:0 6px 18px rgba(91,33,182,.28)}
-.t-live{position:absolute;bottom:-2px;right:-2px;width:12px;height:12px;background:#22c55e;border-radius:50%;border:2px solid var(--bg);box-shadow:0 0 6px rgba(34,197,94,.5)}
-.t-name{font-size:.93rem;font-weight:800;color:var(--ink);margin-bottom:.24rem;letter-spacing:-.02em}
-.t-role{font-size:.74rem;color:var(--ink2);margin-bottom:.9rem}
-.t-chip{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(91,33,182,.08);border:1px solid var(--border);color:var(--p2);padding:.26rem .65rem;border-radius:999px;display:inline-block}
-@media(max-width:840px){.team-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:480px){.team-grid{grid-template-columns:1fr}}
-
 /* CONTACT */
 .contact{background:var(--bg2);border-top:1px solid var(--border)}
 .c-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:6rem;align-items:start}
 .c-meta{margin-top:2.5rem;display:flex;flex-direction:column;gap:1.7rem}
-.c-lbl{font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);margin-bottom:.32rem}
-.c-val{font-size:.9rem;color:var(--ink);line-height:1.65}
+.c-lbl{font-size:.63rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);margin-bottom:.32rem}
+.c-val{font-size:.92rem;color:var(--ink);line-height:1.65}
 .c-val a{color:var(--p3);text-decoration:none;font-weight:600}
-.c-form{background:var(--surface);border:1px solid var(--border2);border-radius:24px;padding:2.75rem;margin-top:2.5rem;display:flex;flex-direction:column;gap:1.2rem;box-shadow:0 8px 40px rgba(91,33,182,.08);backdrop-filter:blur(12px)}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.fg{display:flex;flex-direction:column;gap:.4rem}
-.fg label{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
-.fg input,.fg select,.fg textarea{background:rgba(91,33,182,.04);border:1.5px solid var(--border);border-radius:10px;padding:.78rem 1rem;font-size:.86rem;font-family:inherit;color:var(--ink);outline:none;transition:all .2s;width:100%;appearance:none}
-.fg input::placeholder,.fg textarea::placeholder{color:var(--ink4)}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--p3);background:rgba(91,33,182,.03);box-shadow:0 0 0 3px rgba(91,33,182,.1)}
-.fg textarea{min-height:96px;resize:vertical}
-.fg select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b5b99' stroke-width='1.5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
-.f-btn{background:linear-gradient(135deg,var(--p),var(--p3));color:#fff;border:none;padding:1rem 2.4rem;font-size:.8rem;font-weight:700;border-radius:10px;cursor:pointer;transition:all .25s;font-family:inherit;display:flex;align-items:center;gap:.5rem;align-self:flex-start;letter-spacing:.03em;box-shadow:0 6px 22px rgba(91,33,182,.3)}
-.f-btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(91,33,182,.45)}
 @media(max-width:820px){.c-grid{grid-template-columns:1fr;gap:3rem}}
-@media(max-width:480px){.frow{grid-template-columns:1fr}.c-form{padding:1.75rem}}
 
 /* FOOTER */
 footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;position:relative;z-index:2}
-.f-logo{font-size:1.05rem;font-weight:800;color:#fff;letter-spacing:-.025em;display:flex;align-items:center;gap:8px}
+.f-logo{font-size:1.05rem;font-weight:800;color:#fff;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
 .f-logo .d{color:var(--p5)}
-.f-copy{font-size:.7rem;color:rgba(255,255,255,.35);letter-spacing:.05em}
+.f-copy{font-size:.72rem;color:rgba(255,255,255,.35);letter-spacing:.04em}
 @media(max-width:480px){footer{flex-direction:column;text-align:center}}
 
 /* REVEAL */
-.rv{opacity:0;transform:translateY(26px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
-.rv.in{opacity:1;transform:none}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1);will-change:opacity,transform}
+.rv.in{opacity:1;transform:translateY(0)}
 .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}
+
+/* Service tag */
+.svc-tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(91,33,182,.08);border:1px solid var(--border);color:var(--p2);padding:.28rem .7rem;border-radius:999px;margin-bottom:.1rem}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a class="logo" href="#"><span class="logo-ring">ET</span>Elite Talent</a>
+  <a class="logo" href="javascript:void(0)">
+    <span class="logo-ring">ET</span>Elite Talent
+  </a>
   <ul class="nav-links">
-    <li><a href="#" class="act">Home</a></li>
+    <li><a href="javascript:void(0)" class="act">Home</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -270,12 +218,11 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
 <!-- HERO -->
 <section class="hero">
   <div class="hero-glow"></div>
-
   <div class="hl rv">
     <h1>
       <span class="w1">Step into the</span>
       <span class="w2">future</span>
-      <span class="w3">of IT & Pharma solutions</span>
+      <span class="w3">of IT &amp; Pharma solutions</span>
     </h1>
     <p class="hero-p">Elite Talent Solutions delivers expert IT services, cloud infrastructure, and cybersecurity — and we go further. We are a trusted technology partner for pharmaceutical companies, providing specialised solutions across regulatory compliance, data integrity, clinical systems, and pharma-grade IT infrastructure. One partner. Two industries. Zero compromise.</p>
     <div class="h-btns">
@@ -283,51 +230,21 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
       <a class="btn-out" href="#contact">Contact Us</a>
     </div>
   </div>
-
   <div class="hr rv d1">
     <canvas id="three"></canvas>
-    <!-- <div class="badge badge-a">
-      <div class="b-num">99.9<span>%</span></div>
-      <div class="b-lbl">Uptime SLA</div>
-    </div>
-    <div class="badge badge-b">
-      <div class="b-ico">⚡</div>
-      <div><div class="b-ttl">4-Hour Response</div><div class="b-sub">Guaranteed SLA</div></div>
-    </div>
-  </div> -->
-</section>
-
-<!-- MARQUEE -->
-<div class="mq">
-  <div class="mq-track">
-    <span class="mq-item"><span class="mq-sep"></span>Cloud Infrastructure</span>
-    <span class="mq-item"><span class="mq-sep"></span>Cybersecurity</span>
-    <span class="mq-item"><span class="mq-sep"></span>Managed IT Services</span>
-    <span class="mq-item"><span class="mq-sep"></span>Data & Analytics</span>
-    <span class="mq-item"><span class="mq-sep"></span>System Integration</span>
-    <span class="mq-item"><span class="mq-sep"></span>Software Development</span>
-    <span class="mq-item"><span class="mq-sep"></span>AWS · Azure · GCP</span>
-    <span class="mq-item"><span class="mq-sep"></span>CISSP · SOC2</span>
-    <span class="mq-item"><span class="mq-sep"></span>Cloud Infrastructure</span>
-    <span class="mq-item"><span class="mq-sep"></span>Cybersecurity</span>
-    <span class="mq-item"><span class="mq-sep"></span>Managed IT Services</span>
-    <span class="mq-item"><span class="mq-sep"></span>Data & Analytics</span>
-    <span class="mq-item"><span class="mq-sep"></span>System Integration</span>
-    <span class="mq-item"><span class="mq-sep"></span>Software Development</span>
-    <span class="mq-item"><span class="mq-sep"></span>AWS · Azure · GCP</span>
-    <span class="mq-item"><span class="mq-sep"></span>CISSP · SOC2</span>
   </div>
-</div>
+</section>
 
 <!-- SERVICES -->
 <section class="sec services" id="services">
   <div class="svc-head rv">
-    <div class="eyebrow">Services</div>
-    <div class="stitle">What we <span class="s">do well</span></div>
-    <div class="ssub" style="margin-top:.6rem">A focused set of services delivered with uncommon depth and consistency.</div>
+    <div>
+      <div class="eyebrow">Services</div>
+      <div class="stitle">What we <span class="s">do well</span></div>
+      <div class="ssub" style="margin-top:.6rem">A focused set of services delivered with uncommon depth and consistency.</div>
+    </div>
   </div>
 
-  <!-- TAB NAV -->
   <div class="svc-tabs rv" id="svcTabs">
     <button class="svc-tab active" data-idx="0">
       <svg viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
@@ -343,7 +260,7 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
     </button>
     <button class="svc-tab" data-idx="3">
       <svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
-      Data & Analytics
+      Data &amp; Analytics
     </button>
     <button class="svc-tab" data-idx="4">
       <svg viewBox="0 0 24 24"><path d="M8 6H5a2 2 0 00-2 2v3m0 4v3a2 2 0 002 2h3M16 6h3a2 2 0 012 2v3m0 4v3a2 2 0 01-2 2h-3"/><circle cx="12" cy="12" r="2"/></svg>
@@ -355,10 +272,8 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
     </button>
   </div>
 
-  <!-- PROGRESS BAR -->
   <div class="svc-progress-wrap"><div class="svc-progress-bar" id="svcBar"></div></div>
 
-  <!-- PANELS -->
   <div class="svc-panels">
 
     <div class="svc-panel active" data-idx="0">
@@ -374,9 +289,9 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
         <h3 class="svc-panel-h">Cloud Infrastructure</h3>
         <p class="svc-panel-p">Purpose-built AWS, Azure and GCP environments that scale with your business without scaling your bill. We design, migrate, and manage cloud architectures that are resilient, cost-optimised, and built for growth — from day one to enterprise scale.</p>
         <ul class="svc-bullets">
-          <li>Cloud migration & architecture design</li>
-          <li>Multi-cloud & hybrid deployments</li>
-          <li>Cost optimisation & auto-scaling</li>
+          <li>Cloud migration &amp; architecture design</li>
+          <li>Multi-cloud &amp; hybrid deployments</li>
+          <li>Cost optimisation &amp; auto-scaling</li>
           <li>24/7 infrastructure monitoring</li>
         </ul>
       </div>
@@ -395,9 +310,9 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
         <h3 class="svc-panel-h">Cybersecurity</h3>
         <p class="svc-panel-p">Continuous threat monitoring, compliance frameworks, and incident response built around your risk profile. Our certified professionals protect your data, infrastructure, and reputation with a proactive posture that anticipates threats before they strike.</p>
         <ul class="svc-bullets">
-          <li>Threat detection & response</li>
-          <li>SOC2 & ISO compliance frameworks</li>
-          <li>Penetration testing & audits</li>
+          <li>Threat detection &amp; response</li>
+          <li>SOC2 &amp; ISO compliance frameworks</li>
+          <li>Penetration testing &amp; audits</li>
           <li>Security awareness training</li>
         </ul>
       </div>
@@ -416,9 +331,9 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
         <h3 class="svc-panel-h">Managed IT Services</h3>
         <p class="svc-panel-p">Proactive monitoring and dedicated support that resolves issues before your team notices them. From helpdesk to infrastructure management, we become your embedded IT department — reliable, responsive, and always available when it matters most.</p>
         <ul class="svc-bullets">
-          <li>Proactive monitoring & alerting</li>
+          <li>Proactive monitoring &amp; alerting</li>
           <li>Dedicated helpdesk support</li>
-          <li>Patch & update management</li>
+          <li>Patch &amp; update management</li>
           <li>Disaster recovery planning</li>
         </ul>
       </div>
@@ -434,12 +349,12 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
       </div>
       <div class="svc-panel-body">
         <div class="svc-tag">Pipelines · AI-ready</div>
-        <h3 class="svc-panel-h">Data & Analytics</h3>
+        <h3 class="svc-panel-h">Data &amp; Analytics</h3>
         <p class="svc-panel-p">From raw data to real decisions — pipelines, dashboards, and AI-ready infrastructure tailored to your industry. We help pharma, healthcare, and enterprise clients turn complex datasets into actionable intelligence that drives growth and compliance.</p>
         <ul class="svc-bullets">
-          <li>Data pipeline design & engineering</li>
-          <li>BI dashboards & reporting</li>
-          <li>Pharma & healthcare data compliance</li>
+          <li>Data pipeline design &amp; engineering</li>
+          <li>BI dashboards &amp; reporting</li>
+          <li>Pharma &amp; healthcare data compliance</li>
           <li>AI/ML model infrastructure</li>
         </ul>
       </div>
@@ -458,10 +373,10 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
         <h3 class="svc-panel-h">System Integration</h3>
         <p class="svc-panel-p">ERP, CRM, and API integrations that make your existing tools communicate effortlessly. We bridge legacy systems with modern platforms so your operations flow without friction — reducing duplication, improving visibility, and accelerating decision-making.</p>
         <ul class="svc-bullets">
-          <li>ERP & CRM integration</li>
-          <li>REST & GraphQL API development</li>
+          <li>ERP &amp; CRM integration</li>
+          <li>REST &amp; GraphQL API development</li>
           <li>Legacy system modernisation</li>
-          <li>Real-time data sync & automation</li>
+          <li>Real-time data sync &amp; automation</li>
         </ul>
       </div>
     </div>
@@ -479,10 +394,10 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
         <h3 class="svc-panel-h">Software Development</h3>
         <p class="svc-panel-p">Custom web and enterprise applications designed around your workflows. Clean code, solid architecture, on-time delivery — every time. We build scalable solutions that evolve with your business and integrate seamlessly into your existing technology landscape.</p>
         <ul class="svc-bullets">
-          <li>Custom web & enterprise apps</li>
-          <li>Agile development & sprints</li>
-          <li>Code review & quality assurance</li>
-          <li>Long-term support & maintenance</li>
+          <li>Custom web &amp; enterprise apps</li>
+          <li>Agile development &amp; sprints</li>
+          <li>Code review &amp; quality assurance</li>
+          <li>Long-term support &amp; maintenance</li>
         </ul>
       </div>
     </div>
@@ -504,7 +419,7 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
       </div>
       <div class="cc-body">
         <div class="cc-label">Send us an email</div>
-        <div class="cc-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5b3834352f3a382f1b3e37322f3e2f3a373e352f762834372e2f3234352875383436">[email&#160;protected]</a></div>
+        <div class="cc-email">contact@elitetalent-solutions.com</div>
         <div class="cc-hint">Click to open your mail client →</div>
       </div>
     </div>
@@ -512,20 +427,24 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
 </section>
 
 <footer>
-  <div class="f-logo"><span class="logo-ring" style="width:26px;height:26px;font-size:.5rem">ET</span>Elite Talent<span class="d">.</span></div>
+  <div class="f-logo">
+    <span class="logo-ring" style="width:26px;height:26px;font-size:.5rem">ET</span>
+    Elite Talent<span class="d">.</span>
+  </div>
   <div class="f-copy">© 2026 Elite Talent Consulting · All Rights Reserved</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-// ═══════════════════════════════════════════════════════
-// HERO — PETAL RING
-//    Flat blade-like petals (like playing cards/fans)
-//    arranged in a ring. DARK VIOLET/PURPLE colours so
-//    they show on the light background.
-//    — Each petal individually spins on its own axis
-//    — The whole ring also rotates
-// ═══════════════════════════════════════════════════════
+// ── PREVENT SCROLL JUMPS — intercept all anchor clicks ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e){
+    const target = document.querySelector(this.getAttribute('href'));
+    if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+});
+
+// ── HERO 3D SCENE ──
 (function(){
   const canvas = document.getElementById('three');
   const container = canvas.parentElement;
@@ -546,77 +465,43 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
   resize();
   window.addEventListener('resize', resize);
 
-  // Root group — the whole ring rotates
   const ring = new THREE.Group();
   scene.add(ring);
 
-  const PETALS    = 30;
-  const RADIUS    = 1.7;
-
-  // ── CUBE SLAB geometry: L = B, H = 20% of L ──
-  // Each cube is a square tile — proper 3D, not flat rectangle
-  const SLAB_L = 0.52;                          // length & breadth
-  const SLAB_H = SLAB_L * 0.2;                 // height = 20% only
+  const PETALS = 30;
+  const RADIUS = 1.7;
+  const SLAB_L = 0.52;
+  const SLAB_H = SLAB_L * 0.2;
   const slabGeo = new THREE.BoxGeometry(SLAB_L, SLAB_H, SLAB_L);
-
-  // Two materials: deep violet face + medium violet for sides
-  // Using a single MeshPhongMaterial — directional lights give face contrast
   const SLAB_COLS = [0x3b0764, 0x4c1d95, 0x5b21b6, 0x6d28d9, 0x7c3aed, 0x4338ca];
-
-  // Store inner groups for individual spinning
   const petalGroups = [];
 
   for(let i = 0; i < PETALS; i++){
     const angle = (i / PETALS) * Math.PI * 2;
-
     const px = Math.cos(angle) * RADIUS;
     const py = Math.sin(angle) * RADIUS;
-
-    // Outer wrapper — positions cube on ring
     const outer = new THREE.Group();
     outer.position.set(px, py, 0);
-    // Orient so cube faces outward along ring tangent
     outer.rotation.z = angle + Math.PI / 2;
-
-    // Inner group — tilted for 3D fan look, spins individually
     const inner = new THREE.Group();
-    inner.rotation.x = 0.48;  // fan tilt — shows the slab thickness nicely
-
+    inner.rotation.x = 0.48;
     const col = SLAB_COLS[i % SLAB_COLS.length];
-    const mat = new THREE.MeshPhongMaterial({
-      color: col,
-      emissive: col,
-      emissiveIntensity: 0.18,
-      specular: 0xc4b5fd,
-      shininess: 90,
-    });
-
+    const mat = new THREE.MeshPhongMaterial({color:col, emissive:col, emissiveIntensity:0.18, specular:0xc4b5fd, shininess:90});
     inner.add(new THREE.Mesh(slabGeo, mat));
     outer.add(inner);
     ring.add(outer);
-
     petalGroups.push(inner);
   }
 
-  // Thin torus at ring centre
-  const torusMat = new THREE.MeshPhongMaterial({
-    color: 0x5b21b6,
-    emissive: 0x2e1065,
-    specular: 0xa78bfa,
-    shininess: 160
-  });
   ring.add(new THREE.Mesh(
     new THREE.TorusGeometry(RADIUS * 0.35, 0.05, 20, 80),
-    torusMat
+    new THREE.MeshPhongMaterial({color:0x5b21b6, emissive:0x2e1065, specular:0xa78bfa, shininess:160})
   ));
-
-  // Small sphere at very centre
   ring.add(new THREE.Mesh(
     new THREE.SphereGeometry(0.14, 32, 32),
     new THREE.MeshPhongMaterial({color:0x6d28d9, emissive:0x2e1065, specular:0xffffff, shininess:200})
   ));
 
-  // Orbit rings — dark violet so visible
   const orb1 = new THREE.Mesh(
     new THREE.TorusGeometry(2.4, 0.016, 16, 120),
     new THREE.MeshBasicMaterial({color:0x5b21b6, transparent:true, opacity:.5})
@@ -632,7 +517,6 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
   orb2.rotation.y = Math.PI / 5;
   scene.add(orb2);
 
-  // Particles — dark violet dots
   const pCount = 280;
   const pGeo = new THREE.BufferGeometry();
   const pArr = new Float32Array(pCount * 3);
@@ -645,34 +529,14 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
     pArr[i*3+2] = r * Math.cos(ph);
   }
   pGeo.setAttribute('position', new THREE.BufferAttribute(pArr, 3));
-  scene.add(new THREE.Points(pGeo,
-    new THREE.PointsMaterial({color:0x6d28d9, size:0.03, transparent:true, opacity:0.7})
-  ));
+  scene.add(new THREE.Points(pGeo, new THREE.PointsMaterial({color:0x6d28d9, size:0.03, transparent:true, opacity:0.7})));
 
-  // ── LIGHTS — make cube top/side/front faces clearly distinct ──
   scene.add(new THREE.AmbientLight(0xede9fe, 0.5));
+  const pt1 = new THREE.PointLight(0xa78bfa, 7.0, 16); pt1.position.set(4,6,4); scene.add(pt1);
+  const pt2 = new THREE.PointLight(0x6d28d9, 5.5, 14); pt2.position.set(-4,-2,5); scene.add(pt2);
+  const pt3 = new THREE.PointLight(0x4c1d95, 4.0, 10); pt3.position.set(0,-5,-5); scene.add(pt3);
+  const pt4 = new THREE.PointLight(0xc026d3, 4.5, 9);  pt4.position.set(5,2,2);  scene.add(pt4);
 
-  // Top-right key — brightens top face of each slab
-  const pt1 = new THREE.PointLight(0xa78bfa, 7.0, 16);
-  pt1.position.set(4, 6, 4);
-  scene.add(pt1);
-
-  // Front fill — lights front face differently from top
-  const pt2 = new THREE.PointLight(0x6d28d9, 5.5, 14);
-  pt2.position.set(-4, -2, 5);
-  scene.add(pt2);
-
-  // Rim from behind-below — darkens back/bottom for depth
-  const pt3 = new THREE.PointLight(0x4c1d95, 4.0, 10);
-  pt3.position.set(0, -5, -5);
-  scene.add(pt3);
-
-  // Pink-violet accent — adds the magenta highlight on slab edges
-  const pt4 = new THREE.PointLight(0xc026d3, 4.5, 9);
-  pt4.position.set(5, 2, 2);
-  scene.add(pt4);
-
-  // ── MOUSE ──
   let mx = 0, my = 0, tmx = 0, tmy = 0;
   document.addEventListener('mousemove', e => {
     mx = (e.clientX / window.innerWidth  - 0.5) * 2;
@@ -680,95 +544,68 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
   });
 
   let t = 0;
-  const PETAL_SPIN_SPEED = 0.025; // individual petal spin speed
-
   function animate(){
     requestAnimationFrame(animate);
     t += 0.007;
-
-    // Smooth mouse follow
     tmx += (mx - tmx) * 0.05;
     tmy += (my - tmy) * 0.05;
-
-    // WHOLE RING rotates (like reference)
-    ring.rotation.z  = t * 0.5;                   // spin the whole ring
-    ring.rotation.x  = 0.5 + tmy * 0.28;          // mouse tilt
-    ring.rotation.y  = t * 0.15 + tmx * 0.28;     // slow Y + mouse
-
-    // EACH PETAL spins individually on its own axis
-    petalGroups.forEach((p, i) => {
-      p.rotation.y = t * PETAL_SPIN_SPEED * (1 + i * 0.05);
-    });
-
-    // Orbit rings counter-rotate
+    ring.rotation.z  = t * 0.5;
+    ring.rotation.x  = 0.5 + tmy * 0.28;
+    ring.rotation.y  = t * 0.15 + tmx * 0.28;
+    petalGroups.forEach((p, i) => { p.rotation.y = t * 0.025 * (1 + i * 0.05); });
     orb1.rotation.z += 0.005;
     orb2.rotation.z -= 0.003;
-
-    // Breathing lights
     pt1.intensity = 5.5 + Math.sin(t * 1.3) * 1.2;
     pt2.intensity = 4.0 + Math.cos(t * 1.0) * 0.9;
     pt3.intensity = 4.5 + Math.sin(t * 0.8 + 1) * 1.0;
-
     renderer.render(scene, camera);
   }
   animate();
 })();
 
-
-// ── SERVICES TAB SLIDER ──
+// ── SERVICES TAB SLIDER — no pause on hover ──
 (function(){
   const DURATION = 5000;
-  const tabs = Array.from(document.querySelectorAll('.svc-tab'));
+  const tabs   = Array.from(document.querySelectorAll('.svc-tab'));
   const panels = Array.from(document.querySelectorAll('.svc-panel'));
-  const bar = document.getElementById('svcBar');
-  let current = 0, startTime = null, paused = false, rafId = null, elapsed = 0;
+  const bar    = document.getElementById('svcBar');
+  let current = 0, startTime = null, rafId = null;
 
   function showTab(idx){
     tabs.forEach(t => t.classList.remove('active'));
-    panels.forEach(p => { p.classList.remove('active'); p.style.display=''; });
+    panels.forEach(p => { p.classList.remove('active'); });
     tabs[idx].classList.add('active');
     panels[idx].classList.add('active');
-    tabs[idx].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
     current = idx;
   }
 
   function setBar(pct){
-    if(bar) bar.style.width = Math.min(pct,100) + '%';
+    if(bar) bar.style.width = Math.min(pct, 100) + '%';
   }
 
   function tick(ts){
     if(!startTime) startTime = ts;
-    if(!paused) elapsed = ts - startTime;
+    const elapsed = ts - startTime;
     const pct = (elapsed / DURATION) * 100;
     setBar(pct);
     if(elapsed >= DURATION){
       showTab((current + 1) % tabs.length);
       startTime = ts;
-      elapsed = 0;
       setBar(0);
     }
     rafId = requestAnimationFrame(tick);
   }
 
-  function restart(){
+  function restart(idx){
     cancelAnimationFrame(rafId);
+    showTab(idx);
     startTime = null;
-    elapsed = 0;
     setBar(0);
     rafId = requestAnimationFrame(tick);
   }
 
   tabs.forEach((tab, idx) => {
-    tab.addEventListener('click', () => { showTab(idx); restart(); });
-  });
-
-  // Pause on hover
-  const panelsEl = document.querySelector('.svc-panels');
-  panelsEl.addEventListener('mouseenter', () => { paused = true; });
-  panelsEl.addEventListener('mouseleave', () => {
-    paused = false;
-    // Adjust startTime so elapsed doesn't jump
-    startTime = performance.now() - elapsed;
+    tab.addEventListener('click', () => restart(idx));
   });
 
   showTab(0);
@@ -777,8 +614,10 @@ footer{background:var(--ink);padding:2.5rem 6%;display:flex;justify-content:spac
 
 // ── SCROLL REVEAL ──
 const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); revealObserver.unobserve(e.target); } });
-}, { threshold: 0.12 });
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('in'); revealObserver.unobserve(e.target); }
+  });
+}, { rootMargin: '0px 0px -60px 0px', threshold: 0 });
 document.querySelectorAll('.rv').forEach(el => revealObserver.observe(el));
 </script>
 </body>
