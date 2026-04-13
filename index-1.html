@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Talent Solutions — IT & Pharma Technology Partner</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#ffffff;
+  --bg:#fafafa;
+  --bg2:#f4f2ff;
+  --p:#5b21b6;
+  --p2:#6d28d9;
+  --p3:#7c3aed;
+  --p-light:#ede9fe;
+  --p-mid:#ddd6fe;
+  --ink:#111118;
+  --ink2:#3d3d52;
+  --ink3:#7b7b96;
+  --border:#e5e3f0;
+  --border2:#c4b5fd;
+  --radius:14px;
+  --radius-lg:20px;
+}
+html{scroll-behavior:auto;font-size:16px}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  background:rgba(255,255,255,0.96);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+}
+.nav-inner{
+  max-width:1140px;margin:0 auto;
+  padding:0 2rem;
+  height:64px;
+  display:flex;align-items:center;justify-content:space-between;gap:2rem;
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.logo-mark{
+  width:34px;height:34px;border-radius:9px;
+  background:var(--p);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.6rem;font-weight:900;color:#fff;letter-spacing:.03em;
+}
+.logo-name{font-size:.95rem;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.logo-name span{color:var(--p)}
+.nav-links{display:flex;list-style:none;gap:.25rem}
+.nav-links a{
+  font-size:.82rem;font-weight:600;color:var(--ink2);
+  text-decoration:none;padding:.42rem .9rem;border-radius:8px;
+  transition:background .18s,color .18s;
+}
+.nav-links a:hover{background:var(--p-light);color:var(--p)}
+.nav-cta{
+  background:var(--p);color:#fff;
+  padding:.5rem 1.25rem;font-size:.82rem;font-weight:700;
+  border-radius:9px;text-decoration:none;
+  transition:background .2s,transform .15s;
+  white-space:nowrap;flex-shrink:0;
+}
+.nav-cta:hover{background:var(--p2);transform:translateY(-1px)}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px}
+.burger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .25s}
+@media(max-width:720px){.nav-links{display:none}.burger{display:flex}}
+@media(max-width:480px){.nav-cta{display:none}}
+
+/* mob menu */
+.mob{
+  display:none;position:fixed;inset:0;z-index:890;
+  background:#fff;flex-direction:column;align-items:center;justify-content:center;gap:2rem;
+  border-top:1px solid var(--border);
+}
+.mob.open{display:flex}
+.mob a{font-size:1.5rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-.03em}
+.mob a:hover{color:var(--p)}
+.mob-x{position:absolute;top:1.2rem;right:1.4rem;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--ink3)}
+.mob-cta{background:var(--p);color:#fff!important;padding:.8rem 2.5rem;border-radius:12px;font-size:1.1rem!important}
+
+/* ─── HERO ─── */
+.hero{
+  padding:140px 2rem 100px;
+  max-width:1140px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 420px;
+  gap:4rem;align-items:center;
+}
+.hero-left{max-width:600px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--p-light);border:1.5px solid var(--p-mid);
+  border-radius:999px;padding:.3rem .9rem;
+  font-size:.72rem;font-weight:700;color:var(--p);
+  letter-spacing:.07em;text-transform:uppercase;
+  margin-bottom:1.8rem;
+}
+.badge-dot{width:6px;height:6px;background:var(--p3);border-radius:50%}
+h1{
+  font-size:clamp(2.4rem,4.5vw,3.8rem);
+  font-weight:900;line-height:1.05;
+  letter-spacing:-.04em;
+  color:var(--ink);
+  margin-bottom:1.4rem;
+}
+h1 em{
+  font-style:normal;color:var(--p);
+}
+.hero-desc{
+  font-size:1.05rem;line-height:1.78;
+  color:var(--ink2);
+  margin-bottom:2.2rem;
+  max-width:520px;
+}
+.hero-actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:3rem}
+.btn-primary{
+  background:var(--p);color:#fff;
+  padding:.85rem 2rem;font-size:.88rem;font-weight:700;
+  border-radius:var(--radius);text-decoration:none;
+  display:inline-flex;align-items:center;gap:.45rem;
+  transition:background .2s,transform .15s;
+  box-shadow:0 4px 16px rgba(91,33,182,.3);
+}
+.btn-primary:hover{background:var(--p2);transform:translateY(-2px)}
+.btn-secondary{
+  border:1.5px solid var(--border2);color:var(--p);
+  padding:.85rem 2rem;font-size:.88rem;font-weight:600;
+  border-radius:var(--radius);text-decoration:none;
+  background:#fff;
+  display:inline-flex;align-items:center;gap:.45rem;
+  transition:border-color .2s,background .2s,transform .15s;
+}
+.btn-secondary:hover{border-color:var(--p3);background:var(--p-light);transform:translateY(-1px)}
+
+/* trust bar */
+.trust{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:.45rem;font-size:.78rem;color:var(--ink2);font-weight:500}
+.trust-item svg{width:15px;height:15px;stroke:var(--p3);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.trust-sep{width:1px;height:16px;background:var(--border)}
+
+/* hero right — stats card cluster */
+.hero-right{display:flex;flex-direction:column;gap:1rem}
+.hcard{
+  background:#fff;border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:1.4rem 1.6rem;
+}
+.hcard-top{display:flex;align-items:center;gap:.8rem;margin-bottom:.6rem}
+.hcard-icon{
+  width:36px;height:36px;border-radius:9px;
+  background:var(--p-light);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.hcard-icon svg{width:17px;height:17px;stroke:var(--p);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hcard-label{font-size:.72rem;font-weight:700;color:var(--ink3);letter-spacing:.08em;text-transform:uppercase}
+.hcard-num{font-size:2.2rem;font-weight:900;color:var(--ink);letter-spacing:-.04em;line-height:1}
+.hcard-num sup{font-size:1rem;color:var(--p);font-weight:700;vertical-align:super}
+.hcard-desc{font-size:.8rem;color:var(--ink3);margin-top:.3rem;line-height:1.5}
+.hcard-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.hcard.small{padding:1.1rem 1.4rem}
+.hcard.small .hcard-num{font-size:1.6rem}
+
+/* pill pair in hero */
+.industries{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.5rem}
+.ind-pill{
+  background:var(--p-light);border:1px solid var(--p-mid);
+  color:var(--p);font-size:.75rem;font-weight:700;
+  padding:.35rem .9rem;border-radius:999px;
+  letter-spacing:.04em;
+}
+
+@media(max-width:960px){.hero{grid-template-columns:1fr;padding:120px 1.5rem 60px}.hero-right{display:grid;grid-template-columns:1fr 1fr}.hcard-row{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.hero-right{grid-template-columns:1fr}.hero{padding:110px 1.25rem 50px}}
+
+/* ─── DIVIDER ─── */
+.divider{height:1px;background:var(--border);margin:0}
+
+/* ─── SECTION BASE ─── */
+.sec{padding:5.5rem 2rem;max-width:1140px;margin:0 auto}
+.sec-full{padding:5.5rem 0}
+.sec-full .sec-inner{padding:0 2rem;max-width:1140px;margin:0 auto}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.68rem;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--p);margin-bottom:.9rem;
+}
+.eyebrow::before{content:'';width:18px;height:2px;background:var(--p);border-radius:1px}
+.sec-title{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;letter-spacing:-.035em;color:var(--ink);margin-bottom:.7rem;line-height:1.1}
+.sec-title em{font-style:normal;color:var(--p)}
+.sec-sub{font-size:.97rem;color:var(--ink2);line-height:1.75;max-width:480px}
+
+/* ─── SERVICES ─── */
+.services-section{background:#fff}
+.svc-layout{margin-top:3.5rem;display:grid;grid-template-columns:260px 1fr;gap:0;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
+.svc-sidebar{background:var(--bg);border-right:1px solid var(--border);padding:1.2rem 0}
+.svc-btn{
+  display:flex;align-items:center;gap:.75rem;
+  width:100%;padding:.8rem 1.4rem;
+  background:none;border:none;cursor:pointer;
+  font-family:inherit;font-size:.84rem;font-weight:600;
+  color:var(--ink2);text-align:left;
+  border-left:3px solid transparent;
+  transition:all .18s;
+}
+.svc-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;opacity:.6}
+.svc-btn:hover{background:#fff;color:var(--p)}
+.svc-btn.active{background:#fff;color:var(--p);border-left-color:var(--p);font-weight:700}
+.svc-btn.active svg{opacity:1}
+.svc-content{padding:2.5rem 2.8rem;background:#fff}
+.svc-panel{display:none}
+.svc-panel.active{display:block}
+.svc-panel-tag{
+  display:inline-block;font-size:.65rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  background:var(--p-light);color:var(--p);
+  border:1px solid var(--p-mid);
+  padding:.28rem .75rem;border-radius:999px;margin-bottom:1.1rem;
+}
+.svc-panel h3{font-size:1.55rem;font-weight:800;color:var(--ink);letter-spacing:-.03em;margin-bottom:.8rem;line-height:1.1}
+.svc-panel p{font-size:.91rem;color:var(--ink2);line-height:1.8;margin-bottom:1.4rem}
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.svc-item{
+  display:flex;align-items:flex-start;gap:.6rem;
+  padding:.7rem .9rem;background:var(--bg);
+  border-radius:10px;border:1px solid var(--border);
+}
+.svc-item::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--p);flex-shrink:0;margin-top:.45rem;
+}
+.svc-item-text{font-size:.8rem;color:var(--ink2);font-weight:500;line-height:1.45}
+.svc-stats{display:flex;gap:1.5rem;margin-top:1.6rem;padding-top:1.4rem;border-top:1px solid var(--border)}
+.svc-stat{display:flex;flex-direction:column;gap:.2rem}
+.svc-stat-n{font-size:1.5rem;font-weight:900;color:var(--ink);letter-spacing:-.04em}
+.svc-stat-n em{font-style:normal;color:var(--p);font-size:1rem}
+.svc-stat-l{font-size:.65rem;font-weight:700;color:var(--ink3);letter-spacing:.1em;text-transform:uppercase}
+
+@media(max-width:820px){.svc-layout{grid-template-columns:1fr}.svc-sidebar{border-right:none;border-bottom:1px solid var(--border);padding:.5rem;display:flex;flex-wrap:nowrap;overflow-x:auto;gap:.25rem}.svc-btn{white-space:nowrap;border-left:none;border-bottom:3px solid transparent;border-radius:8px;flex-shrink:0}.svc-btn.active{border-left:none;border-bottom-color:var(--p);background:var(--p-light)}.svc-content{padding:1.8rem 1.4rem}.svc-grid{grid-template-columns:1fr}}
+@media(max-width:500px){.svc-stats{flex-wrap:wrap;gap:1rem}}
+
+/* ─── WHY US ─── */
+.why-section{background:var(--bg2)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start;margin-top:3rem}
+.why-points{display:flex;flex-direction:column;gap:0}
+.why-point{display:flex;gap:1rem;padding:1.4rem 0;border-bottom:1px solid var(--border)}
+.why-point:first-child{border-top:1px solid var(--border)}
+.wp-num{
+  width:30px;height:30px;min-width:30px;border-radius:8px;
+  border:1.5px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;font-weight:800;color:var(--p);
+  flex-shrink:0;margin-top:.1rem;
+  transition:all .2s;
+}
+.why-point:hover .wp-num{background:var(--p);border-color:var(--p);color:#fff}
+.wp-title{font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:.3rem;letter-spacing:-.01em}
+.wp-desc{font-size:.83rem;color:var(--ink2);line-height:1.7}
+.stats-cards{display:flex;flex-direction:column;gap:.9rem}
+.stat-card{
+  background:#fff;border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:1.8rem 2rem;
+  transition:transform .2s,box-shadow .2s;
+}
+.stat-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(91,33,182,.08)}
+.stat-card-num{font-size:3rem;font-weight:900;color:var(--ink);letter-spacing:-.05em;line-height:1}
+.stat-card-num em{font-style:normal;color:var(--p);font-size:1.5rem}
+.stat-card-label{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-top:.3rem}
+.stat-card-desc{font-size:.82rem;color:var(--ink2);margin-top:.6rem;line-height:1.65}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.stat-card.sm .stat-card-num{font-size:2rem}
+.stat-card.sm em{font-size:1rem}
+@media(max-width:820px){.why-grid{grid-template-columns:1fr;gap:2.5rem}.stat-row{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.stat-row{grid-template-columns:1fr}}
+
+/* ─── INDUSTRIES ─── */
+.industries-section{background:#fff}
+.ind-cards{margin-top:3rem;display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.ind-card{
+  border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:2rem 2.2rem;background:#fff;
+  transition:border-color .2s,transform .2s,box-shadow .2s;
+}
+.ind-card:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 12px 32px rgba(91,33,182,.09)}
+.ind-card-icon{
+  width:46px;height:46px;border-radius:12px;
+  background:var(--p-light);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.2rem;
+}
+.ind-card-icon svg{width:22px;height:22px;stroke:var(--p);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ind-card h3{font-size:1.05rem;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin-bottom:.6rem}
+.ind-card p{font-size:.85rem;color:var(--ink2);line-height:1.72}
+.ind-card ul{list-style:none;margin-top:.9rem;display:flex;flex-direction:column;gap:.4rem}
+.ind-card li{font-size:.8rem;color:var(--ink2);display:flex;align-items:center;gap:.5rem}
+.ind-card li::before{content:'';width:5px;height:5px;background:var(--p);border-radius:50%;flex-shrink:0}
+@media(max-width:700px){.ind-cards{grid-template-columns:1fr}}
+
+/* ─── HERO CARD EXTRAS ─── */
+.hcard-visual .hcard-top{margin-bottom:1rem}
+.hcard-sublabel{font-size:.72rem;color:var(--ink3);font-weight:500;margin-top:.1rem}
+.cloud-bars{display:flex;flex-direction:column;gap:.6rem}
+.cloud-bar-row{display:flex;align-items:center;gap:.6rem}
+.cloud-bar-name{font-size:.72rem;font-weight:700;color:var(--ink2);width:36px;flex-shrink:0}
+.cloud-bar-track{flex:1;height:6px;background:var(--p-light);border-radius:99px;overflow:hidden}
+.cloud-bar-fill{height:100%;border-radius:99px;transition:width .4s ease}
+.cloud-bar-tag{font-size:.62rem;font-weight:700;color:var(--p);background:var(--p-light);border:1px solid var(--p-mid);padding:.15rem .5rem;border-radius:99px;white-space:nowrap;flex-shrink:0}
+.hcard-feature{display:flex;flex-direction:column;gap:.4rem}
+.feature-icon-wrap{width:38px;height:38px;border-radius:10px;background:var(--p-light);display:flex;align-items:center;justify-content:center;margin-bottom:.3rem;flex-shrink:0}
+.feature-title{font-size:.9rem;font-weight:800;color:var(--ink);letter-spacing:-.015em}
+.feature-desc{font-size:.75rem;color:var(--ink3);line-height:1.5}
+.feature-badge{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--p-light);color:var(--p);border:1px solid var(--p-mid);padding:.2rem .55rem;border-radius:99px;margin-top:.3rem;align-self:flex-start}
+
+/* ─── CONTACT SOLO ─── */
+.contact-solo{margin-top:2.8rem;max-width:760px;margin-left:auto;margin-right:auto}
+.contact-meta-row{display:flex;gap:0;background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg) var(--radius-lg) 0 0;overflow:hidden;border-bottom:none}
+.contact-meta-row .c-detail{flex:1;padding:1.5rem 1.8rem}
+.c-sep{width:1px;background:var(--border);flex-shrink:0}
+.email-cta-hero{
+  display:flex;align-items:center;gap:1.2rem;
+  background:var(--p);border-radius:0 0 var(--radius-lg) var(--radius-lg);
+  padding:1.5rem 2rem;text-decoration:none;
+  transition:background .2s;border:1px solid var(--p);
+}
+.email-cta-hero:hover{background:var(--p2)}
+.email-icon-lg{width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.email-cta-body{flex:1}
+.email-cta-title{font-size:.88rem;font-weight:700;color:#fff;letter-spacing:-.01em}
+.email-cta-addr{font-size:.8rem;color:rgba(255,255,255,.7);margin-top:.2rem}
+.email-cta-arrow{font-size:1.2rem;color:rgba(255,255,255,.6);transition:transform .2s}
+.email-cta-hero:hover .email-cta-arrow{transform:translateX(4px);color:#fff}
+@media(max-width:620px){.contact-meta-row{flex-direction:column}.c-sep{width:auto;height:1px}.contact-meta-row .c-detail{padding:1.2rem 1.5rem}}
+
+/* ─── CONTACT ─── */
+.contact-section{background:var(--bg2)}
+.contact-box{
+  margin-top:3rem;
+  background:#fff;border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  display:grid;grid-template-columns:1fr 1fr;
+  overflow:hidden;
+}
+.contact-left{
+  padding:3rem;
+  border-right:1px solid var(--border);
+}
+.contact-right{padding:3rem}
+.c-detail{margin-bottom:2rem}
+.c-detail-label{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);margin-bottom:.35rem}
+.c-detail-val{font-size:.95rem;color:var(--ink);font-weight:600}
+.c-detail-val a{color:var(--p);text-decoration:none}
+.c-detail-val a:hover{text-decoration:underline}
+.email-cta{
+  display:flex;align-items:center;gap:1rem;
+  background:var(--p-light);border:1.5px solid var(--p-mid);
+  border-radius:var(--radius);padding:1.2rem 1.5rem;
+  cursor:pointer;transition:all .2s;text-decoration:none;margin-top:1.5rem;
+}
+.email-cta:hover{background:var(--p);border-color:var(--p)}
+.email-cta:hover .email-icon{background:rgba(255,255,255,.2)}
+.email-cta:hover .email-text,.email-cta:hover .email-hint{color:#fff}
+.email-icon{
+  width:40px;height:40px;border-radius:10px;
+  background:var(--p);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transition:background .2s;
+}
+.email-icon svg{stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;width:18px;height:18px}
+.email-text{font-size:.9rem;font-weight:700;color:var(--p);transition:color .2s;letter-spacing:-.01em}
+.email-hint{font-size:.72rem;color:var(--ink3);transition:color .2s;margin-top:.15rem}
+
+/* simple form */
+.cf{display:flex;flex-direction:column;gap:1rem}
+.cf .form-title{font-size:1.05rem;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin-bottom:.3rem}
+.cf .form-sub{font-size:.83rem;color:var(--ink3);margin-bottom:.5rem}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.fg{display:flex;flex-direction:column;gap:.35rem}
+.fg label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.fg input,.fg select,.fg textarea{
+  border:1.5px solid var(--border);border-radius:9px;
+  padding:.7rem 1rem;font-size:.88rem;font-family:inherit;
+  color:var(--ink);background:#fff;outline:none;width:100%;
+  transition:border-color .18s,box-shadow .18s;
+  appearance:none;
+}
+.fg input:focus,.fg select:focus,.fg textarea:focus{
+  border-color:var(--p3);
+  box-shadow:0 0 0 3px rgba(124,58,237,.1);
+}
+.fg textarea{min-height:88px;resize:vertical}
+.fg select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237b7b96' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .9rem center;
+  padding-right:2.2rem;
+}
+.f-submit{
+  background:var(--p);color:#fff;border:none;
+  padding:.9rem 2rem;font-size:.88rem;font-weight:700;
+  border-radius:10px;cursor:pointer;font-family:inherit;
+  display:inline-flex;align-items:center;gap:.45rem;
+  transition:background .2s,transform .15s;
+  align-self:flex-start;
+}
+.f-submit:hover{background:var(--p2);transform:translateY(-1px)}
+
+@media(max-width:840px){.contact-box{grid-template-columns:1fr}.contact-left{border-right:none;border-bottom:1px solid var(--border)}}
+@media(max-width:500px){.contact-left,.contact-right{padding:2rem 1.5rem}.frow{grid-template-columns:1fr}}
+
+/* ─── FOOTER ─── */
+footer{
+  background:var(--ink);
+  padding:2rem 2rem;
+}
+.footer-inner{
+  max-width:1140px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1.2rem;
+}
+.f-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.f-logo-mark{width:28px;height:28px;border-radius:7px;background:var(--p);display:flex;align-items:center;justify-content:center;font-size:.5rem;font-weight:900;color:#fff}
+.f-logo-name{font-size:.95rem;font-weight:800;color:#fff;letter-spacing:-.02em}
+.f-logo-name span{color:#a78bfa}
+.f-links{display:flex;gap:1.5rem}
+.f-links a{font-size:.78rem;color:rgba(255,255,255,.45);text-decoration:none;transition:color .18s}
+.f-links a:hover{color:#fff}
+.f-copy{font-size:.72rem;color:rgba(255,255,255,.3)}
+@media(max-width:580px){footer{text-align:center}.footer-inner{flex-direction:column;align-items:center}.f-links{flex-wrap:wrap;justify-content:center}}
+
+/* ─── SECTION BACKGROUNDS ─── */
+.bg-white{background:#fff}
+.bg-soft{background:var(--bg2)}
+.section-wrap{padding:5.5rem 0}
+.section-wrap .wrap{max-width:1140px;margin:0 auto;padding:0 2rem}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="javascript:void(0)">
+      <div class="logo-mark">ET</div>
+      <span class="logo-name">Elite<span> Talent</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="javascript:void(0)">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Get in Touch</a>
+    <button class="burger" id="burgerBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mob" id="mob">
+  <button class="mob-x" id="mobClose">✕</button>
+  <a href="#services" class="mob-link">Services</a>
+  <a href="#industries" class="mob-link">Industries</a>
+  <a href="#contact" class="mob-link mob-cta">Get in Touch</a>
+</div>
+
+<!-- HERO -->
+<section>
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <div class="badge-dot"></div>
+        IT &amp; Pharma Technology Partner
+      </div>
+      <h1>Where <em>IT expertise</em> meets pharma precision</h1>
+      <p class="hero-desc">Elite Talent Solutions delivers enterprise-grade IT services — cloud, cybersecurity, managed infrastructure — and goes further as a specialised technology partner for the pharmaceutical industry. One partner. Two industries. Zero compromise.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#services">Explore Services →</a>
+        <a class="btn-secondary" href="#contact">Contact Us</a>
+      </div>
+      <div class="trust">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          99.9% Uptime SLA
+        </div>
+        <div class="trust-sep"></div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          SOC2 · ISO Certified
+        </div>
+        <div class="trust-sep"></div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          4-Hour Response SLA
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <!-- Feature card: cloud coverage bar chart -->
+      <div class="hcard hcard-visual">
+        <div class="hcard-top">
+          <div class="hcard-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
+          </div>
+          <div>
+            <div class="hcard-label">Cloud Coverage</div>
+            <div class="hcard-sublabel">Multi-provider infrastructure</div>
+          </div>
+        </div>
+        <div class="cloud-bars">
+          <div class="cloud-bar-row">
+            <span class="cloud-bar-name">AWS</span>
+            <div class="cloud-bar-track"><div class="cloud-bar-fill" style="width:88%;background:var(--p)"></div></div>
+            <span class="cloud-bar-tag">Primary</span>
+          </div>
+          <div class="cloud-bar-row">
+            <span class="cloud-bar-name">Azure</span>
+            <div class="cloud-bar-track"><div class="cloud-bar-fill" style="width:76%;background:var(--p2)"></div></div>
+            <span class="cloud-bar-tag">Active</span>
+          </div>
+          <div class="cloud-bar-row">
+            <span class="cloud-bar-name">GCP</span>
+            <div class="cloud-bar-track"><div class="cloud-bar-fill" style="width:62%;background:var(--p3)"></div></div>
+            <span class="cloud-bar-tag">Active</span>
+          </div>
+        </div>
+        <div class="hcard-desc" style="margin-top:.8rem">Enterprise-grade deployments across all three major cloud platforms.</div>
+      </div>
+
+      <!-- Two smaller feature cards -->
+      <div class="hcard-row">
+        <div class="hcard small hcard-feature">
+          <div class="feature-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--p)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="feature-title">Zero breaches</div>
+          <div class="feature-desc">Across all managed client environments, ever.</div>
+          <div class="feature-badge">SOC2 · ISO 27001</div>
+        </div>
+        <div class="hcard small hcard-feature">
+          <div class="feature-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--p)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="feature-title">Always on-call</div>
+          <div class="feature-desc">24/7 monitoring with a 4-hour guaranteed response window.</div>
+          <div class="feature-badge">P1 SLA Guaranteed</div>
+        </div>
+      </div>
+
+      <!-- Pill row -->
+      <div class="hcard" style="padding:1.1rem 1.4rem">
+        <div class="hcard-label" style="margin-bottom:.7rem">Specialised in</div>
+        <div class="industries">
+          <span class="ind-pill">IT Services</span>
+          <span class="ind-pill">Cloud Infrastructure</span>
+          <span class="ind-pill">Pharma IT</span>
+          <span class="ind-pill">Cybersecurity</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVICES -->
+<div class="section-wrap bg-white" id="services">
+  <div class="wrap">
+    <div class="eyebrow">Services</div>
+    <div class="sec-title">What we <em>do well</em></div>
+    <div class="sec-sub">A focused set of services delivered with uncommon depth, consistency, and accountability.</div>
+
+    <div class="svc-layout">
+      <div class="svc-sidebar" id="svcSidebar">
+        <button class="svc-btn active" data-panel="0">
+          <svg viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
+          Cloud Infrastructure
+        </button>
+        <button class="svc-btn" data-panel="1">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          Cybersecurity
+        </button>
+        <button class="svc-btn" data-panel="2">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Managed IT
+        </button>
+        <button class="svc-btn" data-panel="3">
+          <svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+          Data &amp; Analytics
+        </button>
+        <button class="svc-btn" data-panel="4">
+          <svg viewBox="0 0 24 24"><path d="M8 6H5a2 2 0 00-2 2v3m0 4v3a2 2 0 002 2h3M16 6h3a2 2 0 012 2v3m0 4v3a2 2 0 01-2 2h-3"/><circle cx="12" cy="12" r="2"/></svg>
+          System Integration
+        </button>
+        <button class="svc-btn" data-panel="5">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Software Development
+        </button>
+      </div>
+
+      <div class="svc-content" id="svcContent">
+
+        <div class="svc-panel active" data-panel="0">
+          <div class="svc-panel-tag">AWS · Azure · GCP</div>
+          <h3>Cloud Infrastructure</h3>
+          <p>Purpose-built cloud environments that scale with your business. We design, migrate, and manage multi-cloud architectures that are resilient, cost-optimised, and built for long-term growth — from start-up to enterprise scale.</p>
+          <div class="svc-grid">
+            <div class="svc-item"><span class="svc-item-text">Cloud migration &amp; architecture design</span></div>
+            <div class="svc-item"><span class="svc-item-text">Multi-cloud &amp; hybrid deployments</span></div>
+            <div class="svc-item"><span class="svc-item-text">Cost optimisation &amp; auto-scaling</span></div>
+            <div class="svc-item"><span class="svc-item-text">24/7 infrastructure monitoring</span></div>
+          </div>
+          <div class="svc-stats">
+            <div class="svc-stat"><div class="svc-stat-n">99.9<em>%</em></div><div class="svc-stat-l">Uptime SLA</div></div>
+            <div class="svc-stat"><div class="svc-stat-n">3<em>×</em></div><div class="svc-stat-l">Cost Reduction</div></div>
+            <div class="svc-stat"><div class="svc-stat-n">24<em>/7</em></div><div class="svc-stat-l">Monitoring</div></div>
+          </div>
+        </div>
+
+        <div class="svc-panel" data-panel="1">
+          <div class="svc-panel-tag">CISSP · SOC2 · ISO</div>
+          <h3>Cybersecurity</h3>
+          <p>Continuous threat monitoring, compliance frameworks, and incident response built around your risk profile. Our certified professionals protect your data, infrastructure, and reputation with a proactive posture that anticipates threats before they materialise.</p>
+          <div class="svc-grid">
+            <div class="svc-item"><span class="svc-item-text">Threat detection &amp; response</span></div>
+            <div class="svc-item"><span class="svc-item-text">SOC2 &amp; ISO compliance frameworks</span></div>
+            <div class="svc-item"><span class="svc-item-text">Penetration testing &amp; audits</span></div>
+            <div class="svc-item"><span class="svc-item-text">Security awareness training</span></div>
+          </div>
+          <div class="svc-stats">
+            <div class="svc-stat"><div class="svc-stat-n">100<em>%</em></div><div class="svc-stat-l">Compliance Rate</div></div>
+            <div class="svc-stat"><div class="svc-stat-n">0<em>-day</em></div><div class="svc-stat-l">Breach Record</div></div>
+          </div>
+        </div>
+
+        <div class="svc-panel" data-panel="2">
+          <div class="svc-panel-tag">24/7 · 4hr SLA</div>
+          <h3>Managed IT Services</h3>
+          <p>Proactive monitoring and dedicated support that resolves issues before your team notices them. From helpdesk to full infrastructure management, we become your embedded IT department — reliable, responsive, and always on.</p>
+          <div class="svc-grid">
+            <div class="svc-item"><span class="svc-item-text">Proactive monitoring &amp; alerting</span></div>
+            <div class="svc-item"><span class="svc-item-text">Dedicated helpdesk support</span></div>
+            <div class="svc-item"><span class="svc-item-text">Patch &amp; update management</span></div>
+            <div class="svc-item"><span class="svc-item-text">Disaster recovery planning</span></div>
+          </div>
+          <div class="svc-stats">
+            <div class="svc-stat"><div class="svc-stat-n">4<em>hr</em></div><div class="svc-stat-l">Response SLA</div></div>
+            <div class="svc-stat"><div class="svc-stat-n">24<em>/7</em></div><div class="svc-stat-l">Always On</div></div>
+          </div>
+        </div>
+
+        <div class="svc-panel" data-panel="3">
+          <div class="svc-panel-tag">Pipelines · AI-Ready</div>
+          <h3>Data &amp; Analytics</h3>
+          <p>From raw data to real decisions — pipelines, dashboards, and AI-ready infrastructure tailored to your industry. We help pharma, healthcare, and enterprise clients turn complex datasets into actionable intelligence.</p>
+          <div class="svc-grid">
+            <div class="svc-item"><span class="svc-item-text">Data pipeline design &amp; engineering</span></div>
+            <div class="svc-item"><span class="svc-item-text">BI dashboards &amp; reporting</span></div>
+            <div class="svc-item"><span class="svc-item-text">Pharma &amp; healthcare data compliance</span></div>
+            <div class="svc-item"><span class="svc-item-text">AI/ML model infrastructure</span></div>
+          </div>
+          <div class="svc-stats">
+            <div class="svc-stat"><div class="svc-stat-n">AI<em>-ready</em></div><div class="svc-stat-l">Infrastructure</div></div>
+            <div class="svc-stat"><div class="svc-stat-n">Real<em>-time</em></div><div class="svc-stat-l">Dashboards</div></div>
+          </div>
+        </div>
+
+        <div class="svc-panel" data-panel="4">
+          <div class="svc-panel-tag">ERP · CRM · API</div>
+          <h3>System Integration</h3>
+          <p>ERP, CRM, and API integrations that make your existing tools communicate effortlessly. We bridge legacy systems with modern platforms — reducing duplication, improving visibility, and accelerating decision-making across your organisation.</p>
+          <div class="svc-grid">
+            <div class="svc-item"><span class="svc-item-text">ERP &amp; CRM integration</span></div>
+            <div class="svc-item"><span class="svc-item-text">REST &amp; GraphQL API development</span></div>
+            <div class="svc-item"><span class="svc-item-text">Legacy system modernisation</span></div>
+            <div class="svc-item"><span class="svc-item-text">Real-time data sync &amp; automation</span></div>
+          </div>
+          <div class="svc-stats">
+            <div class="svc-stat"><div class="svc-stat-n">ERP<em>+CRM</em></div><div class="svc-stat-l">Integrations</div></div>
+            <div class="svc-stat"><div class="svc-stat-n">API<em>-first</em></div><div class="svc-stat-l">Architecture</div></div>
+          </div>
+        </div>
+
+        <div class="svc-panel" data-panel="5">
+          <div class="svc-panel-tag">Web · Enterprise</div>
+          <h3>Software Development</h3>
+          <p>Custom web and enterprise applications designed around your workflows. Clean code, solid architecture, on-time delivery — every time. We build scalable solutions that evolve with your business and integrate into your existing technology landscape.</p>
+          <div class="svc-grid">
+            <div class="svc-item"><span class="svc-item-text">Custom web &amp; enterprise apps</span></div>
+            <div class="svc-item"><span class="svc-item-text">Agile development &amp; sprints</span></div>
+            <div class="svc-item"><span class="svc-item-text">Code review &amp; quality assurance</span></div>
+            <div class="svc-item"><span class="svc-item-text">Long-term support &amp; maintenance</span></div>
+          </div>
+          <div class="svc-stats">
+            <div class="svc-stat"><div class="svc-stat-n">On<em>-time</em></div><div class="svc-stat-l">Delivery</div></div>
+            <div class="svc-stat"><div class="svc-stat-n">Clean<em>code</em></div><div class="svc-stat-l">Architecture</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- INDUSTRIES -->
+<div class="section-wrap bg-soft" id="industries">
+  <div class="wrap">
+    <div class="eyebrow">Industries</div>
+    <div class="sec-title">Built for two <em>demanding</em> industries</div>
+    <div class="sec-sub">We don't spread thin across every sector. We go deep in IT and pharma — two domains where precision and reliability are non-negotiable.</div>
+    <div class="ind-cards">
+      <div class="ind-card">
+        <div class="ind-card-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Enterprise IT</h3>
+        <p>Full-spectrum technology services for businesses that need reliable, scalable, and secure infrastructure. We act as your embedded IT partner — handling everything from cloud to code.</p>
+        <ul>
+          <li>Cloud &amp; hybrid infrastructure</li>
+          <li>Cybersecurity &amp; compliance</li>
+          <li>Managed services &amp; helpdesk</li>
+          <li>Custom software &amp; integrations</li>
+        </ul>
+      </div>
+      <div class="ind-card">
+        <div class="ind-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+        </div>
+        <h3>Pharmaceutical</h3>
+        <p>Specialised IT solutions designed for the regulatory, data integrity, and operational demands of pharma companies. We understand GxP, 21 CFR Part 11, and what it takes to keep systems validated and audit-ready.</p>
+        <ul>
+          <li>Regulatory compliance &amp; GxP IT</li>
+          <li>Clinical data systems &amp; LIMS</li>
+          <li>21 CFR Part 11 validation</li>
+          <li>Pharma-grade infrastructure</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- WHY US -->
+<div class="section-wrap bg-white">
+  <div class="wrap">
+    <div class="eyebrow">Why Elite Talent</div>
+    <div class="sec-title">The difference <em>you'll feel</em></div>
+    <div class="sec-sub">We're not a vendor. We're a partner — accountable, embedded, and invested in your outcomes.</div>
+    <div class="why-grid">
+      <div class="why-points">
+        <div class="why-point">
+          <div class="wp-num">01</div>
+          <div>
+            <div class="wp-title">Deep domain expertise</div>
+            <div class="wp-desc">Our team brings certified specialists across cloud, security, and pharma IT — not generalists. You get the right person on every problem.</div>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="wp-num">02</div>
+          <div>
+            <div class="wp-title">Proactive, not reactive</div>
+            <div class="wp-desc">We resolve issues before they become incidents. Our monitoring, alerting, and response frameworks are built around anticipation, not damage control.</div>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="wp-num">03</div>
+          <div>
+            <div class="wp-title">Transparent accountability</div>
+            <div class="wp-desc">SLAs with teeth. Clear escalation paths. Regular reporting. You always know what we're doing and why.</div>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="wp-num">04</div>
+          <div>
+            <div class="wp-title">Pharma-grade rigour</div>
+            <div class="wp-desc">Our pharma practice applies the same validation discipline to IT systems that regulators expect on the lab floor. Audit-ready, always.</div>
+          </div>
+        </div>
+      </div>
+      <div class="stats-cards">
+        <div class="stat-card">
+          <div class="stat-card-num">99.9<em>%</em></div>
+          <div class="stat-card-label">Uptime SLA</div>
+          <div class="stat-card-desc">Across all managed cloud environments — multi-region, multi-provider, with automated failover built in.</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-card sm">
+            <div class="stat-card-num">4<em>hr</em></div>
+            <div class="stat-card-label">Response SLA</div>
+            <div class="stat-card-desc">Guaranteed response for all P1 incidents, 24 hours a day.</div>
+          </div>
+          <div class="stat-card sm">
+            <div class="stat-card-num">0<em>-day</em></div>
+            <div class="stat-card-label">Breach Record</div>
+            <div class="stat-card-desc">Zero security breaches across our entire client portfolio.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<div class="section-wrap bg-soft" id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <div class="sec-title">Let's start a <em>conversation</em></div>
+    <div class="sec-sub">Have a project in mind or need expert IT and pharma tech support? We'd love to hear from you.</div>
+    <div class="contact-solo">
+      <div class="contact-meta-row">
+        <div class="c-detail">
+          <div class="c-detail-label">Email</div>
+          <div class="c-detail-val"><a href="mailto:contact@elitetalent-solutions.com">contact@elitetalent-solutions.com</a></div>
+        </div>
+        <div class="c-sep"></div>
+        <div class="c-detail">
+          <div class="c-detail-label">Response time</div>
+          <div class="c-detail-val">Within 1 business day</div>
+        </div>
+        <div class="c-sep"></div>
+        <div class="c-detail">
+          <div class="c-detail-label">Support</div>
+          <div class="c-detail-val">24/7 for managed clients</div>
+        </div>
+      </div>
+      <a class="email-cta-hero" href="mailto:contact@elitetalent-solutions.com">
+        <div class="email-icon-lg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="email-cta-body">
+          <div class="email-cta-title">Send us an email</div>
+          <div class="email-cta-addr">contact@elitetalent-solutions.com</div>
+        </div>
+        <div class="email-cta-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a class="f-logo" href="javascript:void(0)">
+      <div class="f-logo-mark">ET</div>
+      <span class="f-logo-name">Elite<span> Talent</span></span>
+    </a>
+    <div class="f-links">
+      <a href="#services">Services</a>
+      <a href="#industries">Industries</a>
+      <a href="#contact">Contact</a>
+      <a href="mailto:contact@elitetalent-solutions.com">Email us</a>
+    </div>
+    <div class="f-copy">© 2026 Elite Talent Solutions · All Rights Reserved</div>
+  </div>
+</footer>
+
+<script>
+// Mobile menu
+var burger = document.getElementById('burgerBtn');
+var mob = document.getElementById('mob');
+var mobClose = document.getElementById('mobClose');
+burger.addEventListener('click', function(){ mob.classList.add('open'); document.body.style.overflow='hidden'; });
+mobClose.addEventListener('click', function(){ mob.classList.remove('open'); document.body.style.overflow=''; });
+document.querySelectorAll('.mob-link').forEach(function(a){
+  a.addEventListener('click', function(){ mob.classList.remove('open'); document.body.style.overflow=''; });
+});
+
+// Smooth anchor scroll — JS only, no html scroll-behavior
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click', function(e){
+    var id = this.getAttribute('href');
+    var el = document.querySelector(id);
+    if(el){ e.preventDefault(); window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 72, behavior:'smooth' }); }
+  });
+});
+// Footer and nav links that use href with #
+document.querySelectorAll('.f-links a[href^="#"], .nav-links a[href^="#"], .nav-cta[href^="#"]').forEach(function(a){
+  a.addEventListener('click', function(e){
+    var id = this.getAttribute('href');
+    var el = document.querySelector(id);
+    if(el){ e.preventDefault(); window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 72, behavior:'smooth' }); }
+  });
+});
+
+// Service panel switcher
+var svcBtns = document.querySelectorAll('.svc-btn');
+var svcPanels = document.querySelectorAll('.svc-panel');
+svcBtns.forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var idx = this.getAttribute('data-panel');
+    svcBtns.forEach(function(b){ b.classList.remove('active'); });
+    svcPanels.forEach(function(p){ p.classList.remove('active'); });
+    this.classList.add('active');
+    document.querySelector('.svc-panel[data-panel="'+idx+'"]').classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
