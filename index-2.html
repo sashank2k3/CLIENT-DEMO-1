@@ -44,8 +44,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(248,249,250,
 .burger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px}
 @media(max-width:760px){.nav-links{display:none}.burger{display:flex}}
 @media(max-width:480px){.nav-cta{display:none}}
-
-/* mob overlay */
 .mob{display:none;position:fixed;inset:0;z-index:890;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;gap:2.2rem}
 .mob.open{display:flex}
 .mob a{font-family:'Fraunces',serif;font-size:2rem;font-weight:400;color:var(--ink);text-decoration:none}
@@ -69,21 +67,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(248,249,250,
 .trust-chip{display:flex;align-items:center;gap:.45rem;font-size:.75rem;font-weight:600;color:var(--ink2)}
 .trust-chip svg{width:14px;height:14px;stroke:var(--orange);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 .trust-div{width:1px;height:14px;background:var(--border)}
-
-/* hero right */
 .hero-visual{position:relative;display:flex;flex-direction:column;gap:1rem}
-.hero-img-main{border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:4/3;background:var(--bg2);position:relative}
+.hero-img-main{border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:4/3;background:var(--bg2)}
 .hero-img-main img{width:100%;height:100%;object-fit:cover;display:block}
-.hero-float{position:absolute;bottom:18px;left:18px;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-radius:var(--radius);padding:.65rem 1rem;display:flex;align-items:center;gap:.65rem;border:1px solid rgba(255,255,255,.7)}
-.hero-float-dot{width:8px;height:8px;background:#22c55e;border-radius:50%;flex-shrink:0;box-shadow:0 0 0 3px rgba(34,197,94,.2)}
-.hero-float-text{font-size:.72rem;font-weight:700;color:var(--ink)}
-.hero-float-sub{font-size:.62rem;color:var(--ink3);margin-top:.1rem;font-weight:500}
-.hero-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem}
-.hstat{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.1rem 1rem;text-align:center}
-.hstat-n{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:600;color:var(--ink);line-height:1}
-.hstat-n span{font-size:1rem;color:var(--orange)}
-.hstat-l{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-top:.3rem}
-
 @media(max-width:980px){.hero{grid-template-columns:1fr;gap:3rem;padding:110px 1.5rem 60px;min-height:auto}}
 @media(max-width:560px){.hero{padding:100px 1.25rem 50px}}
 
@@ -97,14 +83,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(248,249,250,
 
 /* ══ WHY US ══ */
 .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-.why-img{position:relative;border-radius:var(--radius-xl);overflow:visible}
+.why-img{position:relative;border-radius:var(--radius-xl);overflow:hidden}
 .why-img-inner{border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:3/4;background:var(--bg)}
 .why-img-inner img{width:100%;height:100%;object-fit:cover;display:block}
 .why-img::after{content:'';position:absolute;width:160px;height:160px;background:var(--orange);border-radius:50%;bottom:-20px;right:-20px;z-index:-1;opacity:.2}
-.why-float{position:absolute;bottom:28px;left:-24px;background:var(--white);border-radius:var(--radius-lg);padding:1.1rem 1.4rem;border:1px solid var(--border);min-width:180px}
-.wf-label{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.35rem}
-.wf-val{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:600;color:var(--ink);line-height:1}
-.wf-val span{color:var(--orange)}
 .why-points{display:flex;flex-direction:column}
 .why-point{display:flex;gap:1.1rem;padding:1.5rem 0;border-bottom:1px solid var(--border)}
 .why-point:first-of-type{border-top:1px solid var(--border)}
@@ -129,14 +111,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(248,249,250,
 .svc-tag{display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--orange-lt);color:var(--orange);border:1px solid rgba(236,138,44,.25);padding:.24rem .7rem;border-radius:999px;margin-bottom:1rem}
 .svc-panel h3{font-size:1.45rem;font-weight:600;color:var(--ink);margin-bottom:.75rem;letter-spacing:-.02em}
 .svc-panel p{font-size:.9rem;color:var(--ink2);line-height:1.8;margin-bottom:1.4rem}
-.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-bottom:1.5rem}
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem}
 .svc-item{display:flex;align-items:flex-start;gap:.55rem;padding:.68rem .9rem;background:var(--bg);border-radius:10px;border:1px solid var(--border)}
 .svc-dot{width:5px;height:5px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-top:.44rem}
 .svc-item-text{font-size:.8rem;color:var(--ink2);font-weight:500;line-height:1.45}
-.svc-stats{display:flex;gap:2rem;flex-wrap:wrap;padding-top:1.3rem;border-top:1px solid var(--border)}
-.svc-stat-n{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;color:var(--ink);letter-spacing:-.03em;line-height:1}
-.svc-stat-n em{font-style:normal;color:var(--orange);font-size:.9rem}
-.svc-stat-l{font-size:.62rem;font-weight:700;color:var(--ink3);letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem}
 @media(max-width:700px){
   .svc-layout{grid-template-columns:1fr;border-radius:var(--radius-lg)}
   .svc-sidebar{flex-direction:row;flex-wrap:wrap;gap:.4rem;padding:.85rem 1rem;border-right:none;border-bottom:1px solid var(--border)}
@@ -146,7 +124,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(248,249,250,
   .svc-tab svg{display:none}
   .svc-content{padding:1.6rem 1.25rem}
   .svc-grid{grid-template-columns:1fr}
-  .svc-stats{gap:1.2rem}
 }
 
 /* ══ INDUSTRIES ══ */
@@ -156,7 +133,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(248,249,250,
 .ind-card:hover{border-color:rgba(236,138,44,.4);transform:translateY(-3px)}
 .ind-icon{width:48px;height:48px;border-radius:12px;background:var(--orange-lt);border:1px solid rgba(236,138,44,.2);display:flex;align-items:center;justify-content:center;margin-bottom:1.3rem}
 .ind-icon svg{width:22px;height:22px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.ind-card h3{font-size:1.15rem;font-weight:600;color:var(--ink);margin-bottom:.7rem;letter-spacing:-.01em}
+.ind-card h3{font-size:1.15rem;font-weight:600;color:var(--ink);margin-bottom:.7rem}
 .ind-card p{font-size:.86rem;color:var(--ink2);line-height:1.74}
 .ind-card ul{list-style:none;margin-top:1rem;display:flex;flex-direction:column;gap:.45rem}
 .ind-card li{font-size:.8rem;color:var(--ink2);display:flex;align-items:center;gap:.55rem}
@@ -175,22 +152,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(248,249,250,
 .cinfo-val a:hover{text-decoration:underline}
 .contact-cta{display:inline-flex;align-items:center;gap:.55rem;background:var(--orange);color:#fff;padding:.9rem 2rem;font-size:.88rem;font-weight:700;border-radius:var(--radius);text-decoration:none;margin-top:1.8rem;transition:background .2s,transform .15s}
 .contact-cta:hover{background:var(--orange2);transform:translateY(-2px)}
-.contact-card{background:var(--dark);border-radius:var(--radius-xl);padding:2.8rem;position:relative;overflow:hidden}
-.contact-card::before{content:'';position:absolute;width:260px;height:260px;background:var(--orange);border-radius:50%;top:-80px;right:-80px;opacity:.1}
-.cc-eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:1.2rem}
-.cc-h{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:600;color:var(--white);margin-bottom:.7rem;line-height:1.2}
-.cc-sub{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:2rem}
-.cc-email{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1.1rem 1.4rem;text-decoration:none;transition:background .2s,border-color .2s}
-.cc-email:hover{background:rgba(236,138,44,.15);border-color:rgba(236,138,44,.4)}
-.cc-email-icon{width:40px;height:40px;background:var(--orange);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.cc-email-icon svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.cc-email-text{font-size:.88rem;font-weight:700;color:#fff}
-.cc-email-addr{font-size:.75rem;color:rgba(255,255,255,.45);margin-top:.15rem}
-.cc-email-arrow{color:rgba(255,255,255,.35);font-size:1.1rem;margin-left:auto;transition:transform .2s,color .2s}
-.cc-email:hover .cc-email-arrow{transform:translateX(4px);color:var(--orange)}
-.cc-chips{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.5rem}
-.cc-chip{font-size:.68rem;font-weight:700;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.12);padding:.28rem .8rem;border-radius:999px;letter-spacing:.05em}
-@media(max-width:880px){.contact-grid{grid-template-columns:1fr;gap:2.5rem}}
+/* contact right — photo */
+.contact-photo{border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:4/3;background:var(--bg2);position:relative}
+.contact-photo img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:880px){.contact-grid{grid-template-columns:1fr;gap:2.5rem}.contact-photo{display:none}}
 
 /* ══ FOOTER ══ */
 footer{background:var(--dark2);padding:2.2rem 2rem}
@@ -236,35 +201,28 @@ footer{background:var(--dark2);padding:2.2rem 2rem}
   <div class="hero">
     <div>
       <div class="hero-badge"><div class="badge-pulse"></div>IT &amp; Pharma Technology Partner</div>
-      <h1>Ever‑Connected,<br><em class="serif-it">Always Secure</em></h1>
-      <p class="hero-desc">We safeguard your business with managed and co-managed IT and security solutions that keep you connected, protected, and running smoothly — from start-up to enterprise scale.</p>
+<h1>Where technology meets execution</h1>
+<p class="hero-desc">
+We design, implement, and manage IT systems built for reliability, security, and scale. 
+From cloud and cybersecurity to data, integrations, and custom software — we act as a 
+hands-on technology partner, helping businesses and pharma organizations operate smoothly, 
+stay compliant, and grow with confidence.
+</p>
       <div class="hero-actions">
-        <a class="btn-primary" href="#services">Get Started →</a>
+        <a class="btn-primary" href="#services">Explore Services →</a>
         <a class="btn-outline" href="#contact">Talk to Us</a>
       </div>
       <div class="hero-trust">
-        <div class="trust-chip"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>99.9% Uptime SLA</div>
+        <div class="trust-chip"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Managed IT</div>
         <div class="trust-div"></div>
-        <div class="trust-chip"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>SOC2 · ISO Certified</div>
+        <div class="trust-chip"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Cybersecurity</div>
         <div class="trust-div"></div>
-        <div class="trust-chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>4-Hour Response SLA</div>
+        <div class="trust-chip"><svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>Pharma IT</div>
       </div>
     </div>
     <div class="hero-visual">
       <div class="hero-img-main">
         <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=900&q=95&fit=crop&crop=center" alt="Team meeting in modern office">
-        <div class="hero-float">
-          <div class="hero-float-dot"></div>
-          <div>
-            <div class="hero-float-text">Security Report Ready</div>
-            <div class="hero-float-sub">Updated just now</div>
-          </div>
-        </div>
-      </div>
-      <div class="hero-stats">
-        <div class="hstat"><div class="hstat-n">99.9<span>%</span></div><div class="hstat-l">Uptime</div></div>
-        <div class="hstat"><div class="hstat-n">4<span>hr</span></div><div class="hstat-l">Response</div></div>
-        <div class="hstat"><div class="hstat-n">0<span>-day</span></div><div class="hstat-l">Breaches</div></div>
       </div>
     </div>
   </div>
@@ -276,15 +234,11 @@ footer{background:var(--dark2);padding:2.2rem 2rem}
 <div style="background:var(--bg2)">
   <div class="sec">
     <div class="eyebrow">Why Elite Talent</div>
-    <h2 class="sec-h">Deep Strategy, Tactical<br>Implementation, 24/7 Support:<br><em class="serif-it">IT is Just the Beginning</em></h2>
+    <h2 class="sec-h">Deep Strategy, Tactical<br>Implementation</h2>
     <div class="why-grid" style="margin-top:3rem">
       <div class="why-img">
         <div class="why-img-inner">
           <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&h=1200&q=95&fit=crop&crop=center" alt="Professionals discussing in office">
-        </div>
-        <div class="why-float">
-          <div class="wf-label">Cloud Migration</div>
-          <div class="wf-val">Complete <span>✓</span></div>
         </div>
       </div>
       <div>
@@ -295,15 +249,15 @@ footer{background:var(--dark2);padding:2.2rem 2rem}
           </div>
           <div class="why-point">
             <div class="wp-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg></div>
-            <div><div class="wp-title">Implementation</div><div class="wp-desc">Diagnosis, documentation, and deployment of solutions in weeks — not months. Our certified specialists move fast without cutting corners.</div></div>
+            <div><div class="wp-title">Implementation</div><div class="wp-desc">Diagnosis, documentation, and deployment of solutions done right. Our certified specialists move with precision, ensuring every rollout is clean and stable.</div></div>
           </div>
           <div class="why-point">
             <div class="wp-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-            <div><div class="wp-title">Scaleable Support</div><div class="wp-desc">Always-on and ready to deal with planned and unplanned events. Our 24/7 monitoring and 4-hour SLA keeps your operations humming.</div></div>
+            <div><div class="wp-title">Scaleable Support</div><div class="wp-desc">Always-on and ready to deal with planned and unplanned events. Our proactive monitoring keeps your operations running before issues become incidents.</div></div>
           </div>
           <div class="why-point">
             <div class="wp-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-            <div><div class="wp-title">Pharma-Grade Rigour</div><div class="wp-desc">Our pharma practice applies the same validation discipline to IT systems that regulators expect on the lab floor. Audit-ready, always.</div></div>
+            <div><div class="wp-title">Technology in Pharma</div><div class="wp-desc">We bring enterprise IT disciplines into regulated environments — helping pharma companies modernise their technology stack, secure their data, and keep systems running reliably across complex operational landscapes.</div></div>
           </div>
         </div>
       </div>
@@ -329,42 +283,79 @@ footer{background:var(--dark2);padding:2.2rem 2rem}
         <button class="svc-tab" data-panel="5"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Software Development</button>
       </div>
       <div class="svc-content">
+
         <div class="svc-panel active" data-panel="0">
-          <div class="svc-tag">AWS · Azure · GCP</div><h3>Cloud Infrastructure</h3>
+          <div class="svc-tag">AWS · Azure · GCP</div>
+          <h3>Cloud Infrastructure</h3>
           <p>Purpose-built cloud environments that scale with your business. We design, migrate, and manage multi-cloud architectures that are resilient, cost-optimised, and built for long-term growth.</p>
-          <div class="svc-grid"><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Cloud migration &amp; architecture design</span></div><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Multi-cloud &amp; hybrid deployments</span></div><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Cost optimisation &amp; auto-scaling</span></div><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">24/7 infrastructure monitoring</span></div></div>
-          <div class="svc-stats"><div><div class="svc-stat-n">99.9<em>%</em></div><div class="svc-stat-l">Uptime SLA</div></div><div><div class="svc-stat-n">3<em>×</em></div><div class="svc-stat-l">Cost Reduction</div></div><div><div class="svc-stat-n">24<em>/7</em></div><div class="svc-stat-l">Monitoring</div></div></div>
+          <div class="svc-grid">
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Cloud migration &amp; architecture design</span></div>
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Multi-cloud &amp; hybrid deployments</span></div>
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Cost optimisation &amp; auto-scaling</span></div>
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Continuous infrastructure monitoring</span></div>
+          </div>
         </div>
+
         <div class="svc-panel" data-panel="1">
-          <div class="svc-tag">CISSP · SOC2 · ISO</div><h3>Cybersecurity</h3>
+          <div class="svc-tag">Threat · Compliance · Response</div>
+          <h3>Cybersecurity</h3>
           <p>Continuous threat monitoring, compliance frameworks, and incident response built around your risk profile. We protect your data, infrastructure, and reputation with a proactive posture.</p>
-          <div class="svc-grid"><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Threat detection &amp; response</span></div><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">SOC2 &amp; ISO compliance frameworks</span></div><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Penetration testing &amp; audits</span></div><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Security awareness training</span></div></div>
-          <div class="svc-stats"><div><div class="svc-stat-n">100<em>%</em></div><div class="svc-stat-l">Compliance Rate</div></div><div><div class="svc-stat-n">0<em>-day</em></div><div class="svc-stat-l">Breach Record</div></div></div>
+          <div class="svc-grid">
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Threat detection &amp; response</span></div>
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Compliance framework implementation</span></div>
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Penetration testing &amp; audits</span></div>
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Security awareness training</span></div>
+          </div>
         </div>
+
         <div class="svc-panel" data-panel="2">
-          <div class="svc-tag">24/7 · 4hr SLA</div><h3>Managed IT Services</h3>
+          <div class="svc-tag">Proactive · Responsive · Reliable</div>
+          <h3>Managed IT Services</h3>
           <p>Proactive monitoring and dedicated support that resolves issues before your team notices them. From helpdesk to full infrastructure management — reliable, responsive, always on.</p>
-          <div class="svc-grid"><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Proactive monitoring &amp; alerting</span></div><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Dedicated helpdesk support</span></div><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Patch &amp; update management</span></div><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Disaster recovery planning</span></div></div>
-          <div class="svc-stats"><div><div class="svc-stat-n">4<em>hr</em></div><div class="svc-stat-l">Response SLA</div></div><div><div class="svc-stat-n">24<em>/7</em></div><div class="svc-stat-l">Always On</div></div></div>
+          <div class="svc-grid">
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Proactive monitoring &amp; alerting</span></div>
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Dedicated helpdesk support</span></div>
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Patch &amp; update management</span></div>
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Disaster recovery planning</span></div>
+          </div>
         </div>
+
         <div class="svc-panel" data-panel="3">
-          <div class="svc-tag">Pipelines · AI-Ready</div><h3>Data &amp; Analytics</h3>
+          <div class="svc-tag">Pipelines · Insights · AI-Ready</div>
+          <h3>Data &amp; Analytics</h3>
           <p>From raw data to real decisions — pipelines, dashboards, and AI-ready infrastructure tailored to your industry. We turn complex datasets into actionable intelligence.</p>
-          <div class="svc-grid"><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Data pipeline design &amp; engineering</span></div><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">BI dashboards &amp; reporting</span></div><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Pharma &amp; healthcare data compliance</span></div><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">AI/ML model infrastructure</span></div></div>
-          <div class="svc-stats"><div><div class="svc-stat-n">AI<em>-ready</em></div><div class="svc-stat-l">Infrastructure</div></div><div><div class="svc-stat-n">Real<em>-time</em></div><div class="svc-stat-l">Dashboards</div></div></div>
+          <div class="svc-grid">
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Data pipeline design &amp; engineering</span></div>
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">BI dashboards &amp; reporting</span></div>
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Healthcare &amp; industry data compliance</span></div>
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">AI/ML model infrastructure</span></div>
+          </div>
         </div>
+
         <div class="svc-panel" data-panel="4">
-          <div class="svc-tag">ERP · CRM · API</div><h3>System Integration</h3>
+          <div class="svc-tag">ERP · CRM · API</div>
+          <h3>System Integration</h3>
           <p>ERP, CRM, and API integrations that make your existing tools communicate effortlessly. We bridge legacy systems with modern platforms — reducing duplication and accelerating decisions.</p>
-          <div class="svc-grid"><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">ERP &amp; CRM integration</span></div><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">REST &amp; GraphQL API development</span></div><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Legacy system modernisation</span></div><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Real-time data sync &amp; automation</span></div></div>
-          <div class="svc-stats"><div><div class="svc-stat-n">ERP<em>+CRM</em></div><div class="svc-stat-l">Integrations</div></div><div><div class="svc-stat-n">API<em>-first</em></div><div class="svc-stat-l">Architecture</div></div></div>
+          <div class="svc-grid">
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">ERP &amp; CRM integration</span></div>
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">REST &amp; GraphQL API development</span></div>
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Legacy system modernisation</span></div>
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Real-time data sync &amp; automation</span></div>
+          </div>
         </div>
+
         <div class="svc-panel" data-panel="5">
-          <div class="svc-tag">Web · Enterprise</div><h3>Software Development</h3>
+          <div class="svc-tag">Web · Enterprise · Custom</div>
+          <h3>Software Development</h3>
           <p>Custom web and enterprise applications designed around your workflows. Clean code, solid architecture, on-time delivery — every time. Scalable solutions that grow with you.</p>
-          <div class="svc-grid"><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Custom web &amp; enterprise apps</span></div><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Agile development &amp; sprints</span></div><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Code review &amp; quality assurance</span></div><div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Long-term support &amp; maintenance</span></div></div>
-          <div class="svc-stats"><div><div class="svc-stat-n">On<em>-time</em></div><div class="svc-stat-l">Delivery</div></div><div><div class="svc-stat-n">Clean<em>code</em></div><div class="svc-stat-l">Architecture</div></div></div>
+          <div class="svc-grid">
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Custom web &amp; enterprise apps</span></div>
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Agile development &amp; sprints</span></div>
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Code review &amp; quality assurance</span></div>
+            <div class="svc-item"><div class="svc-dot"></div><span class="svc-item-text">Long-term support &amp; maintenance</span></div>
+          </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -383,13 +374,23 @@ footer{background:var(--dark2);padding:2.2rem 2rem}
         <div class="ind-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
         <h3>Enterprise IT</h3>
         <p>Full-spectrum technology services for businesses that need reliable, scalable, and secure infrastructure. We act as your embedded IT partner — handling everything from cloud to code.</p>
-        <ul><li>Cloud &amp; hybrid infrastructure</li><li>Cybersecurity &amp; compliance</li><li>Managed services &amp; helpdesk</li><li>Custom software &amp; integrations</li></ul>
+        <ul>
+          <li>Cloud &amp; hybrid infrastructure</li>
+          <li>Cybersecurity &amp; compliance</li>
+          <li>Managed services &amp; helpdesk</li>
+          <li>Custom software &amp; integrations</li>
+        </ul>
       </div>
       <div class="ind-card">
         <div class="ind-icon"><svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
-        <h3>Pharmaceutical</h3>
-        <p>Specialised IT solutions designed for the regulatory, data integrity, and operational demands of pharma companies. GxP, 21 CFR Part 11 — validated and audit-ready.</p>
-        <ul><li>Regulatory compliance &amp; GxP IT</li><li>Clinical data systems &amp; LIMS</li><li>21 CFR Part 11 validation</li><li>Pharma-grade infrastructure</li></ul>
+        <h3>Technology in Pharma</h3>
+        <p>We bring modern IT capabilities into pharmaceutical environments — helping companies build reliable, secure technology foundations that support their operations, data management, and regulatory readiness without disruption.</p>
+        <ul>
+          <li>Regulatory-aware IT infrastructure</li>
+          <li>Clinical &amp; lab system support</li>
+          <li>Secure data management platforms</li>
+          <li>IT modernisation for pharma operations</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -404,33 +405,25 @@ footer{background:var(--dark2);padding:2.2rem 2rem}
       <div>
         <div class="eyebrow">Contact</div>
         <h2 class="sec-h">Let's start a<br><em class="serif-it">conversation</em></h2>
-        <p class="sec-sub">Have a project in mind or need expert IT and pharma tech support? We'd love to hear from you.</p>
+        <p class="sec-sub">Have a project in mind or need expert IT support? Get in touch and we'll take it from there.</p>
         <div class="contact-info">
           <div class="cinfo-row">
             <div class="cinfo-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
             <div><div class="cinfo-label">Email</div><div class="cinfo-val"><a href="mailto:contact@elitetalent-solutions.com">contact@elitetalent-solutions.com</a></div></div>
           </div>
           <div class="cinfo-row">
-            <div class="cinfo-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-            <div><div class="cinfo-label">Response Time</div><div class="cinfo-val">Within 1 business day</div></div>
+            <div class="cinfo-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="cinfo-label">Location</div><div class="cinfo-val">Serving clients globally</div></div>
           </div>
           <div class="cinfo-row">
-            <div class="cinfo-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-            <div><div class="cinfo-label">Support</div><div class="cinfo-val">24/7 for managed clients</div></div>
+            <div class="cinfo-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+            <div><div class="cinfo-label">Team</div><div class="cinfo-val">Dedicated specialists, not generalists</div></div>
           </div>
         </div>
         <a class="contact-cta" href="mailto:contact@elitetalent-solutions.com">Send us a message →</a>
       </div>
-      <div class="contact-card">
-        <div class="cc-eyebrow">Ready when you are</div>
-        <h3 class="cc-h">One email away from better IT</h3>
-        <p class="cc-sub">No sales pitch. No pressure. Just a straightforward conversation about what you need and how we can help.</p>
-        <a class="cc-email" href="mailto:contact@elitetalent-solutions.com">
-          <div class="cc-email-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div><div class="cc-email-text">Send us an email</div><div class="cc-email-addr">contact@elitetalent-solutions.com</div></div>
-          <div class="cc-email-arrow">→</div>
-        </a>
-        <div class="cc-chips"><span class="cc-chip">Cloud</span><span class="cc-chip">Security</span><span class="cc-chip">Pharma IT</span><span class="cc-chip">Managed IT</span><span class="cc-chip">Dev</span></div>
+      <div class="contact-photo">
+        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1000&h=750&q=95&fit=crop&crop=center" alt="Customer service team with clients">
       </div>
     </div>
   </div>
